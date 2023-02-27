@@ -1,6 +1,5 @@
 import axios from 'axios';
-require('dotenv').config();
-const { SERVER_PORT } = process.env;
+const SERVER_PORT = !!import.meta.env.SERVER_PORT;;
 
 const baseURL = `https://localhost:${SERVER_PORT}`;
 
