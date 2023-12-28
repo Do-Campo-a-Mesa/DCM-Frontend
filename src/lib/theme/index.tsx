@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
-import '@fontsource/roboto';
+//import '@fontsource/roboto';
 
 interface ThemeProps {
   children: ReactNode;
@@ -328,7 +328,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
       },
     },
     customTypography: {
-      fontFamily: 'Roboto',
+      //fontFamily: 'Roboto',
       h1: {
         fontSize: '38px',
         lineHeight: '48px',
