@@ -5,7 +5,6 @@ import Theme from './lib/theme';
 import { Provider } from 'react-redux';
 import { store } from './lib/store';
 import AppRouter from './router';
-import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
