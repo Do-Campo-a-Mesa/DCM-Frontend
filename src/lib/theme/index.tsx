@@ -1,8 +1,11 @@
 import React, { ReactNode } from 'react';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
-//import '@fontsource/montserrat';
-//import '@fontsource/merryweather';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
 
 interface ThemeProps {
   children: ReactNode;
@@ -339,7 +342,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
         fontWeight: 'semibold',
       },
       h8: {
-        fontSize: '12px',
+        fontSize: '10px',
         lineHeight: '28px',
         fontWeight: 'bold',
       },
