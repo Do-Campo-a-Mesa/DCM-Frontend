@@ -13,7 +13,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
 import { useTheme } from '@mui/material/styles';
-import Logo from '../../assets/logo.png';
+import Logo from '../../../assets/logo.png';
 
 const sections = ['Inicio', 'Sobre', 'Produtos', 'Parceiros', 'Depoimentos'];
 
@@ -53,7 +53,13 @@ function Navbar() {
       <Container maxWidth="lg">
         <Toolbar>
           <img src={Logo} alt="Logo" style={{ height: '40px' }} />
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', sm: 'none', md: 'none' },
+              ml: 2,
+            }}
+          >
             <IconButton
               size="large"
               aria-haspopup="true"
@@ -81,21 +87,49 @@ function Navbar() {
               }}
             >
               {sections.map((section) => (
-                <MenuItem key={section} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="left">{section}</Typography>
+                <MenuItem
+                  key={section}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    '&:hover': {
+                      color: theme.customPalette.primary.main,
+                    },
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      justifyContent: 'flex-start',
+                      fontFamily: theme.customTypography.fontFamily,
+                      typography: theme.customTypography.h8,
+                    }}
+                  >
+                    {section}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'flex', md: 'flex' },
+              ml: 3,
+            }}
+          >
             {sections.map((section) => (
               <Button
+                disableRipple
                 key={section}
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
                   color: theme.customPalette.primary.black,
-                  display: 'block',
+
+                  fontFamily: theme.customTypography.fontFamily,
+                  typography: theme.customTypography.h8,
+                  '&:hover': {
+                    color: theme.customPalette.primary.main,
+                  },
                 }}
               >
                 {section}
@@ -103,12 +137,20 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box
+            sx={{
+              flexGrow: 0,
+              display: { xs: 'flex', sm: 'flex', md: 'none' },
+              justifyContent: 'flex-end',
+            }}
+          >
             <IconButton
               size="large"
               aria-haspopup="true"
               onClick={handleOpenNavUser}
-              sx={{ color: theme.customPalette.primary.main }}
+              sx={{
+                color: theme.customPalette.primary.main,
+              }}
             >
               <PersonIcon />
             </IconButton>
@@ -130,11 +172,52 @@ function Navbar() {
               onClose={handleCloseNavUser}
             >
               {useroption.map((useroptions) => (
-                <MenuItem key={useroptions} onClick={handleCloseNavUser}>
-                  <Typography textAlign="center">{useroptions}</Typography>
+                <MenuItem
+                  key={useroptions}
+                  onClick={handleCloseNavUser}
+                  sx={{
+                    '&:hover': {
+                      color: theme.customPalette.primary.main,
+                    },
+                  }}
+                >
+                  <Typography
+                    textAlign="center"
+                    sx={{
+                      fontFamily: theme.customTypography.fontFamily,
+                      typography: theme.customTypography.h8,
+                    }}
+                  >
+                    {useroptions}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
+          </Box>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'none', md: 'flex' },
+              justifyContent: 'flex-end',
+            }}
+          >
+            {useroption.map((useroptions) => (
+              <Button
+                key={useroptions}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  color: theme.customPalette.primary.black,
+                  display: 'block',
+                  fontFamily: theme.customTypography.fontFamily,
+                  typography: theme.customTypography.h8,
+                  '&:hover': {
+                    color: theme.customPalette.primary.main,
+                  },
+                }}
+              >
+                {useroptions}
+              </Button>
+            ))}
           </Box>
         </Toolbar>
       </Container>
