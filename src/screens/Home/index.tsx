@@ -1,5 +1,5 @@
 import './style.css';
-import Navbar from '../../lib/components/Navbar';
+import Navbar from '../../lib/components/Navbar/Navbar.tsx';
 
 function Home() {
   return (
