@@ -5,7 +5,6 @@ import '@fontsource/montserrat/400.css';
 import '@fontsource/montserrat/500.css';
 import '@fontsource/montserrat/600.css';
 import '@fontsource/montserrat/700.css';
-import '@fontsource/montserrat/800.css';
 
 interface ThemeProps {
   children: ReactNode;
@@ -309,7 +308,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
       h1: {
         fontSize: '42px',
         lineHeight: '48px',
-        fontWeight: 'ExtraBold',
+        fontWeight: 'bold',
       },
       h2: {
         fontSize: '40px',
