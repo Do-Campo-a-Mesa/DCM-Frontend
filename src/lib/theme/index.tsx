@@ -341,7 +341,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
         fontWeight: 'semibold',
       },
       h8: {
-        fontSize: '10px',
+        fontSize: '12px',
         lineHeight: '28px',
         fontWeight: 'bold',
       },
