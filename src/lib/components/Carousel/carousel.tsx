@@ -2,12 +2,9 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../Carousel/style.css';
+import Image1 from '../../../assets/pexels-pattama-wallech-2661996 2.png';
 
-const images = [
-  'https://via.placeholder.com/600x300/FF5733/FFFFFF?text=Slide+1',
-  'https://via.placeholder.com/600x300/33FF57/FFFFFF?text=Slide+2',
-  'https://via.placeholder.com/600x300/5733FF/FFFFFF?text=Slide+3',
-];
+const images = [Image1, Image1, Image1];
 
 const MyCarousel: React.FC = () => {
   return (
@@ -15,7 +12,7 @@ const MyCarousel: React.FC = () => {
       <Carousel
         autoPlay
         infiniteLoop
-        interval={2000}
+        interval={5000}
         showArrows={false}
         showThumbs={false}
         showStatus={false}
