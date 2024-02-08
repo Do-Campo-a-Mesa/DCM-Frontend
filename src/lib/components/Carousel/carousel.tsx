@@ -8,25 +8,23 @@ const images = [Image1, Image1, Image1];
 
 const MyCarousel: React.FC = () => {
   return (
-    <>
-      <Carousel
-        autoPlay
-        infiniteLoop
-        interval={5000}
-        showArrows={false}
-        showThumbs={false}
-        showStatus={false}
-        stopOnHover={false}
-        showIndicators={false}
-      >
-        {images.map((image, index) => (
-          <div key={index}>
-            <img src={image} alt={`Slide ${index + 1}`} />
-            <div id="overlay"></div>
-          </div>
-        ))}
-      </Carousel>
-    </>
+    <Carousel
+      autoPlay
+      infiniteLoop
+      interval={5000}
+      showArrows={false}
+      showThumbs={false}
+      showStatus={false}
+      stopOnHover={false}
+      showIndicators={false}
+    >
+      {images.map((image, index) => (
+        <div key={image}>
+          <img src={image} alt={`Slide ${index + 1}`} />
+          <div id="overlay"></div>
+        </div>
+      ))}
+    </Carousel>
   );
 };
 
