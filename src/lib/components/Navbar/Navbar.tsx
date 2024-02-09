@@ -56,7 +56,7 @@ function Navbar() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'flex', sm: 'none', md: 'none' },
+              display: { xs: 'flex', sm: 'flex', md: 'none' },
               ml: 2,
             }}
           >
@@ -112,7 +112,7 @@ function Navbar() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'none', sm: 'flex', md: 'flex' },
+              display: { xs: 'none', sm: 'none', md: 'flex' },
               ml: 3,
             }}
           >

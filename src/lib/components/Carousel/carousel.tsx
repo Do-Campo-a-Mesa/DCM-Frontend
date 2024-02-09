@@ -20,7 +20,11 @@ const MyCarousel: React.FC = () => {
     >
       {images.map((image, index) => (
         <div key={image}>
-          <img src={image} alt={`Slide ${index + 1}`} />
+          <img
+            src={image}
+            alt={`Slide ${index + 1}`}
+            className="carousel-image"
+          />
           <div id="overlay"></div>
         </div>
       ))}
