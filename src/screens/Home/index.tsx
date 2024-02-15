@@ -5,13 +5,29 @@ import MyCarousel from '../../lib/components/Carousel/carousel.tsx';
 import { Container, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import SearchBar from '../../lib/components/SearchBar/searchbar.tsx';
-function Home() {
+import PartnersCarousel from '../../lib/components/PartnersCarousel/partnerscarousel.tsx';
+
+export default function Home() {
   const theme = useTheme();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const partners = [
+    {
+      companyName: 'Youtube',
+      business: 'Site de vídeos',
+      logotipo: '../../assets/logo.png',
+    },
+    {
+      companyName: 'Linkedin',
+      business: 'Rede social',
+      logotipo: '../../assets/logo.png',
+    },
+  ];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);
-    // Faça algo com o termo de pesquisa, como enviar uma solicitação de pesquisa ao servidor.
   };
   return (
     <>
@@ -91,7 +107,7 @@ function Home() {
           transform: 'translate(-50%, -50%)',
           width: '40%',
           textAlign: 'center',
-          color: 'white',
+          color: theme.customPalette.primary.background,
           lineHeight: '150%',
           padding: '10px',
           borderRadius: '5px',
@@ -109,8 +125,20 @@ function Home() {
       >
         <SearchBar onSearch={handleSearch} />
       </Container>
+      <Container>
+        <Typography
+          sx={{
+            typography: theme.customTypography.h3,
+            fontFamily: theme.customTypography.fontFamily,
+            color: theme.customPalette.primary.black,
+            textAlign: 'center',
+            margin: '2em',
+          }}
+        >
+          Parceiros
+        </Typography>
+        <PartnersCarousel partners={partners} />
+      </Container>
     </>
   );
 }
-
-export default Home;
