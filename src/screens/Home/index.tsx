@@ -10,7 +10,6 @@ import PartnersCarousel from '../../lib/components/PartnersCarousel/partnerscaro
 export default function Home() {
   const theme = useTheme();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const partners = [
     {
       companyName: 'Youtube',
@@ -124,6 +123,19 @@ export default function Home() {
         }}
       >
         <SearchBar onSearch={handleSearch} />
+      </Container>
+      <Container>
+        <Typography
+          sx={{
+            typography: theme.customTypography.h3,
+            fontFamily: theme.customTypography.fontFamily,
+            color: theme.customPalette.primary.black,
+            textAlign: 'center',
+            margin: '2em',
+          }}
+        >
+          Produtos
+        </Typography>
       </Container>
       <Container>
         <Typography
