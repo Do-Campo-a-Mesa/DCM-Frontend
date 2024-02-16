@@ -18,6 +18,7 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
     p: 2,
     border: 1,
     borderColor: theme.customPalette.primary.main,
+    backgroundColor: theme.customPalette.primary.background,
     mb: 2,
   };
   const BoxStyle = {
@@ -38,7 +39,7 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   };
   const TitleBusinessStyle = {
     fontFamily: theme.customTypography.fontFamily,
-    typography: theme.customTypography.h9,
+    typography: theme.customTypography.body3,
     color: theme.customPalette.neutral.secondaryText,
   };
   return (

@@ -7,16 +7,25 @@ import { useTheme } from '@mui/material/styles';
 import SearchBar from '../../lib/components/SearchBar/searchbar.tsx';
 import PartnersCarousel from '../../lib/components/PartnersCarousel/partnerscarousel.tsx';
 import { getHomePagePartners } from '../../services/partners/index.ts';
+import { getHomePageTestimonials } from '../../services/testimonials/index.ts';
 import { Partner } from '../../lib/interfaces/Partner.ts';
+import TestimonialsCarousel from '../../lib/components/Testimonials/TestimonialsCarousel/carousel.tsx';
+import { Testimonial } from '../../lib/interfaces/Testimonial.ts';
 
 export default function Home() {
   const theme = useTheme();
   const [partners, setPartners] = useState<Partner[]>([]);
-
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   useEffect(() => {
     (async () => {
       const partnersResponse = await getHomePagePartners();
       setPartners(partnersResponse.data);
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      const testimonialsResponse = await getHomePageTestimonials();
+      setTestimonials(testimonialsResponse.data);
     })();
   }, []);
 
@@ -105,7 +114,15 @@ export default function Home() {
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
     textAlign: 'center',
-    margin: '2em',
+    mt: '3em',
+    mb: '1em',
+  };
+  const SectionSubtitleStyle = {
+    typography: theme.customTypography.h6,
+    fontFamily: theme.customTypography.fontFamily,
+    color: theme.customPalette.neutral.secondaryText,
+    textAlign: 'center',
+    mb: '2em',
   };
   return (
     <>
@@ -137,6 +154,13 @@ export default function Home() {
       <Container>
         <Typography sx={SectionTitleStyle}>Parceiros</Typography>
         <PartnersCarousel partners={partners} />
+      </Container>
+      <Container>
+        <Typography sx={SectionTitleStyle}>Depoimentos</Typography>
+        <Typography sx={SectionSubtitleStyle}>
+          Veja o que nossos clientes falam sobre nós
+        </Typography>
+        <TestimonialsCarousel testimonials={testimonials} />
       </Container>
     </>
   );
