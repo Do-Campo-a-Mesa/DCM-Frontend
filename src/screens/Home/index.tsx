@@ -26,6 +26,87 @@ export default function Home() {
   const handleSearch = (term: string) => {
     setSearchTerm(term);
   };
+
+  const BannerTitleStyle = {
+    typography: theme.customTypography.h1,
+    fontFamily: theme.customTypography.fontFamily,
+    position: 'absolute',
+    top: '20%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '40%',
+    textAlign: 'center',
+    color: 'white',
+    lineHeight: '150%',
+    padding: '10px',
+    borderRadius: '5px',
+    '@media (max-width: 600px)': {
+      top: '10%',
+      width: '90%',
+      lineHeight: '40%',
+      typography: theme.customTypography.h6,
+    },
+    '@media (min-width: 600px) and (max-width: 1024px)': {
+      top: '17%',
+      width: '50%',
+      typography: theme.customTypography.h3,
+    },
+  };
+  const BannerSubtitleStyle = {
+    typography: theme.customTypography.subtitle1,
+    fontFamily: theme.customTypography.fontFamily,
+    position: 'absolute',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '40%',
+    textAlign: 'center',
+    lineHeight: '150%',
+    color: 'white',
+    padding: '10px',
+    borderRadius: '5px',
+    '@media (max-width: 600px)': {
+      top: '15%',
+      width: '90%',
+      typography: theme.customTypography.h9,
+    },
+    '@media (min-width: 600px) and (max-width: 1024px)': {
+      top: '27%',
+      width: '50%',
+      typography: theme.customTypography.subtitle1,
+    },
+  };
+  const SearchContainerStyle = {
+    typography: theme.customTypography.h1,
+    fontFamily: theme.customTypography.fontFamily,
+    position: 'absolute',
+    top: '40%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '40%',
+    textAlign: 'center',
+    color: theme.customPalette.primary.background,
+    lineHeight: '150%',
+    padding: '10px',
+    borderRadius: '5px',
+    '@media (max-width: 600px)': {
+      top: '15%',
+      width: '90%',
+      typography: theme.customTypography.h9,
+    },
+    '@media (min-width: 600px) and (max-width: 1024px)': {
+      top: '37%',
+      width: '50%',
+      typography: theme.customTypography.subtitle1,
+    },
+  };
+  const SectionTitleStyle = {
+    typography: theme.customTypography.h3,
+    fontFamily: theme.customTypography.fontFamily,
+    color: theme.customPalette.primary.black,
+    textAlign: 'center',
+    margin: '2em',
+  };
   return (
     <>
       <Navbar />
@@ -34,31 +115,7 @@ export default function Home() {
         variant="h1"
         component="div"
         className="text-overlay"
-        sx={{
-          typography: theme.customTypography.h1,
-          fontFamily: theme.customTypography.fontFamily,
-          position: 'absolute',
-          top: '20%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '40%',
-          textAlign: 'center',
-          color: 'white',
-          lineHeight: '150%',
-          padding: '10px',
-          borderRadius: '5px',
-          '@media (max-width: 600px)': {
-            top: '10%',
-            width: '90%',
-            lineHeight: '40%',
-            typography: theme.customTypography.h6,
-          },
-          '@media (min-width: 600px) and (max-width: 1024px)': {
-            top: '17%',
-            width: '50%',
-            typography: theme.customTypography.h3,
-          },
-        }}
+        sx={BannerTitleStyle}
       >
         O melhor do campo direto na mesa
       </Typography>
@@ -66,87 +123,19 @@ export default function Home() {
         variant="h1"
         component="div"
         className="text-overlay"
-        sx={{
-          typography: theme.customTypography.subtitle1,
-          fontFamily: theme.customTypography.fontFamily,
-          position: 'absolute',
-          top: '30%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '40%',
-          textAlign: 'center',
-          lineHeight: '150%',
-          color: 'white',
-          padding: '10px',
-          borderRadius: '5px',
-          '@media (max-width: 600px)': {
-            top: '15%',
-            width: '90%',
-            typography: theme.customTypography.h9,
-          },
-          '@media (min-width: 600px) and (max-width: 1024px)': {
-            top: '27%',
-            width: '50%',
-            typography: theme.customTypography.subtitle1,
-          },
-        }}
+        sx={BannerSubtitleStyle}
       >
         Encontre queijos, frutas, legumes, verduras, todo tipo de alimento em
         nosso catálogo
       </Typography>
-      <Container
-        sx={{
-          typography: theme.customTypography.h1,
-          fontFamily: theme.customTypography.fontFamily,
-          position: 'absolute',
-          top: '40%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '40%',
-          textAlign: 'center',
-          color: theme.customPalette.primary.background,
-          lineHeight: '150%',
-          padding: '10px',
-          borderRadius: '5px',
-          '@media (max-width: 600px)': {
-            top: '15%',
-            width: '90%',
-            typography: theme.customTypography.h9,
-          },
-          '@media (min-width: 600px) and (max-width: 1024px)': {
-            top: '37%',
-            width: '50%',
-            typography: theme.customTypography.subtitle1,
-          },
-        }}
-      >
+      <Container sx={SearchContainerStyle}>
         <SearchBar onSearch={handleSearch} />
       </Container>
       <Container>
-        <Typography
-          sx={{
-            typography: theme.customTypography.h3,
-            fontFamily: theme.customTypography.fontFamily,
-            color: theme.customPalette.primary.black,
-            textAlign: 'center',
-            margin: '2em',
-          }}
-        >
-          Produtos
-        </Typography>
+        <Typography sx={SectionTitleStyle}>Produtos</Typography>
       </Container>
       <Container>
-        <Typography
-          sx={{
-            typography: theme.customTypography.h3,
-            fontFamily: theme.customTypography.fontFamily,
-            color: theme.customPalette.primary.black,
-            textAlign: 'center',
-            margin: '2em',
-          }}
-        >
-          Parceiros
-        </Typography>
+        <Typography sx={SectionTitleStyle}>Parceiros</Typography>
         <PartnersCarousel partners={partners} />
       </Container>
     </>

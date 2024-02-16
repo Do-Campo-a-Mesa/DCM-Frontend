@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Partner } from '../../interfaces/Partner';
+import './styles.css';
 
 interface Props {
   partner: Partner;
@@ -12,36 +13,47 @@ interface Props {
 const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   const theme = useTheme();
 
+  const CardStyle = {
+    display: 'flex',
+    p: 2,
+    border: 2,
+    mb: 2,
+  };
+  const BoxStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    pl: 1,
+    pb: 1,
+  };
+  const BoxStyle2 = {
+    display: 'flex',
+    flexDirection: 'column',
+  };
+  const CardContentStyle = {
+    flex: '1 0 auto',
+  };
+  const TitleCompanyStyle = {
+    fontFamily: theme.customTypography.fontFamily,
+    typography: theme.customTypography.h4,
+    color: theme.customPalette.primary.black,
+  };
+  const TitleBusinessStyle = {
+    fontFamily: theme.customTypography.fontFamily,
+    typography: theme.customTypography.h9,
+    color: theme.customPalette.neutral.secondaryText,
+  };
   return (
     <div>
-      <Card sx={{ display: 'flex', p: 2, border: 2, mb: 2 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <img
-            src={partner.logotipo}
-            alt={partner.companyName}
-            style={{ width: '45px', height: '45px' }}
-          />
+      <Card sx={CardStyle}>
+        <Box sx={BoxStyle}>
+          <img src={partner.logotipo} alt={partner.companyName} id="Logo" />
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <CardContent sx={{ flex: '1 0 auto' }}>
-            <Typography
-              component="div"
-              sx={{
-                fontFamily: theme.customTypography.fontFamily,
-                typography: theme.customTypography.h4,
-                color: theme.customPalette.primary.black,
-              }}
-            >
+        <Box sx={BoxStyle2}>
+          <CardContent sx={CardContentStyle}>
+            <Typography component="div" sx={TitleCompanyStyle}>
               {partner.companyName}
             </Typography>
-            <Typography
-              component="div"
-              sx={{
-                fontFamily: theme.customTypography.fontFamily,
-                typography: theme.customTypography.h8,
-                color: theme.customPalette.neutral.secondaryText,
-              }}
-            >
+            <Typography component="div" sx={TitleBusinessStyle}>
               {partner.business}
             </Typography>
           </CardContent>
