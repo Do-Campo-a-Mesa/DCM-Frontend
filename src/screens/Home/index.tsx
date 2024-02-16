@@ -1,29 +1,25 @@
 import './style.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '../../lib/components/Navbar/Navbar.tsx';
 import MyCarousel from '../../lib/components/Carousel/carousel.tsx';
 import { Container, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import SearchBar from '../../lib/components/SearchBar/searchbar.tsx';
 import PartnersCarousel from '../../lib/components/PartnersCarousel/partnerscarousel.tsx';
+import { getHomePagePartners } from '../../services/partners/index.ts';
+import { Partner } from '../../lib/interfaces/Partner.ts';
 
 export default function Home() {
   const theme = useTheme();
+  const [partners, setPartners] = useState<Partner[]>([]);
 
-  const partners = [
-    {
-      id: 1,
-      companyName: 'Youtube',
-      business: 'Site de vídeos',
-      logotipo: '/logo.png',
-    },
-    {
-      id: 2,
-      companyName: 'Linkedin',
-      business: 'Rede social',
-      logotipo: '/logo.png',
-    },
-  ];
+  useEffect(() => {
+    (async () => {
+      const partnersResponse = await getHomePagePartners();
+      setPartners(partnersResponse.data);
+    })();
+  }, []);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchTerm, setSearchTerm] = useState<string>('');
 
