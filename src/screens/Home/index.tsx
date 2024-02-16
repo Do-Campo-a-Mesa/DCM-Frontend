@@ -14,12 +14,12 @@ export default function Home() {
     {
       companyName: 'Youtube',
       business: 'Site de vídeos',
-      logotipo: '../../../public/logo.png',
+      logotipo: '/logo.png',
     },
     {
       companyName: 'Linkedin',
       business: 'Rede social',
-      logotipo: '../../../public/logo.png',
+      logotipo: '/logo.png',
     },
   ];
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
