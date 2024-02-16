@@ -14,10 +14,10 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   const theme = useTheme();
 
   const CardStyle = {
-    width: '33%',
     display: 'flex',
     p: 2,
-    border: 2,
+    border: 1,
+    borderColor: theme.customPalette.primary.main,
     mb: 2,
   };
   const BoxStyle = {

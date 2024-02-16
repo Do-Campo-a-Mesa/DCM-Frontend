@@ -1,5 +1,7 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { Autoplay } from 'swiper/modules';
 import CardPartnersHome from '../CardsPartnersHome/card';
 import { Partner } from '../../interfaces/Partner';
 
@@ -8,22 +10,34 @@ interface Props {
 }
 const PartnersCarousel: React.FC<Props> = ({ partners }) => {
   return (
-    <Carousel
-      autoPlay
-      infiniteLoop
-      interval={5000}
-      showArrows={false}
-      showThumbs={false}
-      showStatus={false}
-      stopOnHover={false}
-      showIndicators={false}
+    <Swiper
+      spaceBetween={30}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      breakpoints={{
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      }}
+      modules={[Autoplay]}
     >
       {partners.map((partner: Partner) => (
-        <div key={partner.id}>
+        <SwiperSlide key={partner.id}>
           <CardPartnersHome partner={partner} />
-        </div>
+        </SwiperSlide>
       ))}
-    </Carousel>
+    </Swiper>
   );
 };
 
