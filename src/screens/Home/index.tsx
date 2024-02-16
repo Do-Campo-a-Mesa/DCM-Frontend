@@ -12,11 +12,13 @@ export default function Home() {
 
   const partners = [
     {
+      id: 1,
       companyName: 'Youtube',
       business: 'Site de vídeos',
       logotipo: '/logo.png',
     },
     {
+      id: 2,
       companyName: 'Linkedin',
       business: 'Rede social',
       logotipo: '/logo.png',
