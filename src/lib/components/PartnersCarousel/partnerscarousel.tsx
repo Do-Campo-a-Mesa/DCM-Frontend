@@ -8,7 +8,16 @@ interface Props {
 }
 const PartnersCarousel: React.FC<Props> = ({ partners }) => {
   return (
-    <Carousel>
+    <Carousel
+      autoPlay
+      infiniteLoop
+      interval={5000}
+      showArrows={false}
+      showThumbs={false}
+      showStatus={false}
+      stopOnHover={false}
+      showIndicators={false}
+    >
       {partners.map((partner: Partner) => (
         <div key={partner.id}>
           <CardPartnersHome partner={partner} />

@@ -14,6 +14,7 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   const theme = useTheme();
 
   const CardStyle = {
+    width: '33%',
     display: 'flex',
     p: 2,
     border: 2,
@@ -29,9 +30,7 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
     display: 'flex',
     flexDirection: 'column',
   };
-  const CardContentStyle = {
-    flex: '1 0 auto',
-  };
+  const CardContentStyle = { flex: '1 0 auto' };
   const TitleCompanyStyle = {
     fontFamily: theme.customTypography.fontFamily,
     typography: theme.customTypography.h4,
