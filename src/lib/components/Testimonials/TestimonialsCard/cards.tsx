@@ -13,9 +13,6 @@ const CardTestimonialsHome: React.FC<Props> = ({ testimonial }) => {
   const theme = useTheme();
 
   const CardStyle = {
-    ml: '10em',
-    mr: '10em',
-    mb: '3em',
     p: 1,
     backgroundColor: theme.status.success.tertiary,
     border: 1,

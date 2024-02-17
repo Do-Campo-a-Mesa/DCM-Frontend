@@ -116,6 +116,9 @@ export default function Home() {
     textAlign: 'center',
     mt: '3em',
     mb: '1em',
+    '@media (max-width: 600px)': {
+      typography: theme.customTypography.h4,
+    },
   };
   const SectionSubtitleStyle = {
     typography: theme.customTypography.h6,

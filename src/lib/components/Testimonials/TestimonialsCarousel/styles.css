@@ -12,8 +12,9 @@
 .swiper-button-prev {
   width: 5px; /* Defina a largura do botão */
   height: 5px; /* Defina a altura do botão */
-  
 }
-#testimonials{
-    width: "80%";
+.swiper{
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 3em;
 }
