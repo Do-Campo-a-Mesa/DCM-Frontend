@@ -8,24 +8,37 @@ import SearchBar from '../../lib/components/SearchBar/searchbar.tsx';
 import PartnersCarousel from '../../lib/components/PartnersCarousel/partnerscarousel.tsx';
 import { getHomePagePartners } from '../../services/partners/index.ts';
 import { getHomePageTestimonials } from '../../services/testimonials/index.ts';
+import { getAllProductsCategories } from '../../services/categories/index.ts';
 import { Partner } from '../../lib/interfaces/Partner.ts';
 import TestimonialsCarousel from '../../lib/components/Testimonials/TestimonialsCarousel/carousel.tsx';
 import { Testimonial } from '../../lib/interfaces/Testimonial.ts';
+import { ProductCategory } from '../../lib/interfaces/Categories.ts';
 
 export default function Home() {
   const theme = useTheme();
   const [partners, setPartners] = useState<Partner[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [categories, setCategories] = useState<ProductCategory[]>([]);
+
   useEffect(() => {
     (async () => {
       const partnersResponse = await getHomePagePartners();
       setPartners(partnersResponse.data);
     })();
   }, []);
+
   useEffect(() => {
     (async () => {
       const testimonialsResponse = await getHomePageTestimonials();
       setTestimonials(testimonialsResponse.data);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const productCategoriesResponse = await getAllProductsCategories();
+      setCategories(productCategoriesResponse.data);
     })();
   }, []);
 
