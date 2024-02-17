@@ -16,7 +16,9 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   const CardStyle = {
     display: 'flex',
     p: 2,
-    border: 2,
+    border: 1,
+    borderColor: theme.customPalette.primary.main,
+    backgroundColor: theme.customPalette.primary.background,
     mb: 2,
   };
   const BoxStyle = {
@@ -29,9 +31,7 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
     display: 'flex',
     flexDirection: 'column',
   };
-  const CardContentStyle = {
-    flex: '1 0 auto',
-  };
+  const CardContentStyle = { flex: '1 0 auto' };
   const TitleCompanyStyle = {
     fontFamily: theme.customTypography.fontFamily,
     typography: theme.customTypography.h4,
@@ -39,7 +39,7 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   };
   const TitleBusinessStyle = {
     fontFamily: theme.customTypography.fontFamily,
-    typography: theme.customTypography.h9,
+    typography: theme.customTypography.body3,
     color: theme.customPalette.neutral.secondaryText,
   };
   return (
