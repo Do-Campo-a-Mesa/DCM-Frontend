@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Doces",
+    "description": "Doces, Balas, Gomas de Mascar"
+  },
+  {
+    "id": 2,
+    "name": "Queijos",
+    "description": "Queijos variados"
+  },
+  {
+    "id": 3,
+    "name": "Laticínios",
+    "description": "Leite, Iogurte, Manteiga, etc."
+  },
+  {
+    "id": 4,
+    "name": "Legumes",
+    "description": "Legumes diversos"
+  },
+  {
+    "id": 5,
+    "name": "Frutas",
+    "description": "Frutas diversas"
+  },
+  {
+    "id": 6,
+    "name": "Grãos",
+    "description": "Arroz, Feijão, Grãos diversos"
+  }
+]
