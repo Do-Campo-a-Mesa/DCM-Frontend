@@ -99,7 +99,7 @@ export default function Navbar() {
     <AppBar position="static" sx={AppBarStyle}>
       <Container maxWidth="lg">
         <Toolbar>
-          <img src={Logo} id="Logo" alt="Logo" />
+          <img src={Logo} className="LogoNav" alt="Logo" />
           <Box sx={BoxStyle1}>
             <IconButton
               size="large"

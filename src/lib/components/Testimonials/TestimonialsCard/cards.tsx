@@ -22,7 +22,7 @@ const CardTestimonialsHome: React.FC<Props> = ({ testimonial }) => {
     mt: '1rem',
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
-    typography: theme.customTypography.h7,
+    typography: theme.customTypography.body2,
   };
   const UsernameStyle = {
     mt: '1rem',

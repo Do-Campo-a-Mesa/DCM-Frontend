@@ -11,6 +11,9 @@ import { getHomePageTestimonials } from '../../services/testimonials/index.ts';
 import { Partner } from '../../lib/interfaces/Partner.ts';
 import TestimonialsCarousel from '../../lib/components/Testimonials/TestimonialsCarousel/carousel.tsx';
 import { Testimonial } from '../../lib/interfaces/Testimonial.ts';
+import Footer from '../../lib/components/Footer/bigFooter.tsx';
+import SmallFooter from '../../lib/components/Footer/smallFooter.tsx';
+import BigFooter from '../../lib/components/Footer/bigFooter.tsx';
 
 export default function Home() {
   const theme = useTheme();
@@ -114,7 +117,7 @@ export default function Home() {
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
     textAlign: 'center',
-    mt: '3em',
+    mt: '1em',
     mb: '1em',
     '@media (max-width: 600px)': {
       typography: theme.customTypography.h4,
@@ -126,6 +129,16 @@ export default function Home() {
     color: theme.customPalette.neutral.secondaryText,
     textAlign: 'center',
     mb: '2em',
+  };
+  const SmallFooterStyles = {
+    p: 0,
+    mt: 0,
+    '@media (min-width: 600px)': {
+      p: 0,
+    },
+  };
+  const BigFooterStyles = {
+    mt: '10em',
   };
   return (
     <>
@@ -164,6 +177,12 @@ export default function Home() {
           Veja o que nossos clientes falam sobre nós
         </Typography>
         <TestimonialsCarousel testimonials={testimonials} />
+      </Container>
+      <Container sx={BigFooterStyles}>
+        <BigFooter></BigFooter>
+      </Container>
+      <Container sx={SmallFooterStyles} maxWidth={false}>
+        <SmallFooter></SmallFooter>
       </Container>
     </>
   );
