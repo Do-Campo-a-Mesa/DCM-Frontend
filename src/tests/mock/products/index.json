@@ -1,0 +1,20 @@
+[
+    {
+    "id": 1,
+    "name": "Castanha de Caju",
+    "unit_of_measurement": "Kg",
+    "photos": ["/logo.png", "/logo.png"],
+    "price": 100,
+    "categories": ["Doces", "grãos"],
+    "partner": "Youtube"
+  },
+  {
+    "id": 2,
+    "name": "Castanha de Caju 2",
+    "unit_of_measurement": "Kg",
+    "photos": ["/logo.png", "/logo.png"],
+    "price": 300,
+    "categories": ["Doces", "grãos"],
+    "partner": "Youtube"
+  }
+]
