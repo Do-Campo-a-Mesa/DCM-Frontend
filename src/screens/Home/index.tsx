@@ -11,7 +11,6 @@ import { getHomePageTestimonials } from '../../services/testimonials/index.ts';
 import { Partner } from '../../lib/interfaces/Partner.ts';
 import TestimonialsCarousel from '../../lib/components/Testimonials/TestimonialsCarousel/carousel.tsx';
 import { Testimonial } from '../../lib/interfaces/Testimonial.ts';
-import Footer from '../../lib/components/Footer/bigFooter.tsx';
 import SmallFooter from '../../lib/components/Footer/smallFooter.tsx';
 import BigFooter from '../../lib/components/Footer/bigFooter.tsx';
 
