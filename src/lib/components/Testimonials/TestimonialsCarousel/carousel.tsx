@@ -13,9 +13,8 @@ interface Props {
 const TestimonialsCarousel: React.FC<Props> = ({ testimonials }) => {
   return (
     <Swiper
-      id="testimonials"
       rewind={true}
-      spaceBetween={0}
+      spaceBetween={20}
       autoplay={{
         delay: 10000,
         disableOnInteraction: false,
@@ -23,15 +22,15 @@ const TestimonialsCarousel: React.FC<Props> = ({ testimonials }) => {
       breakpoints={{
         640: {
           slidesPerView: 1,
-          spaceBetween: 0,
+          spaceBetween: 50,
         },
         768: {
           slidesPerView: 1,
-          spaceBetween: 0,
+          spaceBetween: 50,
         },
         1024: {
-          slidesPerView: 1,
-          spaceBetween: 10,
+          slidesPerView: 2,
+          spaceBetween: 50,
         },
       }}
       pagination={{

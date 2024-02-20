@@ -34,8 +34,11 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   const CardContentStyle = { flex: '1 0 auto' };
   const TitleCompanyStyle = {
     fontFamily: theme.customTypography.fontFamily,
-    typography: theme.customTypography.h4,
+    typography: theme.customTypography.h5,
     color: theme.customPalette.primary.black,
+    '@media (max-width: 600px)': {
+      typography: theme.customTypography.h6,
+    },
   };
   const TitleBusinessStyle = {
     fontFamily: theme.customTypography.fontFamily,

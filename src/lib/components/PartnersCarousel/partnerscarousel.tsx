@@ -10,7 +10,7 @@ interface Props {
 const PartnersCarousel: React.FC<Props> = ({ partners }) => {
   return (
     <Swiper
-      spaceBetween={30}
+      spaceBetween={10}
       autoplay={{
         delay: 3000,
         disableOnInteraction: false,

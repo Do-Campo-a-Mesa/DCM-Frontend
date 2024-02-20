@@ -13,9 +13,6 @@ const CardTestimonialsHome: React.FC<Props> = ({ testimonial }) => {
   const theme = useTheme();
 
   const CardStyle = {
-    ml: '10em',
-    mr: '10em',
-    mb: '3em',
     p: 1,
     backgroundColor: theme.status.success.tertiary,
     border: 1,
@@ -25,7 +22,7 @@ const CardTestimonialsHome: React.FC<Props> = ({ testimonial }) => {
     mt: '1rem',
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
-    typography: theme.customTypography.h7,
+    typography: theme.customTypography.body2,
   };
   const UsernameStyle = {
     mt: '1rem',
