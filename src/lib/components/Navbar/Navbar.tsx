@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
-import { useTheme } from '@mui/material/styles';
+import { useCustomStyles } from './style';
 import Logo from '../../../assets/logo.png';
 import './styles.css';
 
@@ -20,7 +20,7 @@ const sections = ['Inicio', 'Sobre', 'Produtos', 'Parceiros', 'Depoimentos'];
 const useroption = ['Login', 'Cadastro'];
 
 export default function Navbar() {
-  const theme = useTheme();
+  const style = useCustomStyles();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -45,67 +45,17 @@ export default function Navbar() {
     setAnchorElUser(null);
   };
 
-  const AppBarStyle = {
-    backgroundColor: theme.customPalette.primary.background,
-  };
-
-  const BoxStyle1 = {
-    flexGrow: 1,
-    display: { xs: 'flex', sm: 'flex', md: 'none' },
-    ml: 2,
-  };
-
-  const BoxStyle2 = {
-    flexGrow: 1,
-    display: { xs: 'none', sm: 'none', md: 'flex' },
-    ml: 3,
-  };
-  const BoxStyle3 = {
-    flexGrow: 0,
-    display: { xs: 'flex', sm: 'flex', md: 'none' },
-    justifyContent: 'flex-end',
-  };
-  const BoxStyle4 = {
-    flexGrow: 1,
-    display: { xs: 'none', sm: 'none', md: 'flex' },
-    justifyContent: 'flex-end',
-  };
-  const IconButtonStyle = {
-    color: theme.customPalette.primary.main,
-  };
-  const ButtonStyle = {
-    my: 2,
-    color: theme.customPalette.primary.black,
-
-    fontFamily: theme.customTypography.fontFamily,
-    typography: theme.customTypography.h8,
-    '&:hover': {
-      color: theme.customPalette.primary.main,
-    },
-  };
-  const MenuStyle = {
-    display: { xs: 'block', md: 'none' },
-  };
-  const MenuItemStyle = {
-    '&:hover': {
-      color: theme.customPalette.primary.main,
-    },
-    justifyContent: 'flex-start',
-    fontFamily: theme.customTypography.fontFamily,
-    typography: theme.customTypography.h8,
-  };
-
   return (
-    <AppBar position="static" sx={AppBarStyle}>
+    <AppBar position="static" sx={style.appBarStyle}>
       <Container maxWidth="lg">
         <Toolbar>
           <img src={Logo} className="LogoNav" alt="Logo" />
-          <Box sx={BoxStyle1}>
+          <Box sx={style.boxStyle1}>
             <IconButton
               size="large"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              sx={IconButtonStyle}
+              sx={style.iconButtonStyle}
             >
               <MenuIcon />
             </IconButton>
@@ -123,38 +73,38 @@ export default function Navbar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={MenuStyle}
+              sx={style.menuStyle}
             >
               {sections.map((section) => (
                 <MenuItem
                   key={section}
                   onClick={handleCloseNavMenu}
-                  sx={MenuItemStyle}
+                  sx={style.menuItemStyle}
                 >
                   {section}
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={BoxStyle2}>
+          <Box sx={style.boxStyle2}>
             {sections.map((section) => (
               <Button
                 disableRipple
                 key={section}
                 onClick={handleCloseNavMenu}
-                sx={ButtonStyle}
+                sx={style.buttonStyle}
               >
                 {section}
               </Button>
             ))}
           </Box>
 
-          <Box sx={BoxStyle3}>
+          <Box sx={style.boxStyle3}>
             <IconButton
               size="large"
               aria-haspopup="true"
               onClick={handleOpenNavUser}
-              sx={IconButtonStyle}
+              sx={style.iconButtonStyle}
             >
               <PersonIcon />
             </IconButton>
@@ -179,19 +129,19 @@ export default function Navbar() {
                 <MenuItem
                   key={useroptions}
                   onClick={handleCloseNavUser}
-                  sx={MenuItemStyle}
+                  sx={style.menuItemStyle}
                 >
                   {useroptions}
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={BoxStyle4}>
+          <Box sx={style.boxStyle4}>
             {useroption.map((useroptions) => (
               <Button
                 key={useroptions}
                 onClick={handleCloseNavMenu}
-                sx={ButtonStyle}
+                sx={style.buttonStyle}
               >
                 {useroptions}
               </Button>

@@ -1,3 +1,12 @@
 #swiperProducts{
     padding: 0 0 1em 0;
+    --swiper-navigation-size: '15px',
+    --
 }
+.swiper-button-next,
+.swiper-button-prev {
+  color: #348f42; 
+  
+}
+
+  
