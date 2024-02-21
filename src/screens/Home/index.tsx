@@ -15,6 +15,7 @@ import { Testimonial } from '../../lib/interfaces/Testimonial.ts';
 import { ProductCategory } from '../../lib/interfaces/Categories.ts';
 import SmallFooter from '../../lib/components/Footer/smallFooter.tsx';
 import BigFooter from '../../lib/components/Footer/bigFooter.tsx';
+import CategoriesList from './components/CategoriesList/index.tsx';
 
 export default function Home() {
   const theme = useTheme();
@@ -22,6 +23,8 @@ export default function Home() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [categories, setCategories] = useState<ProductCategory[]>([]);
+
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number>(0);
 
   useEffect(() => {
     (async () => {
@@ -178,6 +181,11 @@ export default function Home() {
       </Container>
       <Container>
         <Typography sx={SectionTitleStyle}>Produtos</Typography>
+        <CategoriesList
+          categories={categories}
+          categoryId={selectedCategoryId}
+          setCategory={setSelectedCategoryId}
+        />
       </Container>
       <Container>
         <Typography sx={SectionTitleStyle}>Parceiros</Typography>
