@@ -1,6 +1,10 @@
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 import { ProductCategory } from '../../../../lib/interfaces/Categories';
+import SearchIcon from '@mui/icons-material/Search';
+import CategoryIcon from '@mui/icons-material/Category';
+import { useTheme } from '@mui/material/styles';
 
 interface Props {
   categories: ProductCategory[];
@@ -13,29 +17,55 @@ const CategoriesList: React.FC<Props> = ({
   categoryId,
   setCategory,
 }) => {
-  const handleChange = (
-    _event: React.MouseEvent<HTMLElement>,
-    newAlignment: number
-  ) => {
-    setCategory(newAlignment);
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setCategory(newValue);
   };
 
+  const theme = useTheme();
+
   return (
-    <ToggleButtonGroup
-      color="primary"
-      value={categoryId}
-      exclusive
-      onChange={handleChange}
-      aria-label="Platform"
-      defaultValue={0}
-    >
-      <ToggleButton value={0}>TODOS</ToggleButton>
-      {categories.map((category: ProductCategory) => (
-        <ToggleButton key={category.id} value={category.id}>
-          {category.name}
-        </ToggleButton>
-      ))}
-    </ToggleButtonGroup>
+    <Box sx={{ mb: '15px' }}>
+      <Tabs
+        value={categoryId}
+        onChange={handleChange}
+        aria-label="category tabs"
+        variant="scrollable"
+        scrollButtons="auto"
+        TabIndicatorProps={{
+          sx: {
+            backgroundColor: theme.customPalette.primary.main,
+          },
+        }}
+      >
+        <Tab
+          label="TODOS"
+          value={0}
+          icon={<CategoryIcon />}
+          iconPosition="start"
+          sx={{
+            color: theme.customPalette.primary.main,
+            '&.Mui-selected': {
+              color: theme.customPalette.primary.main,
+            },
+          }}
+        />
+        {categories.map((category: ProductCategory) => (
+          <Tab
+            key={category.id}
+            label={category.name}
+            value={category.id}
+            icon={<SearchIcon />}
+            iconPosition="start"
+            sx={{
+              color: theme.customPalette.primary.main,
+              '&.Mui-selected': {
+                color: theme.customPalette.primary.main,
+              },
+            }}
+          />
+        ))}
+      </Tabs>
+    </Box>
   );
 };
 
