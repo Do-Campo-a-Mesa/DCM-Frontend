@@ -6,13 +6,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Testimonial } from '../../../interfaces/Testimonial';
 import CardTestimonialsHome from '../TestimonialsCard/cards';
-import './styles.css';
+import '../TestimonialsCarousel/styles.css';
 interface Props {
   testimonials: Testimonial[];
 }
 const TestimonialsCarousel: React.FC<Props> = ({ testimonials }) => {
   return (
     <Swiper
+      id="swiperTestimonials"
       rewind={true}
       spaceBetween={20}
       autoplay={{

@@ -1,0 +1,41 @@
+[
+    {
+    "id": 1,
+    "name": "Castanha de Caju",
+    "unit_of_measurement": "Kg",
+    "photos": ["/logo.png", "/logo.png"],
+    "price": 100,
+    "review": 3.5,
+    "categories": ["Doces", "grãos"],
+    "partner": "Youtube"
+  },
+  {
+    "id": 2,
+    "name": "Castanha de Caju 2",
+    "unit_of_measurement": "Kg",
+    "photos": ["/logo.png", "/logo.png"],
+    "price": 300,
+    "review": 4.5,
+    "categories": ["Doces", "grãos"],
+    "partner": "Youtube"
+  },
+  {
+    "id": 3,
+    "name": "Castanha de Caju 3",
+    "unit_of_measurement": "Kg",
+    "photos": ["/logo.png", "/logo.png"],
+    "price": 300,
+    "review": 4,
+    "categories": ["Doces", "grãos"],
+    "partner": "Youtube"
+  },
+  {
+    "id": 4,
+    "name": "Castanha de Caju 4",
+    "unit_of_measurement": "Kg",
+    "photos": ["/logo.png", "/logo.png"],
+    "price": 300,
+    "categories": ["Doces", "grãos"],
+    "partner": "Youtube"
+  }
+]

@@ -3,13 +3,14 @@ import 'swiper/swiper-bundle.css';
 import { Autoplay } from 'swiper/modules';
 import CardPartnersHome from '../CardsPartnersHome/card';
 import { Partner } from '../../interfaces/Partner';
-
+import '../PartnersCarousel/styles.css';
 interface Props {
   partners: Partner[];
 }
 const PartnersCarousel: React.FC<Props> = ({ partners }) => {
   return (
     <Swiper
+      id="swiperPartners"
       spaceBetween={10}
       autoplay={{
         delay: 3000,
