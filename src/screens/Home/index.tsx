@@ -13,17 +13,33 @@ import TestimonialsCarousel from '../../lib/components/Testimonials/Testimonials
 import { Testimonial } from '../../lib/interfaces/Testimonial.ts';
 import SmallFooter from '../../lib/components/Footer/smallFooter.tsx';
 import BigFooter from '../../lib/components/Footer/bigFooter.tsx';
+import { Product } from '../../lib/interfaces/Product.ts';
+import { getHomePageProducts } from '../../services/products/index.ts';
+import ProductList from '../../lib/components/Products/List/listProducts.tsx';
 
 export default function Home() {
   const theme = useTheme();
+
+  //Products
+  const [products, setProducts] = useState<Product[]>([]);
+  useEffect(() => {
+    (async () => {
+      const productsResponse = await getHomePageProducts();
+      setProducts(productsResponse.data);
+    })();
+  }, []);
+
+  //Partners
   const [partners, setPartners] = useState<Partner[]>([]);
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   useEffect(() => {
     (async () => {
       const partnersResponse = await getHomePagePartners();
       setPartners(partnersResponse.data);
     })();
   }, []);
+
+  //Testimonials
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   useEffect(() => {
     (async () => {
       const testimonialsResponse = await getHomePageTestimonials();
@@ -116,7 +132,7 @@ export default function Home() {
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
     textAlign: 'center',
-    mt: '1em',
+    mt: '3em',
     mb: '1em',
     '@media (max-width: 600px)': {
       typography: theme.customTypography.h4,
@@ -165,6 +181,7 @@ export default function Home() {
       </Container>
       <Container>
         <Typography sx={SectionTitleStyle}>Produtos</Typography>
+        <ProductList products={products}></ProductList>
       </Container>
       <Container>
         <Typography sx={SectionTitleStyle}>Parceiros</Typography>

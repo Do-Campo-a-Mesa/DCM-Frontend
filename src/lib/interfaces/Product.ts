@@ -4,6 +4,7 @@ export interface Product {
   unit_of_measurement: string;
   photos: string[];
   price: number;
+  review?: number;
   status_promotion?: string;
   type_of_promotion?: string;
   percent_off?: number;
