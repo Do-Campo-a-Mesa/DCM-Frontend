@@ -31,7 +31,9 @@ const CategoriesList: React.FC<Props> = ({
     >
       <ToggleButton value={0}>TODOS</ToggleButton>
       {categories.map((category: ProductCategory) => (
-        <ToggleButton value={category.id}>{category.name}</ToggleButton>
+        <ToggleButton key={category.id} value={category.id}>
+          {category.name}
+        </ToggleButton>
       ))}
     </ToggleButtonGroup>
   );
