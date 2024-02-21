@@ -76,21 +76,33 @@ export default function Home() {
     top: '20%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '40%',
+    width: '35%',
+    mb: 2,
     textAlign: 'center',
     color: 'white',
     lineHeight: '150%',
     padding: '10px',
     borderRadius: '5px',
-    '@media (max-width: 600px)': {
+    '@media (max-width: 400px)': {
+      top: '12%',
+      width: '90%',
+      typography: theme.customTypography.h5,
+    },
+    '@media (min-width: 400px) and (max-width: 600px)': {
       top: '10%',
       width: '90%',
       lineHeight: '40%',
-      typography: theme.customTypography.h6,
+      typography: theme.customTypography.h5,
     },
     '@media (min-width: 600px) and (max-width: 1024px)': {
-      top: '17%',
-      width: '50%',
+      top: '13%',
+      width: '60%',
+      typography: theme.customTypography.h4,
+      lineHeight: '150%',
+    },
+    '@media (min-width:1024px) and (max-width: 1440px)': {
+      top: '20%',
+      width: '40%',
       typography: theme.customTypography.h3,
     },
   };
@@ -103,17 +115,26 @@ export default function Home() {
     transform: 'translate(-50%, -50%)',
     width: '40%',
     textAlign: 'center',
-    lineHeight: '150%',
     color: 'white',
     padding: '10px',
     borderRadius: '5px',
-    '@media (max-width: 600px)': {
-      top: '15%',
-      width: '90%',
+    '@media (max-width: 400px)': {
+      display: 'none',
+    },
+    '@media (min-width: 400px) and (max-width: 600px)': {
+      top: '14%',
+      width: '70%',
+      lineHeight: '10px',
       typography: theme.customTypography.h9,
     },
     '@media (min-width: 600px) and (max-width: 1024px)': {
-      top: '27%',
+      top: '20%',
+      mb: 2,
+      width: '50%',
+      typography: theme.customTypography.subtitle2,
+    },
+    '@media (min-width:1024px) and (max-width: 1440px)': {
+      top: '30%',
       width: '50%',
       typography: theme.customTypography.subtitle1,
     },
@@ -131,14 +152,24 @@ export default function Home() {
     lineHeight: '150%',
     padding: '10px',
     borderRadius: '5px',
-    '@media (max-width: 600px)': {
-      top: '15%',
+    '@media (max-width: 400px)': {
+      top: '22%',
       width: '90%',
-      typography: theme.customTypography.h9,
+    },
+    '@media (min-width:400px) and (max-width: 600px)': {
+      top: '20%',
+      width: '90%',
     },
     '@media (min-width: 600px) and (max-width: 1024px)': {
-      top: '37%',
+      top: '28%',
       width: '50%',
+
+      typography: theme.customTypography.subtitle1,
+    },
+    '@media (min-width: 1024px) and (max-width: 1440px)': {
+      top: '40%',
+      width: '50%',
+
       typography: theme.customTypography.subtitle1,
     },
   };
@@ -173,6 +204,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+
       <MyCarousel />
       <Typography
         variant="h1"
@@ -194,6 +226,7 @@ export default function Home() {
       <Container sx={SearchContainerStyle}>
         <SearchBar onSearch={handleSearch} />
       </Container>
+
       <Container>
         <Typography sx={SectionTitleStyle}>Produtos</Typography>
         <CategoriesList

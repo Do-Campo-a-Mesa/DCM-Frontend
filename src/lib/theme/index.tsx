@@ -347,7 +347,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
       },
       h9: {
         fontSize: '12px',
-        lineHeight: '28px',
+        lineHeight: '20px',
         fontWeight: '500',
       },
       subtitle1: {
@@ -356,7 +356,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
         fontWeight: '400',
       },
       subtitle2: {
-        fontSize: '18px',
+        fontSize: '14px',
         lineHeight: '24px',
         fontWeight: '400',
       },

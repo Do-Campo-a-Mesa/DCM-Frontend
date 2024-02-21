@@ -11,6 +11,12 @@ export const useCustomStyles = () => {
       color: theme.customPalette.primary.background,
       typography: theme.customTypography.h7,
       fontFamily: theme.customTypography.fontFamily,
+      height: '5vh',
+      '@media (max-width: 600px)': {
+        height: '4vh',
+        typography: theme.customTypography.h8,
+      },
+
       '&:hover fieldset': {
         borderColor: theme.customPalette.secondary.main,
       },
@@ -27,6 +33,11 @@ export const useCustomStyles = () => {
         opacity: 1,
         color: theme.customPalette.neutral.inactive,
         typography: theme.customTypography.h7,
+        '@media (max-width: 600px)': {
+          opacity: 1,
+          color: theme.customPalette.neutral.inactive,
+          typography: theme.customTypography.h8,
+        },
       },
     },
   };
@@ -36,6 +47,7 @@ export const useCustomStyles = () => {
       border: '2px solid',
       borderColor: theme.customPalette.primary.main,
       backgroundColor: theme.customPalette.primary.main,
+
       '&:hover': {
         backgroundColor: theme.customPalette.secondary.main,
       },
@@ -43,6 +55,13 @@ export const useCustomStyles = () => {
   };
 
   const searchIconStyle = {
+    height: '2vh',
+    width: '2vh',
+    '@media (max-width: 600px)': {
+      height: '1.5vh',
+      width: '1.5vh',
+    },
+
     color: theme.customPalette.primary.background,
     '&hover': {
       color: theme.customPalette.primary.background,

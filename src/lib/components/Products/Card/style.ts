@@ -51,7 +51,7 @@ export const useCustomStyles = () => {
     backgroundColor: theme.customPalette.primary.background,
     border: 1,
     borderColor: theme.customPalette.primary.main,
-    mt: 2,
+    mb: 4,
     '&:hover': {
       backgroundColor: theme.customPalette.primary.main,
       color: theme.customPalette.primary.background,

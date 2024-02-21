@@ -82,11 +82,11 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
               <Typography component="div" sx={style.titlePriceStyle}>
                 R$ {product.price},00
               </Typography>
-              <Button variant="contained" sx={style.buttonStyle}>
-                COMPRAR
-              </Button>
             </CardContent>
           </Link>
+          <Button variant="contained" sx={style.buttonStyle}>
+            COMPRAR
+          </Button>
         </Grid>
       </Grid>
     </Card>
