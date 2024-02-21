@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Partner } from '../../../../../lib/interfaces/Partner';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 interface Props {
   partner: Partner;
@@ -20,6 +21,11 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
     borderColor: theme.customPalette.primary.main,
     backgroundColor: theme.customPalette.primary.background,
     mb: 2,
+    transition: 'box-shadow 0.3s',
+    '&:hover': {
+      boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+    },
+    cursor: 'pointer',
   };
   const BoxStyle = {
     display: 'flex',
@@ -45,8 +51,12 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
     typography: theme.customTypography.body3,
     color: theme.customPalette.neutral.secondaryText,
   };
+
   return (
-    <div>
+    <Link
+      to={`/empresa/${partner.companyName}`}
+      style={{ textDecoration: 'none' }}
+    >
       <Card sx={CardStyle}>
         <Box sx={BoxStyle}>
           <img src={partner.logotipo} alt={partner.companyName} id="Logo" />
@@ -62,7 +72,7 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
           </CardContent>
         </Box>
       </Card>
-    </div>
+    </Link>
   );
 };
 
