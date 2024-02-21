@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Autoplay } from 'swiper/modules';
 import CardPartnersHome from '../CardsPartnersHome/card';
-import { Partner } from '../../interfaces/Partner';
+import { Partner } from '../../../../../lib/interfaces/Partner';
 import '../PartnersCarousel/styles.css';
 interface Props {
   partners: Partner[];

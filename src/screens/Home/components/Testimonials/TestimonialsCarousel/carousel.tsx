@@ -4,7 +4,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Testimonial } from '../../../interfaces/Testimonial';
+import { Testimonial } from '../../../../../lib/interfaces/Testimonial';
 import CardTestimonialsHome from '../TestimonialsCard/cards';
 import '../TestimonialsCarousel/styles.css';
 interface Props {

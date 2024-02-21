@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Testimonial } from '../../../interfaces/Testimonial';
+import { Testimonial } from '../../../../../lib/interfaces/Testimonial';
 import Rating from '@mui/material/Rating';
 import { useTheme } from '@mui/material/styles';
 
