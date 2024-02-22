@@ -1,6 +1,11 @@
 import { api } from '../api';
-import { ProductsResponse } from '../../lib/interfaces/Product';
+import {
+  FilterProductInput,
+  ProductsResponse,
+} from '../../lib/interfaces/Product';
 
-export async function getHomePageProducts(): Promise<ProductsResponse> {
-  return api.get('/products');
+export async function getHomePageProducts(
+  filterInput: FilterProductInput
+): Promise<ProductsResponse> {
+  return api.post('/products', filterInput);
 }
