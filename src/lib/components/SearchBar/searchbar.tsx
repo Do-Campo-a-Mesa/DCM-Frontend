@@ -2,15 +2,15 @@ import { ChangeEvent } from 'react';
 import { TextField, InputAdornment, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useCustomStyles } from './style';
-
+import debounce from 'lodash/debounce';
 interface SearchBarProps {
   onSearch: (term: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = debounce((event: ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value);
-  };
+  }, 300);
 
   const style = useCustomStyles();
 
