@@ -1,163 +1,163 @@
 [
-    {
-    "id": 1,
-    "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 100,
-    "review": 3.5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
   {
-    "id": 2,
-    "name": "Castanha de Caju 2",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 4.5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 3,
-    "name": "Castanha de Caju 3",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 4,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 4,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 5,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 4,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 6,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 7,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 3,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 8,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 4.5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 9,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 4,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 10,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 3,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 11,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 2,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-    
-  },
-  {
-    "id": 12,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-    
-  },
-  {
-    "id": 13,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 4.5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 14,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 3.5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 15,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 3.5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  },
-  {
-    "id": 16,
-    "name": "Castanha de Caju 4",
-    "unit_of_measurement": "Kg",
-    "photos": ["/logo.png", "/logo.png"],
-    "price": 300,
-    "review": 4.5,
-    "categories": ["Doces", "grãos"],
-    "partner": "Youtube"
-  }
+  "id": 1,
+  "name": "Castanha de Caju",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 9.99,
+  "review": 3.5,
+  "categories": [{"id": 1}, {"id": 6}],
+  "partner": "Youtube"
+},
+{
+  "id": 2,
+  "name": "Castanha de Caju 2",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 13.7,
+  "review": 4.5,
+  "categories": [{"id": 1}, {"id": 6}],
+  "partner": "Youtube"
+},
+{
+  "id": 3,
+  "name": "Castanha de Caju 3",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 14.5,
+  "review": 4,
+  "categories": [{"id": 1}, {"id": 6}],
+  "partner": "Youtube"
+},
+{
+  "id": 4,
+  "name": "Castanha de Caju 4",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 15,
+  "categories": [{"id": 1}, {"id": 6}],
+  "partner": "Youtube"
+},
+{
+  "id": 5,
+  "name": "Quejo Coalho Temperado",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 27,
+  "review": 4,
+  "categories": [{"id": 2}, {"id": 3}],
+  "partner": "Youtube"
+},
+{
+  "id": 6,
+  "name": "Quejo Coalho Temperado 2",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 19.8,
+  "categories": [{"id": 2}, {"id": 3}],
+  "partner": "Youtube"
+},
+{
+  "id": 7,
+  "name": "Quejo Coalho Temperado 3",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 26.5,
+  "review": 3,
+  "categories": [{"id": 2}, {"id": 3}],
+  "partner": "Youtube"
+},
+{
+  "id": 8,
+  "name": "Quejo Coalho Temperado 4",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 23.30,
+  "review": 4.5,
+  "categories": [{"id": 2}, {"id": 3}],
+  "partner": "Youtube"
+},
+{
+  "id": 9,
+  "name": "Tomate 1",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 10.2,
+  "review": 4,
+  "categories": [{"id": 4}, {"id": 5}],
+  "partner": "Youtube"
+},
+{
+  "id": 10,
+  "name": "Tomate 2",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 9.5,
+  "review": 3,
+  "categories": [{"id": 1}, {"id": 6}],
+  "partner": "Youtube"
+},
+{
+  "id": 11,
+  "name": "Tomate 3",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 8.5,
+  "review": 2,
+  "categories": [{"id": 4}, {"id": 5}],
+  "partner": "Youtube"
   
+},
+{
+  "id": 12,
+  "name": "Tomate 4",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 12.5,
+  "review": 5,
+  "categories": [{"id": 4}, {"id": 5}],
+  "partner": "Youtube"
+  
+},
+{
+  "id": 13,
+  "name": "Tomate 5",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 13,
+  "review": 4.5,
+  "categories": [{"id": 4}, {"id": 5}],
+  "partner": "Youtube"
+},
+{
+  "id": 14,
+  "name": "Laranja",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 11,
+  "review": 3.5,
+  "categories": [{"id": 5}],
+  "partner": "Youtube"
+},
+{
+  "id": 15,
+  "name": "Laranja 2",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 9,
+  "review": 3.5,
+  "categories": [{"id": 5}],
+  "partner": "Youtube"
+},
+{
+  "id": 16,
+  "name": "Leite Fresco",
+  "unit_of_measurement": "Kg",
+  "photos": ["/logo.png", "/logo.png"],
+  "price": 10,
+  "review": 4.5,
+  "categories": [{"id": 3}],
+  "partner": "Youtube"
+}
+
 ]

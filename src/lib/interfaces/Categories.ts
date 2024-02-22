@@ -5,6 +5,10 @@ export interface ProductCategory {
   description: string;
 }
 
+export interface ProductCardCategory {
+  id: number;
+}
+
 export interface ProductCategoryResponse {
   data: ProductCategory[];
 }
