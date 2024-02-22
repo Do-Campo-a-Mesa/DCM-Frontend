@@ -25,19 +25,22 @@ export default function Home() {
 
   //Products
   const [products, setProducts] = useState<Product[]>([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number>(0);
   useEffect(() => {
     (async () => {
-      const productsResponse = await getHomePageProducts();
+      const productsResponse = await getHomePageProducts({
+        categoriesIDs:
+          selectedCategoryId != 0 ? [selectedCategoryId] : undefined,
+      });
+
       setProducts(productsResponse.data);
     })();
-  }, []);
+  }, [selectedCategoryId]);
 
   //Partners
   const [partners, setPartners] = useState<Partner[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [categories, setCategories] = useState<ProductCategory[]>([]);
-
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number>(0);
 
   useEffect(() => {
     (async () => {
