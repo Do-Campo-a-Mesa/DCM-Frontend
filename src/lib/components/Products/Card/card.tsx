@@ -84,9 +84,14 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
               </Typography>
             </CardContent>
           </Link>
-          <Button variant="contained" sx={style.buttonStyle}>
-            COMPRAR
-          </Button>
+          <Link
+            to={`/carrinho/${product.id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            <Button variant="contained" sx={style.buttonStyle}>
+              COMPRAR
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Card>
