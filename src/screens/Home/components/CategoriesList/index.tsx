@@ -22,9 +22,22 @@ const CategoriesList: React.FC<Props> = ({
   };
 
   const theme = useTheme();
-
+  const boxStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    mb: 2,
+  };
+  const tabStyle = {
+    color: theme.customPalette.neutral.inactive,
+    typography: theme.customTypography.h6,
+    fontFamily: theme.customTypography.fontFamily,
+    textTransform: 'capitalize',
+    '&.Mui-selected': {
+      color: theme.customPalette.primary.main,
+    },
+  };
   return (
-    <Box sx={{ mb: '15px' }}>
+    <Box sx={boxStyle}>
       <Tabs
         value={categoryId}
         onChange={handleChange}
@@ -38,16 +51,11 @@ const CategoriesList: React.FC<Props> = ({
         }}
       >
         <Tab
-          label="TODOS"
+          label="Todos"
           value={0}
           icon={<CategoryIcon />}
           iconPosition="start"
-          sx={{
-            color: theme.customPalette.primary.main,
-            '&.Mui-selected': {
-              color: theme.customPalette.primary.main,
-            },
-          }}
+          sx={tabStyle}
         />
         {categories.map((category: ProductCategory) => (
           <Tab
@@ -56,12 +64,7 @@ const CategoriesList: React.FC<Props> = ({
             value={category.id}
             icon={<SearchIcon />}
             iconPosition="start"
-            sx={{
-              color: theme.customPalette.primary.main,
-              '&.Mui-selected': {
-                color: theme.customPalette.primary.main,
-              },
-            }}
+            sx={tabStyle}
           />
         ))}
       </Tabs>

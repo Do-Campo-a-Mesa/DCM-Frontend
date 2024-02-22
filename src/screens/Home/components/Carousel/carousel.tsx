@@ -2,7 +2,7 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../Carousel/style.css';
-import Image1 from '../../../assets/pexels-pattama-wallech-2661996 2.png';
+import Image1 from '../../../../assets/pexels-pattama-wallech-2661996 2.png';
 
 const images = [Image1, Image1, Image1];
 

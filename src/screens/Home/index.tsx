@@ -1,7 +1,7 @@
 import './style.css';
 import { useEffect, useState } from 'react';
 import Navbar from '../../lib/components/Navbar/Navbar.tsx';
-import MyCarousel from '../../lib/components/Carousel/carousel.tsx';
+import MyCarousel from './components/Carousel/carousel.tsx';
 import { Container, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import SearchBar from '../../lib/components/SearchBar/searchbar.tsx';
@@ -178,8 +178,7 @@ export default function Home() {
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
     textAlign: 'center',
-    mt: '3em',
-    mb: '1em',
+    mt: '2em',
     '@media (max-width: 600px)': {
       typography: theme.customTypography.h4,
     },
@@ -229,6 +228,9 @@ export default function Home() {
 
       <Container>
         <Typography sx={SectionTitleStyle}>Produtos</Typography>
+        <Typography sx={SectionSubtitleStyle}>
+          Confira alguns de nossos produtos
+        </Typography>
         <CategoriesList
           categories={categories}
           categoryId={selectedCategoryId}
