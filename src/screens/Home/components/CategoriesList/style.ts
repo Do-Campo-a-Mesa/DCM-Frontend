@@ -16,5 +16,5 @@ export const useCustomStyles = () => {
       color: theme.customPalette.primary.main,
     },
   };
-  return { boxStyle, tabStyle };
+  return { boxStyle, tabStyle, theme };
 };

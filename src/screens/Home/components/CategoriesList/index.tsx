@@ -5,7 +5,6 @@ import { ProductCategory } from '../../../../lib/interfaces/Categories';
 import SearchIcon from '@mui/icons-material/Search';
 import CategoryIcon from '@mui/icons-material/Category';
 import { useCustomStyles } from './style';
-import { useTheme } from '@mui/material';
 
 interface Props {
   categories: ProductCategory[];
@@ -23,7 +22,7 @@ const CategoriesList: React.FC<Props> = ({
   };
 
   const style = useCustomStyles();
-  const theme = useTheme();
+
   return (
     <Box sx={style.boxStyle}>
       <Tabs
@@ -34,7 +33,7 @@ const CategoriesList: React.FC<Props> = ({
         scrollButtons="auto"
         TabIndicatorProps={{
           sx: {
-            backgroundColor: theme.customPalette.primary.main,
+            backgroundColor: style.theme.customPalette.primary.main,
           },
         }}
       >
