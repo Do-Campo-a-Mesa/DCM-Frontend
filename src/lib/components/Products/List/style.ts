@@ -5,19 +5,28 @@ export const useCustomStyles = () => {
   const buttonStyle = {
     fontFamily: theme.customTypography.fontFamily,
     typography: theme.customTypography.button,
-    color: theme.customPalette.primary.main,
-    backgroundColor: theme.customPalette.primary.background,
+    color: theme.customPalette.primary.background,
+    backgroundColor: theme.customPalette.primary.main,
     border: 1,
-    borderColor: theme.customPalette.primary.main,
     mb: 4,
-    textTransform: 'uppercase',
+    pr: 2,
+    pl: 2,
+    pb: 1,
+    pt: 1,
     '&:hover': {
-      backgroundColor: theme.customPalette.primary.main,
       color: theme.customPalette.primary.background,
+      backgroundColor: theme.customPalette.secondary.main,
+      borderColor: theme.customPalette.primary.main,
+      boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
     },
+  };
+  const gridButtonStyle = {
+    textAlign: 'center',
   };
 
   return {
     buttonStyle,
+    theme,
+    gridButtonStyle,
   };
 };
