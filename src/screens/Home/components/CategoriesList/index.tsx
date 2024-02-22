@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import { ProductCategory } from '../../../../lib/interfaces/Categories';
 import SearchIcon from '@mui/icons-material/Search';
 import CategoryIcon from '@mui/icons-material/Category';
-import { useTheme } from '@mui/material/styles';
+import { useCustomStyles } from './style';
+import { useTheme } from '@mui/material';
 
 interface Props {
   categories: ProductCategory[];
@@ -21,23 +22,10 @@ const CategoriesList: React.FC<Props> = ({
     setCategory(newValue);
   };
 
+  const style = useCustomStyles();
   const theme = useTheme();
-  const boxStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    mb: 2,
-  };
-  const tabStyle = {
-    color: theme.customPalette.neutral.inactive,
-    typography: theme.customTypography.h6,
-    fontFamily: theme.customTypography.fontFamily,
-    textTransform: 'capitalize',
-    '&.Mui-selected': {
-      color: theme.customPalette.primary.main,
-    },
-  };
   return (
-    <Box sx={boxStyle}>
+    <Box sx={style.boxStyle}>
       <Tabs
         value={categoryId}
         onChange={handleChange}
@@ -55,7 +43,7 @@ const CategoriesList: React.FC<Props> = ({
           value={0}
           icon={<CategoryIcon />}
           iconPosition="start"
-          sx={tabStyle}
+          sx={style.tabStyle}
         />
         {categories.map((category: ProductCategory) => (
           <Tab
@@ -64,7 +52,7 @@ const CategoriesList: React.FC<Props> = ({
             value={category.id}
             icon={<SearchIcon />}
             iconPosition="start"
-            sx={tabStyle}
+            sx={style.tabStyle}
           />
         ))}
       </Tabs>
