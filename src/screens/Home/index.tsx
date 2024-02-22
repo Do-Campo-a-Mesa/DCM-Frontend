@@ -201,7 +201,15 @@ export default function Home() {
     },
   };
   const BigFooterStyles = {
-    mt: '10em',
+    mt: '8em',
+    backgroundColor: theme.customPalette.neutral.boards,
+    display: 'flex',
+    justifyContent: 'center',
+    pt: '4em',
+    pb: '4em',
+    '@media (min-width: 1200px)': {
+      maxWidth: 'none',
+    },
   };
   return (
     <>

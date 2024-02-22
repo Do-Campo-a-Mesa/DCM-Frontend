@@ -7,7 +7,7 @@ import { useCustomStyles } from './bigStyle';
 import Logo from '../../../assets/logobig.png';
 import './styles.css';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 
 const BigFooter: React.FC = () => {
   const style = useCustomStyles();
@@ -34,8 +34,15 @@ const BigFooter: React.FC = () => {
   ];
 
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} sm={6} sx={style.item}>
+    <Grid
+      container
+      maxWidth={'1200px'}
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={3}
+    >
+      <Grid item xs={12} sm={6} md={6} sx={style.item}>
         <Box>
           <img src={Logo} className="Logo" alt="Logo" />
         </Box>
@@ -63,8 +70,8 @@ const BigFooter: React.FC = () => {
         <Typography sx={style.titleStyle}>LINKS ÚTEIS</Typography>
         {linksUteis.map((link, index) => (
           <Grid item xs={12} sm={12} key={index} sx={style.gridLinkStyle}>
-            <Link href={link.href} color="inherit" sx={style.linkStyle}>
-              {link.text}
+            <Link to={`/${link.href}`} style={{ textDecoration: 'none' }}>
+              <Typography sx={style.linkStyle}>{link.text}</Typography>
             </Link>
           </Grid>
         ))}
@@ -74,8 +81,8 @@ const BigFooter: React.FC = () => {
         <Typography sx={style.titleStyle}>AJUDA</Typography>
         {linksAjuda.map((link, index) => (
           <Grid item xs={12} sm={12} key={index} sx={style.gridLinkStyle}>
-            <Link href={link.href} color="inherit" sx={style.linkStyle}>
-              {link.text}
+            <Link to={`/${link.href}`} style={{ textDecoration: 'none' }}>
+              <Typography sx={style.linkStyle}>{link.text}</Typography>
             </Link>
           </Grid>
         ))}
@@ -85,8 +92,8 @@ const BigFooter: React.FC = () => {
         <Typography sx={style.titleStyle}>CATEGORIAS</Typography>
         {Categorias.map((link, index) => (
           <Grid item xs={12} sm={12} key={index} sx={style.gridLinkStyle}>
-            <Link href={link.href} color="inherit" sx={style.linkStyle}>
-              {link.text}
+            <Link to={`/${link.href}`} style={{ textDecoration: 'none' }}>
+              <Typography sx={style.linkStyle}>{link.text}</Typography>
             </Link>
           </Grid>
         ))}

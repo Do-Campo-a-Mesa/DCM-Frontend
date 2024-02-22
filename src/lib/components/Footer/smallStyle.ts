@@ -5,7 +5,7 @@ export const useCustomStyles = () => {
 
   const copyright = {
     backgroundColor: theme.customPalette.primary.main,
-    Typography: theme.customTypography.body4,
+    typography: theme.customTypography.body3,
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.background,
     p: 2,

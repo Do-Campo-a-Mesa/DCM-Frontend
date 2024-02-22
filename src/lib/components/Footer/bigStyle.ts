@@ -30,7 +30,11 @@ export const useCustomStyles = () => {
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.neutral.secondaryText,
     textDecoration: 'none',
+    '&:hover': {
+      color: theme.customPalette.primary.main,
+    },
   };
+
   return {
     item,
     icons,
