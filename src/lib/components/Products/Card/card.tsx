@@ -15,6 +15,7 @@ import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { formatProductPrice } from '../../../../utils';
 interface Props {
   product: Product;
 }
@@ -80,7 +81,7 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
                 readOnly
               />
               <Typography component="div" sx={style.titlePriceStyle}>
-                R$ {product.price},00
+                {formatProductPrice(product.price)}
               </Typography>
             </CardContent>
           </Link>
