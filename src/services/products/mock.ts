@@ -4,7 +4,7 @@ import {
   ProductsResponse,
 } from '../../lib/interfaces/Product';
 
-export async function getHomePageProducts(
+export async function getProducts(
   filterInput: FilterProductInput
 ): Promise<ProductsResponse> {
   let filteredProducts = products;

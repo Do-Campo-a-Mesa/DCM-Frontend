@@ -23,10 +23,15 @@ export const useCustomStyles = () => {
   const gridButtonStyle = {
     textAlign: 'center',
   };
-
+  const paginationStyle = {
+    mb: 10,
+    display: 'flex',
+    justifyContent: 'center',
+  };
   return {
     buttonStyle,
     theme,
     gridButtonStyle,
+    paginationStyle,
   };
 };

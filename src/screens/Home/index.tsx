@@ -17,7 +17,7 @@ import SmallFooter from '../../lib/components/Footer/smallFooter.tsx';
 import BigFooter from '../../lib/components/Footer/bigFooter.tsx';
 import CategoriesList from './components/CategoriesList/index.tsx';
 import { Product } from '../../lib/interfaces/Product.ts';
-import { getHomePageProducts } from '../../services/products/index.ts';
+import { getProducts } from '../../services/products/index.ts';
 import ProductList from '../../lib/components/Products/List/listProducts.tsx';
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
   const [selectedCategoryId, setSelectedCategoryId] = useState<number>(0);
   useEffect(() => {
     (async () => {
-      const productsResponse = await getHomePageProducts({
+      const productsResponse = await getProducts({
         categoriesIDs:
           selectedCategoryId != 0 ? [selectedCategoryId] : undefined,
       });
@@ -36,11 +36,16 @@ export default function Home() {
       setProducts(productsResponse.data);
     })();
   }, [selectedCategoryId]);
-
-  //Partners
-  const [partners, setPartners] = useState<Partner[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [categories, setCategories] = useState<ProductCategory[]>([]);
+  useEffect(() => {
+    (async () => {
+      const productCategoriesResponse = await getAllProductsCategories();
+      setCategories(productCategoriesResponse.data);
+    })();
+  }, []);
+  //Partners
+  const [partners, setPartners] = useState<Partner[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -55,13 +60,6 @@ export default function Home() {
     (async () => {
       const testimonialsResponse = await getHomePageTestimonials();
       setTestimonials(testimonialsResponse.data);
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const productCategoriesResponse = await getAllProductsCategories();
-      setCategories(productCategoriesResponse.data);
     })();
   }, []);
 
