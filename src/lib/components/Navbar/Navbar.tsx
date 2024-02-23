@@ -16,10 +16,7 @@ import Logo from '../../../assets/logo.png';
 import './styles.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-
-const sections = ['Inicio', 'Sobre', 'Produtos', 'Parceiros', 'Depoimentos'];
-
-const useroption = ['Login', 'Cadastro'];
+import { sections, user_no_login_options } from './items';
 
 interface Props {
   isHomePage: boolean;
@@ -89,11 +86,11 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
             >
               {sections.map((section) => (
                 <MenuItem
-                  key={section}
+                  key={section.label}
                   onClick={handleCloseNavMenu}
                   sx={style.menuItemStyle}
                 >
-                  {section}
+                  {section.label}
                 </MenuItem>
               ))}
             </Menu>
@@ -103,11 +100,11 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
               {sections.map((section) => (
                 <Button
                   disableRipple
-                  key={section}
+                  key={section.label}
                   onClick={handleCloseNavMenu}
                   sx={style.buttonStyle}
                 >
-                  {section}
+                  {section.label}
                 </Button>
               ))}
             </Box>
@@ -141,26 +138,26 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseNavUser}
             >
-              {useroption.map((useroptions) => (
+              {user_no_login_options.map((user_option) => (
                 <MenuItem
-                  key={useroptions}
+                  key={user_option.label}
                   onClick={handleCloseNavUser}
                   sx={style.menuItemStyle}
                 >
-                  {useroptions}
+                  {user_option.label}
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           {!isLoggedIn ? (
             <Box sx={style.boxStyle4}>
-              {useroption.map((useroptions) => (
+              {user_no_login_options.map((user_option) => (
                 <Button
-                  key={useroptions}
+                  key={user_option.label}
                   onClick={handleCloseNavMenu}
                   sx={style.buttonStyle}
                 >
-                  {useroptions}
+                  {user_option.label}
                 </Button>
               ))}
             </Box>
