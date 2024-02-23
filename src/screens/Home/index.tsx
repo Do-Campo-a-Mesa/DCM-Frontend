@@ -213,7 +213,7 @@ export default function Home() {
   };
   return (
     <>
-      <Navbar />
+      <Navbar isHomePage={true} />
 
       <MyCarousel />
       <Typography

@@ -19,7 +19,11 @@ const sections = ['Inicio', 'Sobre', 'Produtos', 'Parceiros', 'Depoimentos'];
 
 const useroption = ['Login', 'Cadastro'];
 
-export default function Navbar() {
+interface Props {
+  isHomePage: boolean;
+}
+
+const Navbar: React.FC<Props> = ({ isHomePage }) => {
   const style = useCustomStyles();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -86,19 +90,22 @@ export default function Navbar() {
               ))}
             </Menu>
           </Box>
-          <Box sx={style.boxStyle2}>
-            {sections.map((section) => (
-              <Button
-                disableRipple
-                key={section}
-                onClick={handleCloseNavMenu}
-                sx={style.buttonStyle}
-              >
-                {section}
-              </Button>
-            ))}
-          </Box>
-
+          {isHomePage ? (
+            <Box sx={style.boxStyle2}>
+              {sections.map((section) => (
+                <Button
+                  disableRipple
+                  key={section}
+                  onClick={handleCloseNavMenu}
+                  sx={style.buttonStyle}
+                >
+                  {section}
+                </Button>
+              ))}
+            </Box>
+          ) : (
+            <></>
+          )}
           <Box sx={style.boxStyle3}>
             <IconButton
               size="large"
@@ -151,4 +158,6 @@ export default function Navbar() {
       </Container>
     </AppBar>
   );
-}
+};
+
+export default Navbar;
