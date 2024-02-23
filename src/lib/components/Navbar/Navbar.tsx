@@ -14,6 +14,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useCustomStyles } from './style';
 import Logo from '../../../assets/logo.png';
 import './styles.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 const sections = ['Inicio', 'Sobre', 'Produtos', 'Parceiros', 'Depoimentos'];
 
@@ -24,6 +26,12 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ isHomePage }) => {
+  // Acessa o estado do usuário
+  const user = useSelector((state: RootState) => state.user);
+
+  // Verifica se o usuário está logado
+  const isLoggedIn = !!user.id;
+
   const style = useCustomStyles();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -106,6 +114,7 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
           ) : (
             <></>
           )}
+          {/* falta colocar o componente de search da navbar */}
           <Box sx={style.boxStyle3}>
             <IconButton
               size="large"
@@ -143,17 +152,21 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
               ))}
             </Menu>
           </Box>
-          <Box sx={style.boxStyle4}>
-            {useroption.map((useroptions) => (
-              <Button
-                key={useroptions}
-                onClick={handleCloseNavMenu}
-                sx={style.buttonStyle}
-              >
-                {useroptions}
-              </Button>
-            ))}
-          </Box>
+          {!isLoggedIn ? (
+            <Box sx={style.boxStyle4}>
+              {useroption.map((useroptions) => (
+                <Button
+                  key={useroptions}
+                  onClick={handleCloseNavMenu}
+                  sx={style.buttonStyle}
+                >
+                  {useroptions}
+                </Button>
+              ))}
+            </Box>
+          ) : (
+            <></>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
