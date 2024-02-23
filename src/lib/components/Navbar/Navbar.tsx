@@ -17,6 +17,7 @@ import './styles.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { sections, user_no_login_options } from './items';
+import { Link } from 'react-router-dom';
 
 interface Props {
   isHomePage: boolean;
@@ -58,7 +59,13 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
     <AppBar position="static" sx={style.appBarStyle}>
       <Container maxWidth="lg">
         <Toolbar>
-          <img src={Logo} className="LogoNav" alt="Logo" />
+          {isHomePage ? (
+            <Link to="/">
+              <img src={Logo} className="LogoNav" alt="Logo" />
+            </Link>
+          ) : (
+            <img src={Logo} className="LogoNav" alt="Logo" />
+          )}
           <Box sx={style.boxStyle1}>
             <IconButton
               size="large"
