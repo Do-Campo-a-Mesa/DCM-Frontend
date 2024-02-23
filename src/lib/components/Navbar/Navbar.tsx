@@ -112,55 +112,58 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
             <></>
           )}
           {/* falta colocar o componente de search da navbar */}
-          <Box sx={style.boxStyle3}>
-            <IconButton
-              size="large"
-              aria-haspopup="true"
-              onClick={handleOpenNavUser}
-              sx={style.iconButtonStyle}
-            >
-              <PersonIcon />
-            </IconButton>
-
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseNavUser}
-            >
-              {user_no_login_options.map((user_option) => (
-                <MenuItem
-                  key={user_option.label}
-                  onClick={handleCloseNavUser}
-                  sx={style.menuItemStyle}
-                >
-                  {user_option.label}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
           {!isLoggedIn ? (
-            <Box sx={style.boxStyle4}>
-              {user_no_login_options.map((user_option) => (
-                <Button
-                  key={user_option.label}
-                  onClick={handleCloseNavMenu}
-                  sx={style.buttonStyle}
+            <>
+              <Box sx={style.boxStyle3}>
+                <IconButton
+                  size="large"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavUser}
+                  sx={style.iconButtonStyle}
                 >
-                  {user_option.label}
-                </Button>
-              ))}
-            </Box>
+                  <PersonIcon />
+                </IconButton>
+
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseNavUser}
+                >
+                  {user_no_login_options.map((user_option) => (
+                    <MenuItem
+                      key={user_option.label}
+                      onClick={handleCloseNavUser}
+                      sx={style.menuItemStyle}
+                    >
+                      {user_option.label}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+
+              <Box sx={style.boxStyle4}>
+                {user_no_login_options.map((user_option) => (
+                  <Button
+                    key={user_option.label}
+                    onClick={handleCloseNavMenu}
+                    sx={style.buttonStyle}
+                  >
+                    {user_option.label}
+                  </Button>
+                ))}
+              </Box>
+            </>
           ) : (
             <></>
           )}
