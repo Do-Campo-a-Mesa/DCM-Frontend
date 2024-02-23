@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "stars": 5,
+      "userName": "Fulano 1",
+      "describe": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "20/12/23"
+    },
+    {
+        "id": 2,
+        "stars": 4.5,
+        "userName": "Fulano 2",
+        "describe": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "date": "20/12/23"
+      },
+      {
+        "id": 3,
+        "stars": 5,
+        "userName": "Fulano 3",
+        "describe": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "date": "20/12/23"
+      },
+      {
+        "id": 4,
+        "stars": 4.5,
+        "userName": "Fulano 4",
+        "describe": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "date": "20/12/23"
+      },
+      {
+        "id": 5,
+        "stars": 3.5,
+        "userName": "Fulano 5",
+        "describe": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "date": "20/12/23"
+      },
+      {
+        "id": 6,
+        "stars": 4,
+        "userName": "Fulano 6",
+        "describe": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "date": "20/12/23"
+      }
+  ]

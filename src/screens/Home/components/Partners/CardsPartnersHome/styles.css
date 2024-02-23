@@ -1,0 +1,10 @@
+#Logo{
+    width: 80px;
+    height: 40px;
+}
+@media (max-width: 600px) {
+    #Logo {
+        max-width: 50px;
+        max-height: 50px;
+    }
+  };

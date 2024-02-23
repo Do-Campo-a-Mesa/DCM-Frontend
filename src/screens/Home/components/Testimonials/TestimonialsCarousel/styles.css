@@ -1,0 +1,21 @@
+
+/* Estilos CSS para as setas de navegação do Swiper */
+#swiperTestimonials .swiper-button-prev,
+#swiperTestimonials .swiper-button-next {
+  color: #464646; /* Cor do ícone */
+}
+.swiper-pagination-bullet-active {
+    background-color: #348f42; /* Cor do bullet ativo */
+  }
+  /* Estilos CSS para os botões "Next" e "Prev" do Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 5px; /* Defina a largura do botão */
+  height: 5px; /* Defina a altura do botão */
+}
+#swiperTestimonials{
+  --swiper-navigation-size: 30px;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 3em;
+}

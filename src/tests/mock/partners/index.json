@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "companyName": "Youtube",
+    "business": "Site de vídeos",
+    "logotipo": "/logo.png"
+  },
+  {
+    "id": 2,
+    "companyName": "Linkedin",
+    "business": "Rede social",
+    "logotipo": "/logo.png"
+  },
+  {
+    "id": 3,
+    "companyName": "Linkedin1",
+    "business": "Rede social",
+    "logotipo": "/logo.png"
+  },
+  {
+    "id": 4,
+    "companyName": "Youtube",
+    "business": "Site de vídeos",
+    "logotipo": "/logo.png"
+  },
+  {
+    "id": 5,
+    "companyName": "Linkedin",
+    "business": "Rede social",
+    "logotipo": "/logo.png"
+  },
+  {
+    "id": 6,
+    "companyName": "Linkedin1",
+    "business": "Rede social",
+    "logotipo": "/logo.png"
+  }
+]

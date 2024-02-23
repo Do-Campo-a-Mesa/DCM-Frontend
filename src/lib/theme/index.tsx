@@ -1,7 +1,10 @@
 import React, { ReactNode } from 'react';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
-//import '@fontsource/roboto';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
 
 interface ThemeProps {
   children: ReactNode;
@@ -13,26 +16,17 @@ declare module '@mui/material/styles' {
       primary: {
         main: string;
         background: string;
-        heavy: string;
+        black: string;
         yellow: string;
-        orange: string;
-        green: string;
-        blue: string;
+        red: string;
       };
       secondary: {
         main: string;
       };
       neutral: {
-        neutral900: string;
-        neutral800: string;
-        neutral700: string;
-        neutral600: string;
-        neutral500: string;
-        neutral400: string;
-        neutral300: string;
-        neutral200: string;
-        neutral100: string;
-        neutral0: string;
+        secondaryText: string;
+        inactive: string;
+        boards: string;
       };
     };
     status: {
@@ -99,6 +93,11 @@ declare module '@mui/material/styles' {
         lineHeight: string;
         fontWeight: string;
       };
+      h9: {
+        fontSize: string;
+        lineHeight: string;
+        fontWeight: string;
+      };
       subtitle1: {
         fontSize: string;
         lineHeight: string;
@@ -134,11 +133,6 @@ declare module '@mui/material/styles' {
         lineHeight: string;
         fontWeight: string;
       };
-      overline: {
-        fontSize: string;
-        lineHeight: string;
-        fontWeight: string;
-      };
     };
   }
 
@@ -147,26 +141,17 @@ declare module '@mui/material/styles' {
       primary?: {
         main?: string;
         background?: string;
-        heavy?: string;
+        black?: string;
         yellow?: string;
-        orange?: string;
-        green?: string;
-        blue?: string;
+        red?: string;
       };
       secondary?: {
         main?: string;
       };
       neutral?: {
-        neutral900?: string;
-        neutral800?: string;
-        neutral700?: string;
-        neutral600?: string;
-        neutral500?: string;
-        neutral400?: string;
-        neutral300?: string;
-        neutral200?: string;
-        neutral100?: string;
-        neutral0?: string;
+        secondaryText?: string;
+        inactive?: string;
+        boards?: string;
       };
     };
     status?: {
@@ -233,6 +218,11 @@ declare module '@mui/material/styles' {
         lineHeight?: string;
         fontWeight?: string;
       };
+      h9?: {
+        fontSize?: string;
+        lineHeight?: string;
+        fontWeight?: string;
+      };
       subtitle1?: {
         fontSize?: string;
         lineHeight?: string;
@@ -268,11 +258,6 @@ declare module '@mui/material/styles' {
         lineHeight?: string;
         fontWeight?: string;
       };
-      overline?: {
-        fontSize?: string;
-        lineHeight?: string;
-        fontWeight?: string;
-      };
     };
   }
 }
@@ -281,133 +266,124 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
   const theme: ThemeOptions = createTheme({
     customPalette: {
       primary: {
-        main: '#5C881A',
-        background: '#E7ECE4',
-        heavy: '#405E12',
-        yellow: '#FFFF00',
-        orange: '#FF5A00',
-        green: '#5C881A',
-        blue: '#705AFA',
+        main: '#348f42',
+        background: '#f6f6f6',
+        black: '#464646',
+        yellow: '#EEC02A',
+        red: '#FF7070',
       },
       secondary: {
-        main: '#F6F6F9',
+        main: '#7EC042',
       },
       neutral: {
-        neutral900: '#212134',
-        neutral800: '#32324D',
-        neutral700: '#4A4A6A',
-        neutral600: '#666687',
-        neutral500: '#8E8EA9',
-        neutral400: '#A5A5BA',
-        neutral300: '#C0C0CF',
-        neutral200: '#DCDCE4',
-        neutral100: '#F6F6F9',
-        neutral0: '#FFFFFF',
+        secondaryText: '#A3A3A3',
+        inactive: '#C7C7C7',
+        boards: '#ECECEC',
       },
     },
     status: {
       success: {
-        main: '#5CB176',
+        main: '#348f42',
         secondary: '#C6F0C2',
         tertiary: '#EAFBE7',
       },
       info: {
         main: '#705AFA',
-        background: '#FFFFFF',
+        background: '#f6f6f6',
       },
       warning: {
-        main: '#BE5D01',
-        secondary: '#D9822F',
-        tertiary: '#F29D41',
-        background: '#527917',
+        main: '#EEC02A',
+        secondary: '#EED481',
+        tertiary: '#EEDEA9',
+        background: '#EEE3BE',
       },
       danger: {
-        main: '#B72B1A',
+        main: '#FF7070',
         secondary: '#D02B20',
         tertiary: '#EE5E52',
       },
     },
     customTypography: {
-      //fontFamily: 'Roboto',
+      fontFamily: 'Montserrat',
       h1: {
-        fontSize: '38px',
+        fontSize: '42px',
         lineHeight: '48px',
-        fontWeight: 'bold',
+        fontWeight: '700',
       },
       h2: {
-        fontSize: '38px',
+        fontSize: '40px',
         lineHeight: '48px',
-        fontWeight: 'regular',
+        fontWeight: '700',
       },
       h3: {
         fontSize: '32px',
         lineHeight: '40px',
-        fontWeight: 'bold',
+        fontWeight: '700',
       },
       h4: {
-        fontSize: '32px',
+        fontSize: '24px',
         lineHeight: '40px',
-        fontWeight: 'regular',
+        fontWeight: '700',
       },
       h5: {
-        fontSize: '24px',
+        fontSize: '18px',
         lineHeight: '32px',
-        fontWeight: 'bold',
+        fontWeight: '700',
       },
       h6: {
-        fontSize: '24px',
+        fontSize: '18px',
         lineHeight: '32px',
-        fontWeight: 'regular',
+        fontWeight: '500',
       },
       h7: {
-        fontSize: '20px',
+        fontSize: '18px',
         lineHeight: '28px',
-        fontWeight: 'bold',
+        fontWeight: '600',
       },
       h8: {
-        fontSize: '20px',
+        fontSize: '12px',
         lineHeight: '28px',
-        fontWeight: 'regular',
+        fontWeight: '700',
+      },
+      h9: {
+        fontSize: '12px',
+        lineHeight: '20px',
+        fontWeight: '500',
       },
       subtitle1: {
-        fontSize: '16px',
+        fontSize: '18px',
         lineHeight: '24px',
-        fontWeight: 'bold',
+        fontWeight: '400',
       },
       subtitle2: {
-        fontSize: '16px',
+        fontSize: '14px',
         lineHeight: '24px',
-        fontWeight: 'regular',
+        fontWeight: '400',
       },
       body1: {
-        fontSize: '14px',
+        fontSize: '24px',
         lineHeight: '22px',
-        fontWeight: 'bold',
+        fontWeight: '400',
       },
       body2: {
-        fontSize: '14px',
-        lineHeight: '22px',
-        fontWeight: 'regular',
+        fontSize: '18px',
+        lineHeight: '30px',
+        fontWeight: '400',
       },
       body3: {
-        fontSize: '12px',
-        lineHeight: '20px',
-        fontWeight: 'bold',
-      },
-      body4: {
-        fontSize: '12px',
-        lineHeight: '20px',
-        fontWeight: 'regular',
-      },
-      button: {
         fontSize: '16px',
         lineHeight: '20px',
-        fontWeight: 'regular',
+        fontWeight: '400',
       },
-      overline: {
+      body4: {
+        fontSize: '16px',
+        lineHeight: '20px',
+        fontWeight: '500',
+      },
+      button: {
         fontSize: '10px',
         lineHeight: '20px',
-        fontWeight: 'regular',
+        fontWeight: '600',
       },
     },
   });
