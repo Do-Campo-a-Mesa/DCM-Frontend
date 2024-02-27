@@ -6,9 +6,13 @@ import { Product } from '../../lib/interfaces/Product';
 import { getProducts } from '../../services/products';
 import { getAllProductsCategories } from '../../services/categories';
 import { ProductCategory } from '../../lib/interfaces/Categories';
-import CategoriesList from '../Home/components/CategoriesList';
+
 import { useCustomStyles } from './style';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
+import SearchCard from '../../lib/components/CategoriesFilter/categoriesSearchCard';
+import PartnerSearchCard from '../../lib/components/PartnerFilter/partnerSearchCard';
+import { Partner } from '../../lib/interfaces/Partner';
+import { getHomePagePartners } from '../../services/partners/index';
 
 export default function UserSearchProducts() {
   const style = useCustomStyles();
@@ -32,6 +36,16 @@ export default function UserSearchProducts() {
       setCategories(productCategoriesResponse.data);
     })();
   }, []);
+
+  //Partners
+  const [partners, setPartners] = useState<Partner[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const partnersResponse = await getHomePagePartners();
+      setPartners(partnersResponse.data);
+    })();
+  }, []);
   return (
     <>
       <Container sx={style.containerStyle}>
@@ -41,18 +55,23 @@ export default function UserSearchProducts() {
           minHeight={'100vh'}
           sx={style.gridStyle}
         >
-          <Grid sm={3}>
-            <Typography sx={style.subtitle}>filtros</Typography>
-            <CategoriesList
-              categories={categories}
-              categoryId={selectedCategoryId}
-              setCategory={setSelectedCategoryId}
-            />
+          <Grid item sm={3}>
+            <Typography sx={style.subtitle}>Filtrar</Typography>
+            <Grid item sm={12}>
+              <Typography sx={style.filterTypeStyle}>Categorias</Typography>
+              <SearchCard
+                categories={categories}
+                categoryId={selectedCategoryId}
+                setCategory={setSelectedCategoryId}
+              ></SearchCard>
+              <Typography sx={style.filterTypeStyle}>Lojas</Typography>
+              <PartnerSearchCard partners={partners} />
+            </Grid>
           </Grid>
-          <Grid sm={9}>
+          <Grid item sm={9}>
             <Typography sx={style.title}>resultados</Typography>
-            <Grid sm={6}></Grid>
-            <Grid sm={6}></Grid>
+            <Grid item sm={6}></Grid>
+            <Grid item sm={6}></Grid>
             <ProductsList products={products} />
           </Grid>
         </Grid>

@@ -14,8 +14,9 @@ import { useMediaQuery } from '@mui/material';
 import { useCustomStyles } from './style';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import ResultsInfo from '../../../../screens/UserSearchProducts/Components/resultsInfo';
+
 import React from 'react';
+import ResultsInfo from '../../../../screens/UserSearchProducts/Components/searchInfo/resultsInfo';
 
 interface Props {
   products: Product[];
@@ -61,28 +62,46 @@ const ProductsList: React.FC<Props> = ({ products }) => {
           <Grid
             item
             xs={6}
-            sx={{ display: 'flex', justifyContent: 'flex-start' }}
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+            }}
           >
             <ResultsInfo currentPage={0} itemsPerPage={0} totalItems={0} />
           </Grid>
           <Grid
             item
             xs={6}
-            sx={{ display: 'flex', justifyContent: 'flex-end' }}
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}
           >
-            <Typography>ordenar por:</Typography>
+            <Typography sx={style.sortFontStyle}>ordenar por:</Typography>
             <FormControl
               sx={{
                 m: 1,
                 minWidth: 120,
               }}
+              size="small"
             >
               <Select
                 value={age}
                 onChange={handleChange}
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
-                sx={{ backgroundColor: style.theme.customPalette.primary.main }}
+                sx={style.selectStyle}
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: style.theme.customPalette.primary.main,
+                      color: style.theme.customPalette.primary.background,
+                      borderRadius: '15px',
+                    },
+                  },
+                }}
               >
                 <MenuItem value="">
                   <em>None</em>

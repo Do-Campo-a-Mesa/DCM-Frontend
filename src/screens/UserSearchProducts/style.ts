@@ -7,10 +7,9 @@ export const useCustomStyles = () => {
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
     textTransform: 'uppercase',
-    mb: 2,
   };
   const subtitle = {
-    pt: 7,
+    pt: 2,
     typography: theme.customTypography.h7,
     fontFamily: theme.customTypography.fontFamily,
     color: theme.customPalette.primary.black,
@@ -37,5 +36,18 @@ export const useCustomStyles = () => {
       maxWidth: 'none',
     },
   };
-  return { title, containerStyle, gridStyle, subtitle, SmallFooterStyle };
+  const filterTypeStyle = {
+    fontFamily: theme.customTypography.fontFamily,
+    typography: theme.customTypography.h6,
+    color: theme.customPalette.primary.black,
+    pt: 2,
+  };
+  return {
+    title,
+    containerStyle,
+    gridStyle,
+    subtitle,
+    SmallFooterStyle,
+    filterTypeStyle,
+  };
 };
