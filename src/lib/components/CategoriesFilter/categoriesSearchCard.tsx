@@ -12,29 +12,18 @@ import { useCustomStyles } from './style';
 
 interface Props {
   categories: ProductCategory[];
-  categoryId: number;
-  setCategory: (categoryId: number) => void;
+  onCategorySelectionChange: (selectedCategoryIds: number[]) => void;
 }
 
-const SearchCard: React.FC<Props> = ({ categories }) => {
+const SearchCard: React.FC<Props> = ({
+  categories,
+  onCategorySelectionChange,
+}) => {
   const style = useCustomStyles();
   const [inputValue, setInputValue] = useState('');
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
   const [filteredCategories, setFilteredCategories] =
     useState<ProductCategory[]>(categories);
-
-  const handleCategoryToggle = (category: string) => {
-    const currentIndex = selectedCategories.indexOf(category);
-    const newSelectedCategories = [...selectedCategories];
-
-    if (currentIndex === -1) {
-      newSelectedCategories.push(category);
-    } else {
-      newSelectedCategories.splice(currentIndex, 1);
-    }
-
-    setSelectedCategories(newSelectedCategories);
-  };
 
   useEffect(() => {
     const filtered = categories.filter((category) =>
@@ -42,6 +31,20 @@ const SearchCard: React.FC<Props> = ({ categories }) => {
     );
     setFilteredCategories(filtered);
   }, [inputValue, categories]);
+
+  const handleCategoryToggle = (categoryId: number) => {
+    const currentIndex = selectedCategories.indexOf(categoryId);
+    const newSelectedCategories = [...selectedCategories];
+
+    if (currentIndex === -1) {
+      newSelectedCategories.push(categoryId);
+    } else {
+      newSelectedCategories.splice(currentIndex, 1);
+    }
+
+    setSelectedCategories(newSelectedCategories);
+    onCategorySelectionChange(newSelectedCategories);
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -60,11 +63,11 @@ const SearchCard: React.FC<Props> = ({ categories }) => {
           <FormGroup>
             {filteredCategories.map((category: ProductCategory) => (
               <FormControlLabel
-                key={category.name}
+                key={category.id}
                 control={
                   <Checkbox
-                    checked={selectedCategories.indexOf(category.name) !== -1}
-                    onChange={() => handleCategoryToggle(category.name)}
+                    checked={selectedCategories.includes(category.id)}
+                    onChange={() => handleCategoryToggle(category.id)}
                   />
                 }
                 label={category.name}

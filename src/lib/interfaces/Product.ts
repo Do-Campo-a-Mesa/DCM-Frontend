@@ -1,5 +1,6 @@
 import { ProductCardCategory } from './Categories';
 export interface FilterProductInput {
+  partner?: string;
   search_string?: string;
   categoriesIDs?: number[];
   price_min?: number;

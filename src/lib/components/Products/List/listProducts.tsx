@@ -38,7 +38,7 @@ const ProductsList: React.FC<Props> = ({ products }) => {
     setSortBy(event.target.value);
   };
   const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
+    _event: React.ChangeEvent<unknown>,
     page: number
   ) => {
     setCurrentPage(page);

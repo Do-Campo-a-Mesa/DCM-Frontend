@@ -17,19 +17,41 @@ import { getHomePagePartners } from '../../services/partners/index';
 export default function UserSearchProducts() {
   const style = useCustomStyles();
   const [products, setProducts] = useState<Product[]>([]);
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number>(0);
-  useEffect(() => {
-    (async () => {
-      const productsResponse = await getProducts({
-        categoriesIDs:
-          selectedCategoryId != 0 ? [selectedCategoryId] : undefined,
-      });
-
-      setProducts(productsResponse.data);
-    })();
-  }, [selectedCategoryId]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [categories, setCategories] = useState<ProductCategory[]>([]);
+  const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categoriesResponse = await getAllProductsCategories();
+        setCategories(categoriesResponse.data);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const productsResponse = await getProducts({
+          categoriesIDs:
+            selectedCategoryIds.length > 0 ? selectedCategoryIds : undefined,
+        });
+        setProducts(productsResponse.data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, [selectedCategoryIds]);
+
+  const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
+    setSelectedCategoryIds(selectedCategoryIds);
+  };
+
   useEffect(() => {
     (async () => {
       const productCategoriesResponse = await getAllProductsCategories();
@@ -61,8 +83,7 @@ export default function UserSearchProducts() {
               <Typography sx={style.filterTypeStyle}>Categorias</Typography>
               <SearchCard
                 categories={categories}
-                categoryId={selectedCategoryId}
-                setCategory={setSelectedCategoryId}
+                onCategorySelectionChange={handleCategorySelectionChange}
               ></SearchCard>
               <Typography sx={style.filterTypeStyle}>Lojas</Typography>
               <PartnerSearchCard partners={partners} />

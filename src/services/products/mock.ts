@@ -16,6 +16,11 @@ export async function getProducts(
       )
     );
   }
+  if (filterInput.partner) {
+    filteredProducts = filteredProducts.filter(
+      (product) => filterInput.partner === product.partner
+    );
+  }
 
   return { data: filteredProducts };
 }
