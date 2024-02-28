@@ -30,12 +30,12 @@ const ProductsList: React.FC<Props> = ({ products }) => {
   const isMediumScreen = useMediaQuery(
     style.theme.breakpoints.between('sm', 'md')
   );
-  const itemsPerPage = 12;
+  const [itemsPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
-  const [age, setAge] = React.useState('');
+  const [sortBy, setSortBy] = useState<string>('');
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    setSortBy(event.target.value);
   };
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -44,9 +44,29 @@ const ProductsList: React.FC<Props> = ({ products }) => {
     setCurrentPage(page);
   };
   const renderProductCards = (products: Product[]) => {
+    const sortedProducts = [...products];
+
+    if (sortBy === 'asc') {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'desc') {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (sortBy === 'ascRating') {
+      sortedProducts.sort((a, b) => {
+        const ratingA = a.review !== undefined ? a.review : 0;
+        const ratingB = b.review !== undefined ? b.review : 0;
+        return ratingA - ratingB;
+      });
+    } else if (sortBy === 'descRating') {
+      sortedProducts.sort((a, b) => {
+        const ratingA = a.review !== undefined ? a.review : 0;
+        const ratingB = b.review !== undefined ? b.review : 0;
+        return ratingB - ratingA;
+      });
+    }
+
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentProducts = products.slice(startIndex, endIndex);
+    const currentProducts = sortedProducts.slice(startIndex, endIndex);
 
     return currentProducts.map((product) => (
       <Grid key={product.id} item xs={12} sm={isMediumScreen ? 4 : 3}>
@@ -68,7 +88,11 @@ const ProductsList: React.FC<Props> = ({ products }) => {
               alignItems: 'center',
             }}
           >
-            <ResultsInfo currentPage={0} itemsPerPage={0} totalItems={0} />
+            <ResultsInfo
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              totalItems={products.length}
+            />
           </Grid>
           <Grid
             item
@@ -88,7 +112,7 @@ const ProductsList: React.FC<Props> = ({ products }) => {
               size="small"
             >
               <Select
-                value={age}
+                value={sortBy}
                 onChange={handleChange}
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
@@ -104,11 +128,12 @@ const ProductsList: React.FC<Props> = ({ products }) => {
                 }}
               >
                 <MenuItem value="">
-                  <em>None</em>
+                  <em>Nenhum</em>
                 </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value="asc">Preço (crescente)</MenuItem>
+                <MenuItem value="desc">Preço (decrescente)</MenuItem>
+                <MenuItem value="ascRating">Avaliação (crescente)</MenuItem>
+                <MenuItem value="descRating">Avaliação (decrescente)</MenuItem>
               </Select>
             </FormControl>
           </Grid>
