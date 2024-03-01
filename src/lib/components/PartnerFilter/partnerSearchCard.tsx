@@ -25,26 +25,21 @@ const PartnerSearchCard: React.FC<Props> = ({
   const [selectedPartners, setSelectedPartners] = useState<number[]>([]);
   const [filteredPartners, setFilteredPartners] = useState<Partner[]>(partners);
 
-  const handlePartnerToggle = (partner: number) => {
-    const currentIndex = selectedPartners.indexOf(partner);
-    const newSelectedPartners = [...selectedPartners];
-
-    if (currentIndex === -1) {
-      newSelectedPartners.push(partner);
-    } else {
-      newSelectedPartners.splice(currentIndex, 1);
-    }
-
-    setSelectedPartners(newSelectedPartners);
-    onPartnerSelectionChange(newSelectedPartners);
-  };
-
   useEffect(() => {
     const filtered = partners.filter((partner) =>
       partner.companyName.toLowerCase().includes(inputValue.toLowerCase())
     );
     setFilteredPartners(filtered);
   }, [inputValue, partners]);
+
+  const handlePartnerToggle = (partnerId: number) => {
+    const newSelectedPartners = selectedPartners.includes(partnerId)
+      ? selectedPartners.filter((id) => id !== partnerId)
+      : [...selectedPartners, partnerId];
+
+    setSelectedPartners(newSelectedPartners);
+    onPartnerSelectionChange(newSelectedPartners);
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);

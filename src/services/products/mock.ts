@@ -16,9 +16,10 @@ export async function getProducts(
       )
     );
   }
+
   if (filterInput.partners) {
     filteredProducts = filteredProducts.filter(
-      (partner) => filterInput.partners?.includes(partner.id)
+      (product) => filterInput.partners?.includes(product.partner.id)
     );
   }
 
