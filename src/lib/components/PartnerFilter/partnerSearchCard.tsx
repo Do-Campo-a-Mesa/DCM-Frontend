@@ -13,15 +13,19 @@ import { Partner } from '../../interfaces/Partner';
 
 interface Props {
   partners: Partner[];
+  onPartnerSelectionChange: (selectedPartners: number[]) => void;
 }
 
-const PartnerSearchCard: React.FC<Props> = ({ partners }) => {
+const PartnerSearchCard: React.FC<Props> = ({
+  partners,
+  onPartnerSelectionChange,
+}) => {
   const style = useCustomStyles();
   const [inputValue, setInputValue] = useState('');
-  const [selectedPartners, setSelectedPartners] = useState<string[]>([]);
+  const [selectedPartners, setSelectedPartners] = useState<number[]>([]);
   const [filteredPartners, setFilteredPartners] = useState<Partner[]>(partners);
 
-  const handlePartnerToggle = (partner: string) => {
+  const handlePartnerToggle = (partner: number) => {
     const currentIndex = selectedPartners.indexOf(partner);
     const newSelectedPartners = [...selectedPartners];
 
@@ -32,6 +36,7 @@ const PartnerSearchCard: React.FC<Props> = ({ partners }) => {
     }
 
     setSelectedPartners(newSelectedPartners);
+    onPartnerSelectionChange(newSelectedPartners);
   };
 
   useEffect(() => {
@@ -61,10 +66,8 @@ const PartnerSearchCard: React.FC<Props> = ({ partners }) => {
                 key={partner.id}
                 control={
                   <Checkbox
-                    checked={
-                      selectedPartners.indexOf(partner.companyName) !== -1
-                    }
-                    onChange={() => handlePartnerToggle(partner.companyName)}
+                    checked={selectedPartners.includes(partner.id)}
+                    onChange={() => handlePartnerToggle(partner.id)}
                   />
                 }
                 label={partner.companyName}

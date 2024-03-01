@@ -7,6 +7,7 @@ export interface ProductCategory {
 
 export interface ProductCardCategory {
   id: number;
+  name: string;
 }
 
 export interface ProductCategoryResponse {

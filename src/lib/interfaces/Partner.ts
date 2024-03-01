@@ -4,7 +4,10 @@ export interface Partner {
   business: string;
   logotipo: string;
 }
-
+export interface ProductCardPartner {
+  id: number;
+  companyName: string;
+}
 export interface PartnersResponse {
   data: Partner[];
 }

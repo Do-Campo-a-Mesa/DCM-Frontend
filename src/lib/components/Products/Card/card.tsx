@@ -16,8 +16,13 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { formatProductPrice } from '../../../../utils';
+import { ProductCategory } from '../../../interfaces/Categories';
+import { Partner } from '../../../interfaces/Partner';
+
 interface Props {
   product: Product;
+  categories: ProductCategory[];
+  partner: Partner[];
 }
 const CardProductsHome: React.FC<Props> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -72,7 +77,9 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
                 {product.name}
               </Typography>
               <Typography component="div" sx={style.titlePartnerStyle}>
-                {product.partner}
+                <div key={product.partner.id}>
+                  {product.partner.companyName}
+                </div>
               </Typography>
               <Rating
                 name="rating-read"

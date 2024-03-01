@@ -18,18 +18,22 @@ export default function UserSearchProducts() {
   const style = useCustomStyles();
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<ProductCategory[]>([]);
+  const [partners, setPartners] = useState<Partner[]>([]);
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
+  const [selectedPartners, setSelectedPartners] = useState<number[]>([]);
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchInfo = async () => {
       try {
         const categoriesResponse = await getAllProductsCategories();
         setCategories(categoriesResponse.data);
+        const partnersResponse = await getHomePagePartners();
+        setPartners(partnersResponse.data);
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
     };
 
-    fetchCategories();
+    fetchInfo();
   }, []);
 
   useEffect(() => {
@@ -38,6 +42,7 @@ export default function UserSearchProducts() {
         const productsResponse = await getProducts({
           categoriesIDs:
             selectedCategoryIds.length > 0 ? selectedCategoryIds : undefined,
+          partners: selectedPartners.length > 0 ? selectedPartners : undefined,
         });
         setProducts(productsResponse.data);
       } catch (error) {
@@ -46,12 +51,14 @@ export default function UserSearchProducts() {
     };
 
     fetchProducts();
-  }, [selectedCategoryIds]);
+  }, [selectedCategoryIds, selectedPartners]);
 
   const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
     setSelectedCategoryIds(selectedCategoryIds);
   };
-
+  const handlePartnerSelectionChange = (selectedPartners: number[]) => {
+    setSelectedPartners(selectedPartners);
+  };
   useEffect(() => {
     (async () => {
       const productCategoriesResponse = await getAllProductsCategories();
@@ -59,13 +66,10 @@ export default function UserSearchProducts() {
     })();
   }, []);
 
-  //Partners
-  const [partners, setPartners] = useState<Partner[]>([]);
-
   useEffect(() => {
     (async () => {
-      const partnersResponse = await getHomePagePartners();
-      setPartners(partnersResponse.data);
+      const productPartnersResponse = await getHomePagePartners();
+      setPartners(productPartnersResponse.data);
     })();
   }, []);
   return (
@@ -86,7 +90,10 @@ export default function UserSearchProducts() {
                 onCategorySelectionChange={handleCategorySelectionChange}
               ></SearchCard>
               <Typography sx={style.filterTypeStyle}>Lojas</Typography>
-              <PartnerSearchCard partners={partners} />
+              <PartnerSearchCard
+                partners={partners}
+                onPartnerSelectionChange={handlePartnerSelectionChange}
+              />
             </Grid>
           </Grid>
           <Grid item sm={9}>
