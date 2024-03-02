@@ -15,7 +15,7 @@ interface Props {
   onCategorySelectionChange: (selectedCategoryIds: number[]) => void;
 }
 
-const SearchCard: React.FC<Props> = ({
+const CategorySearchCard: React.FC<Props> = ({
   categories,
   onCategorySelectionChange,
 }) => {
@@ -82,4 +82,4 @@ const SearchCard: React.FC<Props> = ({
   );
 };
 
-export default SearchCard;
+export default CategorySearchCard;

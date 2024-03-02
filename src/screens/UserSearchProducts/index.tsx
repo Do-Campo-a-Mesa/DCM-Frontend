@@ -9,10 +9,11 @@ import { ProductCategory } from '../../lib/interfaces/Categories';
 
 import { useCustomStyles } from './style';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
-import SearchCard from '../../lib/components/CategoriesFilter/categoriesSearchCard';
+import CategorySearchCard from '../../lib/components/CategoriesFilter/categoriesSearchCard';
 import PartnerSearchCard from '../../lib/components/PartnerFilter/partnerSearchCard';
 import { Partner } from '../../lib/interfaces/Partner';
 import { getHomePagePartners } from '../../services/partners/index';
+import PriceSearchCard from '../../lib/components/PriceFilter/priceRange';
 
 export default function UserSearchProducts() {
   const style = useCustomStyles();
@@ -21,6 +22,9 @@ export default function UserSearchProducts() {
   const [partners, setPartners] = useState<Partner[]>([]);
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
   const [selectedPartners, setSelectedPartners] = useState<number[]>([]);
+
+  const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
+
   useEffect(() => {
     const fetchInfo = async () => {
       try {
@@ -43,6 +47,8 @@ export default function UserSearchProducts() {
           categoriesIDs:
             selectedCategoryIds.length > 0 ? selectedCategoryIds : undefined,
           partners: selectedPartners.length > 0 ? selectedPartners : undefined,
+          price_min: priceRange[0],
+          price_max: priceRange[1],
         });
         setProducts(productsResponse.data);
       } catch (error) {
@@ -51,7 +57,7 @@ export default function UserSearchProducts() {
     };
 
     fetchProducts();
-  }, [selectedCategoryIds, selectedPartners]);
+  }, [selectedCategoryIds, selectedPartners, priceRange]); // Adiciona priceRange como dependência
 
   const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
     setSelectedCategoryIds(selectedCategoryIds);
@@ -59,6 +65,7 @@ export default function UserSearchProducts() {
   const handlePartnerSelectionChange = (selectedPartners: number[]) => {
     setSelectedPartners(selectedPartners);
   };
+
   useEffect(() => {
     (async () => {
       const productCategoriesResponse = await getAllProductsCategories();
@@ -72,6 +79,7 @@ export default function UserSearchProducts() {
       setPartners(productPartnersResponse.data);
     })();
   }, []);
+
   return (
     <>
       <Container sx={style.containerStyle}>
@@ -85,14 +93,19 @@ export default function UserSearchProducts() {
             <Typography sx={style.subtitle}>Filtrar</Typography>
             <Grid item sm={12}>
               <Typography sx={style.filterTypeStyle}>Categorias</Typography>
-              <SearchCard
+              <CategorySearchCard
                 categories={categories}
                 onCategorySelectionChange={handleCategorySelectionChange}
-              ></SearchCard>
+              />
               <Typography sx={style.filterTypeStyle}>Lojas</Typography>
               <PartnerSearchCard
                 partners={partners}
                 onPartnerSelectionChange={handlePartnerSelectionChange}
+              />
+              <Typography sx={style.filterTypeStyle}>Preço</Typography>
+              <PriceSearchCard
+                products={products}
+                onFilterChange={setPriceRange}
               />
             </Grid>
           </Grid>
