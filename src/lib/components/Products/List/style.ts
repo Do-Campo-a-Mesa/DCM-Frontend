@@ -27,6 +27,14 @@ export const useCustomStyles = () => {
     mb: 10,
     display: 'flex',
     justifyContent: 'center',
+    '& .MuiPaginationItem-root.Mui-selected': {
+      backgroundColor: theme.customPalette.primary.main,
+      color: theme.customPalette.primary.background,
+      '&:hover': {
+        backgroundColor: theme.customPalette.secondary.main,
+        color: theme.customPalette.primary.background,
+      },
+    },
   };
   const sortFontStyle = {
     fontFamily: theme.customTypography.fontFamily,
@@ -47,7 +55,6 @@ export const useCustomStyles = () => {
     },
     '&:hover .MuiOutlinedInput-notchedOutline': {
       borderColor: theme.customPalette.primary.main,
-      //backgroundColor: ' rgba(52, 143, 66, 0.2)',
     },
     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: theme.customPalette.primary.main,

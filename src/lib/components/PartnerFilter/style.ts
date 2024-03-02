@@ -27,17 +27,22 @@ export const useCustomStyles = () => {
   };
   const searchStyle = {
     minWidth: '100%',
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: theme.customPalette.neutral.inactive,
-    },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: theme.customPalette.primary.main,
-    },
-    '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: theme.customPalette.primary.main,
+    '& .MuiInputBase-root': {
+      color: theme.customPalette.primary.black,
+      typography: theme.customTypography.body4,
+      fontFamily: theme.customTypography.fontFamily,
+      '&:hover fieldset': {
+        borderColor: theme.customPalette.primary.main,
+      },
+      '& fieldset': {
+        borderColor: theme.customPalette.neutral.inactive,
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: theme.customPalette.secondary.main,
+      },
     },
     '& .MuiFormLabel-root.Mui-focused': {
-      color: theme.customPalette.primary.main,
+      color: theme.customPalette.secondary.main,
     },
     '& .MuiFormLabel-root': {
       color: theme.customPalette.neutral.inactive,
