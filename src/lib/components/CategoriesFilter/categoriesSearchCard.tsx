@@ -57,7 +57,7 @@ const SearchCard: React.FC<Props> = ({
           label="Buscar"
           value={inputValue}
           onChange={handleInputChange}
-          sx={{ minWidth: '100%' }}
+          sx={style.searchStyle}
         />
         <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
           <FormGroup>
@@ -66,11 +66,13 @@ const SearchCard: React.FC<Props> = ({
                 key={category.id}
                 control={
                   <Checkbox
+                    sx={style.checkboxStyle}
                     checked={selectedCategories.includes(category.id)}
                     onChange={() => handleCategoryToggle(category.id)}
                   />
                 }
                 label={category.name}
+                sx={style.checklabelStyle}
               />
             ))}
           </FormGroup>

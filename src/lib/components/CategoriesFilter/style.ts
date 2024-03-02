@@ -10,5 +10,40 @@ export const useCustomStyles = () => {
     mt: 1,
     backgroundColor: theme.customPalette.primary.background,
   };
-  return { cardStyle, theme };
+  const checkboxStyle = {
+    '&.Mui-checked': {
+      color: theme.customPalette.primary.main,
+    },
+  };
+  const checklabelStyle = {
+    '& .MuiFormControlLabel-label': {
+      fontFamily: theme.customTypography.fontFamily,
+      typography: theme.customTypography.body4,
+      color: theme.customPalette.neutral.secondaryText,
+    },
+    '& .MuiCheckbox-root.Mui-checked + .MuiFormControlLabel-label': {
+      color: theme.customPalette.primary.main,
+    },
+  };
+  const searchStyle = {
+    minWidth: '100%',
+    '& .MuiOutlinedInput-notchedOutline': {
+      borderColor: theme.customPalette.neutral.inactive,
+    },
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: theme.customPalette.primary.main,
+    },
+    '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: theme.customPalette.primary.main,
+    },
+    '& .MuiFormLabel-root.Mui-focused': {
+      color: theme.customPalette.primary.main,
+    },
+    '& .MuiFormLabel-root': {
+      color: theme.customPalette.neutral.inactive,
+      fontFamily: theme.customTypography.fontFamily,
+      typography: theme.customTypography.body3,
+    },
+  };
+  return { cardStyle, theme, checkboxStyle, checklabelStyle, searchStyle };
 };

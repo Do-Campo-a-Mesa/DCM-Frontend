@@ -52,7 +52,7 @@ const PartnerSearchCard: React.FC<Props> = ({
           label="Buscar"
           value={inputValue}
           onChange={handleInputChange}
-          sx={{ minWidth: '100%' }}
+          sx={style.searchStyle}
         />
         <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
           <FormGroup>
@@ -61,11 +61,13 @@ const PartnerSearchCard: React.FC<Props> = ({
                 key={partner.id}
                 control={
                   <Checkbox
+                    sx={style.checkboxStyle}
                     checked={selectedPartners.includes(partner.id)}
                     onChange={() => handlePartnerToggle(partner.id)}
                   />
                 }
                 label={partner.companyName}
+                sx={style.checklabelStyle}
               />
             ))}
           </FormGroup>
