@@ -1,5 +1,7 @@
 import { ProductCardCategory } from './Categories';
+import { ProductCardPartner } from './Partner';
 export interface FilterProductInput {
+  partners?: number[];
   search_string?: string;
   categoriesIDs?: number[];
   price_min?: number;
@@ -22,7 +24,7 @@ export interface Product {
   take_y?: number;
   new_price_with_promotion?: number;
   categories: ProductCardCategory[];
-  partner: string;
+  partner: ProductCardPartner;
 }
 export interface ProductsResponse {
   data: Product[];

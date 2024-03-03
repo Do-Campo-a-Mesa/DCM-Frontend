@@ -19,19 +19,19 @@
   },
   {
     "id": 4,
-    "companyName": "Youtube",
+    "companyName": "Youtube1",
     "business": "Site de vídeos",
     "logotipo": "/logo.png"
   },
   {
     "id": 5,
-    "companyName": "Linkedin",
+    "companyName": "Linkedin2",
     "business": "Rede social",
     "logotipo": "/logo.png"
   },
   {
     "id": 6,
-    "companyName": "Linkedin1",
+    "companyName": "Linkedin3",
     "business": "Rede social",
     "logotipo": "/logo.png"
   }
