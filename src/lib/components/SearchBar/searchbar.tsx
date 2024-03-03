@@ -26,7 +26,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, search_string }) => {
       InputProps={{
         endAdornment: (
           <InputAdornment position="end" sx={style.inputStyle}>
-            <Link to={`/${search_string}`}>
+            <Link to={`/buscar_produtos?search=${search_string}`}>
               <IconButton>
                 <SearchIcon sx={style.searchIconStyle} />
               </IconButton>
