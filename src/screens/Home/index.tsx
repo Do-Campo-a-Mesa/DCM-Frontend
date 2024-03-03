@@ -65,7 +65,6 @@ export default function Home() {
     })();
   }, []);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleSearch = (term: string) => {
@@ -234,7 +233,7 @@ export default function Home() {
         nosso catálogo
       </Typography>
       <Container sx={SearchContainerStyle}>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} search_string={searchTerm} />
       </Container>
 
       <Container>

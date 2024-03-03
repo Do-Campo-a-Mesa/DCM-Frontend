@@ -56,7 +56,6 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
     setAnchorElUser(null);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchProduct, setSearchProduct] = React.useState<string>('');
 
   const handleSearch = (term: string) => {
@@ -126,7 +125,7 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
               </Box>
             </>
           ) : (
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearch} search_string={searchProduct} />
           )}
           {!isLoggedIn ? (
             <>
