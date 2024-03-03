@@ -14,6 +14,7 @@ import PartnerSearchCard from '../../lib/components/PartnerFilter/partnerSearchC
 import { Partner } from '../../lib/interfaces/Partner';
 import { getHomePagePartners } from '../../services/partners/index';
 import PriceSearchCard from '../../lib/components/PriceFilter/priceRange';
+import Navbar from '../../lib/components/Navbar/Navbar';
 
 export default function UserSearchProducts() {
   const style = useCustomStyles();
@@ -82,6 +83,7 @@ export default function UserSearchProducts() {
 
   return (
     <>
+      <Navbar isHomePage={false} />
       <Container sx={style.containerStyle}>
         <Grid
           container
