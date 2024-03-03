@@ -66,7 +66,7 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
     <AppBar position="static" sx={style.appBarStyle}>
       <Container maxWidth="lg">
         <Toolbar>
-          {isHomePage ? (
+          {!isHomePage ? (
             <Link to="/">
               <img src={Logo} className="LogoNav" alt="Logo" />
             </Link>
