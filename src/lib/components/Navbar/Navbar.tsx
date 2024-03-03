@@ -18,6 +18,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { sections, user_no_login_options } from './items';
 import { Link } from 'react-router-dom';
+import SearchBar from '../SearchBar/searchbar';
 
 interface Props {
   isHomePage: boolean;
@@ -55,6 +56,13 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
     setAnchorElUser(null);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [searchProduct, setSearchProduct] = React.useState<string>('');
+
+  const handleSearch = (term: string) => {
+    setSearchProduct(term);
+  };
+
   return (
     <AppBar position="static" sx={style.appBarStyle}>
       <Container maxWidth="lg">
@@ -66,59 +74,60 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
           ) : (
             <img src={Logo} className="LogoNav" alt="Logo" />
           )}
-          <Box sx={style.boxStyle1}>
-            <IconButton
-              size="large"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              sx={style.iconButtonStyle}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={style.menuStyle}
-            >
-              {sections.map((section) => (
-                <MenuItem
-                  key={section.label}
-                  onClick={handleCloseNavMenu}
-                  sx={style.menuItemStyle}
-                >
-                  {section.label}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
           {isHomePage ? (
-            <Box sx={style.boxStyle2}>
-              {sections.map((section) => (
-                <Button
-                  disableRipple
-                  key={section.label}
-                  onClick={handleCloseNavMenu}
-                  sx={style.buttonStyle}
+            <>
+              <Box sx={style.boxStyle1}>
+                <IconButton
+                  size="large"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  sx={style.iconButtonStyle}
                 >
-                  {section.label}
-                </Button>
-              ))}
-            </Box>
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={style.menuStyle}
+                >
+                  {sections.map((section) => (
+                    <MenuItem
+                      key={section.label}
+                      onClick={handleCloseNavMenu}
+                      sx={style.menuItemStyle}
+                    >
+                      {section.label}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+              <Box sx={style.boxStyle2}>
+                {sections.map((section) => (
+                  <Button
+                    disableRipple
+                    key={section.label}
+                    onClick={handleCloseNavMenu}
+                    sx={style.buttonStyle}
+                  >
+                    {section.label}
+                  </Button>
+                ))}
+              </Box>
+            </>
           ) : (
-            <></>
+            <SearchBar onSearch={handleSearch} />
           )}
-          {/* falta colocar o componente de search da navbar */}
           {!isLoggedIn ? (
             <>
               <Box sx={style.boxStyle3}>
