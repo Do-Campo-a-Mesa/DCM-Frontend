@@ -79,30 +79,14 @@ const ProductsList: React.FC<Props> = ({ products }) => {
     <Grid container spacing={3}>
       {!isHomePage && (
         <Grid container sx={{ pl: '24px', pt: 2 }}>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-            }}
-          >
+          <Grid item xs={12} sm={6} sx={style.resultsStyle}>
             <ResultsInfo
               currentPage={currentPage}
               itemsPerPage={itemsPerPage}
               totalItems={products.length}
             />
           </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
+          <Grid item xs={12} sm={6} sx={style.orderStyle}>
             <Typography sx={style.sortFontStyle}>ordenar por:</Typography>
             <FormControl
               sx={{
@@ -152,7 +136,6 @@ const ProductsList: React.FC<Props> = ({ products }) => {
             count={Math.ceil(products.length / itemsPerPage)}
             page={currentPage}
             onChange={handlePageChange}
-            color="primary"
             sx={style.paginationStyle}
           />
         )}

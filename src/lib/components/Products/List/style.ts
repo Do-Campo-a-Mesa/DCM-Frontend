@@ -60,6 +60,24 @@ export const useCustomStyles = () => {
       borderColor: theme.customPalette.primary.main,
     },
   };
+  const orderStyle = {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    '@media (max-width: 600px)': {
+      justifyContent: 'center',
+      mt: 1,
+    },
+  };
+  const resultsStyle = {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    '@media (max-width: 600px)': {
+      justifyContent: 'center',
+      mt: 1,
+    },
+  };
   return {
     buttonStyle,
     theme,
@@ -67,5 +85,7 @@ export const useCustomStyles = () => {
     paginationStyle,
     sortFontStyle,
     selectStyle,
+    orderStyle,
+    resultsStyle,
   };
 };
