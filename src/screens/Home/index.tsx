@@ -238,7 +238,11 @@ export default function Home() {
         nosso catálogo
       </Typography>
       <Container sx={SearchContainerStyle}>
-        <SearchBar onSearch={handleSearch} search_string={searchTerm} />
+        <SearchBar
+          onSearch={handleSearch}
+          search_string={searchTerm}
+          isHomePage
+        />
       </Container>
 
       <Container>

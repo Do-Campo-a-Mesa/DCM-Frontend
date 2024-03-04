@@ -7,14 +7,19 @@ import { Link } from 'react-router-dom';
 interface SearchBarProps {
   onSearch: (term: string) => void;
   search_string: string;
+  isHomePage?: boolean;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch, search_string }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  onSearch,
+  search_string,
+  isHomePage,
+}) => {
   const handleSearch = debounce((event: ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value);
   }, 300);
 
-  const style = useCustomStyles();
+  const style = useCustomStyles(isHomePage);
 
   return (
     <TextField

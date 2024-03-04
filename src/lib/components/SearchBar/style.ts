@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material/styles';
 
-export const useCustomStyles = () => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const useCustomStyles = (isHomePage?: boolean) => {
   const theme = useTheme();
 
   const textFieldStyle = {
