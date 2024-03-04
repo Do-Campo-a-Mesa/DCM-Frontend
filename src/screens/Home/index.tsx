@@ -36,7 +36,6 @@ export default function Home() {
       setProducts(productsResponse.data);
     })();
   }, [selectedCategoryId]);
-
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   useEffect(() => {
     (async () => {
@@ -60,13 +59,6 @@ export default function Home() {
     (async () => {
       const testimonialsResponse = await getHomePageTestimonials();
       setTestimonials(testimonialsResponse.data);
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const productCategoriesResponse = await getAllProductsCategories();
-      setCategories(productCategoriesResponse.data);
     })();
   }, []);
 

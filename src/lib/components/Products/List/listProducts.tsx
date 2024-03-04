@@ -7,15 +7,13 @@ import {
   Select,
   SelectChangeEvent,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 import { Product } from '../../../interfaces/Product';
 import CardProductsHome from '../Card/card';
-import { useMediaQuery } from '@mui/material';
 import { useCustomStyles } from './style';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-
-import React from 'react';
 import ResultsInfo from '../../../../screens/UserSearchProducts/Components/searchInfo/resultsInfo';
 
 interface Props {
@@ -30,7 +28,9 @@ const ProductsList: React.FC<Props> = ({ products }) => {
   const isMediumScreen = useMediaQuery(
     style.theme.breakpoints.between('sm', 'md')
   );
-  const [itemsPerPage] = useState(12);
+
+  const itemsPerPage = 12;
+
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<string>('');
 
@@ -52,14 +52,14 @@ const ProductsList: React.FC<Props> = ({ products }) => {
       sortedProducts.sort((a, b) => b.price - a.price);
     } else if (sortBy === 'ascRating') {
       sortedProducts.sort((a, b) => {
-        const ratingA = a.review !== undefined ? a.review : 0;
-        const ratingB = b.review !== undefined ? b.review : 0;
+        const ratingA = a.review ?? 0;
+        const ratingB = b.review ?? 0;
         return ratingA - ratingB;
       });
     } else if (sortBy === 'descRating') {
       sortedProducts.sort((a, b) => {
-        const ratingA = a.review !== undefined ? a.review : 0;
-        const ratingB = b.review !== undefined ? b.review : 0;
+        const ratingA = a.review ?? 0;
+        const ratingB = b.review ?? 0;
         return ratingB - ratingA;
       });
     }
@@ -79,30 +79,14 @@ const ProductsList: React.FC<Props> = ({ products }) => {
     <Grid container spacing={3}>
       {!isHomePage && (
         <Grid container sx={{ pl: '24px', pt: 2 }}>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-            }}
-          >
+          <Grid item xs={12} sm={6} sx={style.resultsStyle}>
             <ResultsInfo
               currentPage={currentPage}
               itemsPerPage={itemsPerPage}
               totalItems={products.length}
             />
           </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
+          <Grid item xs={12} sm={6} sx={style.orderStyle}>
             <Typography sx={style.sortFontStyle}>ordenar por:</Typography>
             <FormControl
               sx={{
@@ -152,7 +136,6 @@ const ProductsList: React.FC<Props> = ({ products }) => {
             count={Math.ceil(products.length / itemsPerPage)}
             page={currentPage}
             onChange={handlePageChange}
-            color="primary"
             sx={style.paginationStyle}
           />
         )}
