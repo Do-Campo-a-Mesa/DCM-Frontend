@@ -3,7 +3,7 @@ import { TextField, InputAdornment, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useCustomStyles } from './style';
 import debounce from 'lodash/debounce';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 interface SearchBarProps {
   onSearch: (term: string) => void;
   search_string: string;
@@ -21,11 +21,16 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   const style = useCustomStyles(isHomePage);
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchTerm = searchParams.get('search');
+
   return (
     <TextField
       autoFocus={false}
       fullWidth
-      placeholder="Busque o seu produto..."
+      placeholder={'Busque o seu produto...'}
+      defaultValue={searchTerm ?? ''}
       onChange={handleSearch}
       sx={style.textFieldStyle}
       InputProps={{
