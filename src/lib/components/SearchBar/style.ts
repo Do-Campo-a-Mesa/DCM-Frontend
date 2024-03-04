@@ -1,6 +1,5 @@
 import { useTheme } from '@mui/material/styles';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const useCustomStyles = (isHomePage?: boolean) => {
   const theme = useTheme();
 
@@ -9,7 +8,9 @@ export const useCustomStyles = (isHomePage?: boolean) => {
       backgroundColor: 'rgba(229, 255, 233, 0.1)',
       borderRadius: '20px',
       borderColor: theme.customPalette.primary.main,
-      color: theme.customPalette.primary.background,
+      color: isHomePage
+        ? theme.customPalette.primary.background
+        : theme.customPalette.primary.black,
       typography: theme.customTypography.h7,
       fontFamily: theme.customTypography.fontFamily,
       height: '5vh',
