@@ -53,13 +53,6 @@ export default function UserSearchProducts() {
     fetchProducts();
   }, [selectedCategoryIds, selectedPartners, priceRange]); // Adiciona priceRange como dependência
 
-  const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
-    setSelectedCategoryIds(selectedCategoryIds);
-  };
-  const handlePartnerSelectionChange = (selectedPartners: number[]) => {
-    setSelectedPartners(selectedPartners);
-  };
-
   useEffect(() => {
     (async () => {
       const productCategoriesResponse = await getAllProductsCategories();
@@ -73,6 +66,13 @@ export default function UserSearchProducts() {
       setPartners(productPartnersResponse.data);
     })();
   }, []);
+
+  const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
+    setSelectedCategoryIds(selectedCategoryIds);
+  };
+  const handlePartnerSelectionChange = (selectedPartners: number[]) => {
+    setSelectedPartners(selectedPartners);
+  };
 
   const isMobile = useMediaQuery('(max-width:768px)');
 
