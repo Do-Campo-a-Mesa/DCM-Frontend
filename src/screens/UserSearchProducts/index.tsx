@@ -35,18 +35,25 @@ export default function UserSearchProducts() {
   const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
 
   useEffect(() => {
-    const fetchInfo = async () => {
+    (async () => {
       try {
         const categoriesResponse = await getAllProductsCategories();
         setCategories(categoriesResponse.data);
-        const partnersResponse = await getHomePagePartners();
-        setPartners(partnersResponse.data);
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
-    };
+    })();
+  }, []);
 
-    fetchInfo();
+  useEffect(() => {
+    (async () => {
+      try {
+        const partnersResponse = await getHomePagePartners();
+        setPartners(partnersResponse.data);
+      } catch (error) {
+        console.error('Error fetching partners:', error);
+      }
+    })();
   }, []);
 
   useEffect(() => {
