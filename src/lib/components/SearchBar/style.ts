@@ -6,14 +6,16 @@ export const useCustomStyles = (isHomePage?: boolean) => {
   const textFieldStyle = {
     '& .MuiInputBase-root': {
       backgroundColor: 'rgba(229, 255, 233, 0.1)',
-      borderRadius: '20px',
+      borderRadius: isHomePage ? '20px' : '10px',
       borderColor: theme.customPalette.primary.main,
       color: isHomePage
         ? theme.customPalette.primary.background
         : theme.customPalette.primary.black,
       typography: theme.customTypography.h7,
       fontFamily: theme.customTypography.fontFamily,
-      height: '5vh',
+      height: isHomePage ? '5vh' : '4vh',
+      marginLeft: isHomePage ? '0px' : '50px',
+      maxWidth: '90%',
       '@media (max-width: 600px)': {
         height: '4vh',
         typography: theme.customTypography.h8,
@@ -23,7 +25,7 @@ export const useCustomStyles = (isHomePage?: boolean) => {
         borderColor: theme.customPalette.secondary.main,
       },
       '& fieldset': {
-        border: '2px solid',
+        border: isHomePage ? '2px solid' : '1px solid',
         borderColor: theme.customPalette.primary.main,
       },
       '&.Mui-focused fieldset': {

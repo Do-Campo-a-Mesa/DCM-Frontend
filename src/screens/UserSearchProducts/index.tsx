@@ -22,6 +22,7 @@ import { Partner } from '../../lib/interfaces/Partner';
 import { getHomePagePartners } from '../../services/partners/index';
 import PriceSearchCard from '../../lib/components/PriceFilter/priceRange';
 import Navbar from '../../lib/components/Navbar/Navbar';
+import { useLocation } from 'react-router-dom';
 
 export default function UserSearchProducts() {
   const style = useCustomStyles();
@@ -33,20 +34,9 @@ export default function UserSearchProducts() {
 
   const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
 
-  useEffect(() => {
-    const fetchInfo = async () => {
-      try {
-        const categoriesResponse = await getAllProductsCategories();
-        setCategories(categoriesResponse.data);
-        const partnersResponse = await getHomePagePartners();
-        setPartners(partnersResponse.data);
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-      }
-    };
-
-    fetchInfo();
-  }, []);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchTerm = searchParams.get('search');
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -55,6 +45,7 @@ export default function UserSearchProducts() {
           categoriesIDs:
             selectedCategoryIds.length > 0 ? selectedCategoryIds : undefined,
           partners: selectedPartners.length > 0 ? selectedPartners : undefined,
+          search_string: searchTerm ?? undefined,
           price_min: priceRange[0],
           price_max: priceRange[1],
         });
@@ -65,14 +56,7 @@ export default function UserSearchProducts() {
     };
 
     fetchProducts();
-  }, [selectedCategoryIds, selectedPartners, priceRange]); // Adiciona priceRange como dependência
-
-  const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
-    setSelectedCategoryIds(selectedCategoryIds);
-  };
-  const handlePartnerSelectionChange = (selectedPartners: number[]) => {
-    setSelectedPartners(selectedPartners);
-  };
+  }, [selectedCategoryIds, selectedPartners, priceRange, searchTerm]); // Adiciona priceRange como dependência
 
   useEffect(() => {
     (async () => {
@@ -87,6 +71,13 @@ export default function UserSearchProducts() {
       setPartners(productPartnersResponse.data);
     })();
   }, []);
+
+  const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
+    setSelectedCategoryIds(selectedCategoryIds);
+  };
+  const handlePartnerSelectionChange = (selectedPartners: number[]) => {
+    setSelectedPartners(selectedPartners);
+  };
 
   const isMobile = useMediaQuery('(max-width:768px)');
 

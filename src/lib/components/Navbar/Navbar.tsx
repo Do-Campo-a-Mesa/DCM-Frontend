@@ -64,7 +64,7 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
 
   return (
     <AppBar position="static" sx={style.appBarStyle}>
-      <Container maxWidth="lg">
+      <Container sx={isHomePage ? { maxWidth: 'lg' } : style.containerStyle}>
         <Toolbar>
           {!isHomePage ? (
             <Link to="/">

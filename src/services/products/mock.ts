@@ -22,16 +22,23 @@ export async function getProducts(
       (product) => filterInput.partners?.includes(product.partner.id)
     );
   }
+
   if (
-    filterInput.price_min !== null &&
     filterInput.price_min !== undefined &&
-    filterInput.price_max !== null &&
     filterInput.price_max !== undefined
   ) {
     filteredProducts = filteredProducts.filter(
       (product) =>
-        product.price >= filterInput.price_min &&
-        product.price <= filterInput.price_max
+        product.price >= filterInput.price_min! &&
+        product.price <= filterInput.price_max!
+    );
+  }
+
+  if (filterInput.search_string) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.name
+        .toLowerCase()
+        .includes(filterInput.search_string!.toLowerCase())
     );
   }
 
