@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material/styles';
 
 export const useCustomStyles = () => {
-  const theme = useTheme();
+  const Theme = useTheme();
   const SmallFooterStyle = {
     p: 0,
     mt: 0,
@@ -17,9 +17,21 @@ export const useCustomStyles = () => {
       maxWidth: '1600px',
     },
   };
+  const Title = {
+    typography: Theme.customTypography.h4,
+    fontFamily: Theme.customTypography.fontFamily,
+    color: Theme.customPalette.primary.black,
+    textTransform: 'uppercase',
+    '@media (max-width: 600px)': {
+      typography: Theme.customTypography.h4,
+      mt: 2,
+      textAlign: 'center',
+    },
+  };
   return {
-    theme,
+    Theme,
     SmallFooterStyle,
     ContainerStyle,
+    Title,
   };
 };

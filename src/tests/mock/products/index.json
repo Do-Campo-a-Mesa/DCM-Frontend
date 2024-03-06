@@ -7,7 +7,8 @@
   "price": 9.99,
   "review": 3.5,
   "categories": [{"id": 1, "name": "Doces"}, {"id": 6, "name": "Grãos"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 2,
@@ -17,7 +18,8 @@
   "price": 13.7,
   "review": 4.5,
   "categories": [{"id": 1, "name": "Doces"}, {"id": 6, "name": "Grãos"}],
-  "partner": {"id": 4, "companyName": "Youtube1"}
+  "partner": {"id": 4, "companyName": "Youtube1",
+"description": "teste"}
 },
 {
   "id": 3,
@@ -27,7 +29,8 @@
   "price": 14.5,
   "review": 4,
   "categories": [{"id": 1, "name": "Doces"}, {"id": 6, "name": "Grãos"}],
-  "partner": {"id": 4, "companyName": "Youtube1"}
+  "partner": {"id": 4, "companyName": "Youtube1",
+"description": "teste"}
 },
 {
   "id": 4,
@@ -36,7 +39,8 @@
   "photos": ["/logo.png", "/logo.png"],
   "price": 15,
   "categories": [{"id": 1, "name": "Doces"}, {"id": 6, "name": "Grãos"}],
-  "partner": {"id": 4, "companyName": "Youtube1"}
+  "partner": {"id": 4, "companyName": "Youtube1",
+"description": "teste"}
 },
 {
   "id": 5,
@@ -46,7 +50,8 @@
   "price": 27,
   "review": 4,
   "categories": [{"id": 2, "name": "Queijos"}, {"id": 3, "name": "Laticínios"}],
-  "partner": {"id": 4, "companyName": "Youtube1"}
+  "partner": {"id": 4, "companyName": "Youtube1",
+"description": "teste"}
 },
 {
   "id": 6,
@@ -55,7 +60,8 @@
   "photos": ["/logo.png", "/logo.png"],
   "price": 19.8,
   "categories": [{"id": 2, "name": "Queijos"}, {"id": 3, "name": "Laticínios"}],
-  "partner": {"id": 4, "companyName": "Youtube1"}
+  "partner": {"id": 4, "companyName": "Youtube1",
+"description": "teste"}
 },
 {
   "id": 7,
@@ -65,7 +71,8 @@
   "price": 26.5,
   "review": 3,
   "categories": [{"id": 2, "name": "Queijos"}, {"id": 3, "name": "Laticínios"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 8,
@@ -75,7 +82,8 @@
   "price": 23.30,
   "review": 4.5,
   "categories": [{"id": 2, "name": "Queijos"}, {"id": 3, "name": "Laticínios"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 9,
@@ -85,7 +93,8 @@
   "price": 10.2,
   "review": 4,
   "categories": [{"id": 4, "name": "Legumes"}, {"id": 5, "name": "Frutas"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 10,
@@ -95,7 +104,8 @@
   "price": 9.5,
   "review": 3,
   "categories": [{"id": 4, "name": "Legumes"}, {"id": 5, "name": "Frutas"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 11,
@@ -105,7 +115,8 @@
   "price": 8.5,
   "review": 2,
   "categories": [{"id": 4, "name": "Legumes"}, {"id": 5, "name": "Frutas"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
   
 },
 {
@@ -116,7 +127,8 @@
   "price": 12.5,
   "review": 5,
   "categories": [{"id": 4, "name": "Legumes"}, {"id": 5, "name": "Frutas"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
   
 },
 {
@@ -127,7 +139,8 @@
   "price": 13,
   "review": 4.5,
   "categories": [{"id": 4, "name": "Legumes"}, {"id": 5, "name": "Frutas"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 14,
@@ -137,7 +150,8 @@
   "price": 11,
   "review": 3.5,
   "categories": [{"id": 5, "name": "Frutas"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 15,
@@ -147,7 +161,8 @@
   "price": 9,
   "review": 3.5,
   "categories": [{"id": 5, "name": "Frutas"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 },
 {
   "id": 16,
@@ -157,7 +172,8 @@
   "price": 10,
   "review": 4.5,
   "categories": [{"id": 3, "name": "Laticínios"}],
-  "partner": {"id": 1, "companyName": "Youtube"}
+  "partner": {"id": 1, "companyName": "Youtube"},
+  "description": "teste"
 }
 
 ]

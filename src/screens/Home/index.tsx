@@ -32,7 +32,7 @@ export default function Home() {
         categoriesIDs:
           selectedCategoryId != 0 ? [selectedCategoryId] : undefined,
         price_min: 0,
-        price_max: 0,
+        price_max: 100,
       });
 
       setProducts(productsResponse.data);

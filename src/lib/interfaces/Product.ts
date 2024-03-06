@@ -25,6 +25,7 @@ export interface Product {
   new_price_with_promotion?: number;
   categories: ProductCardCategory[];
   partner: ProductCardPartner;
+  description?: string;
 }
 export interface ProductsResponse {
   data: Product[];
