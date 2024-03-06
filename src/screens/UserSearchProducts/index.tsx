@@ -23,6 +23,7 @@ import { Partner } from '../../lib/interfaces/Partner';
 import { getHomePagePartners } from '../../services/partners/index';
 import PriceSearchCard from '../../lib/components/PriceFilter/priceRange';
 import Navbar from '../../lib/components/Navbar/Navbar';
+import { useLocation } from 'react-router-dom';
 
 export default function UserSearchProducts() {
   const style = useCustomStyles();
@@ -34,6 +35,10 @@ export default function UserSearchProducts() {
 
   const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchTerm = searchParams.get('search');
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -41,6 +46,7 @@ export default function UserSearchProducts() {
           categoriesIDs:
             selectedCategoryIds.length > 0 ? selectedCategoryIds : undefined,
           partners: selectedPartners.length > 0 ? selectedPartners : undefined,
+          search_string: searchTerm ?? undefined,
           price_min: priceRange[0],
           price_max: priceRange[1],
         });
@@ -51,7 +57,7 @@ export default function UserSearchProducts() {
     };
 
     fetchProducts();
-  }, [selectedCategoryIds, selectedPartners, priceRange]); // Adiciona priceRange como dependência
+  }, [selectedCategoryIds, selectedPartners, priceRange, searchTerm]); // Adiciona priceRange como dependência
 
   useEffect(() => {
     (async () => {
