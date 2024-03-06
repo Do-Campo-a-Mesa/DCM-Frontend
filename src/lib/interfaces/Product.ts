@@ -1,5 +1,5 @@
 import { ProductCardCategory } from './Categories';
-import { ProductCardPartner } from './Partner';
+import { Partner, ProductCardPartner } from './Partner';
 export interface FilterProductInput {
   partners?: number[];
   search_string?: string;
@@ -13,7 +13,7 @@ export interface Product {
   id: number;
   name: string;
   unit_of_measurement: string;
-  photos: string[];
+  photos?: string[];
   price: number;
   review?: number;
   status_promotion?: string;
@@ -27,6 +27,37 @@ export interface Product {
   partner: ProductCardPartner;
   description?: string;
 }
+
+export interface ProductByID {
+  id: number;
+  name: string;
+  description?: string;
+  unit_of_measurement: string;
+  photos?: string[];
+  price: number;
+  validity: number;
+  review?: number;
+  status: string;
+  status_promotion?: string;
+  type_of_promotion?: string;
+  percent_off?: number;
+  money_off?: number;
+  buy_x?: number;
+  take_y?: number;
+  new_price_with_promotion?: number;
+  date_start_promotion?: Date;
+  date_ends_promotion?: Date;
+  price_spot_market?: number;
+  quantity_spot_market: number;
+  status_spot_market: string;
+  store: Partner;
+  categories: ProductCardCategory[];
+}
+
+export interface ProductResponse {
+  data: ProductByID;
+}
+
 export interface ProductsResponse {
   data: Product[];
 }
