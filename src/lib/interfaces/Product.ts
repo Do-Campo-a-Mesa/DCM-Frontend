@@ -4,8 +4,8 @@ export interface FilterProductInput {
   partners?: number[];
   search_string?: string;
   categoriesIDs?: number[];
-  price_min?: number;
-  price_max?: number;
+  price_min: number;
+  price_max: number;
   status_promotion?: string;
 }
 

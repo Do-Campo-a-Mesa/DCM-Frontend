@@ -41,7 +41,7 @@ const CardTestimonialsHome: React.FC<Props> = ({ testimonial }) => {
         <Box>
           <Rating
             name="rating-read"
-            defaultValue={testimonial.stars}
+            defaultValue={testimonial.rating}
             precision={0.5}
             readOnly
           />

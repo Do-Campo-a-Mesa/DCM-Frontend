@@ -31,6 +31,8 @@ export default function Home() {
       const productsResponse = await getProducts({
         categoriesIDs:
           selectedCategoryId != 0 ? [selectedCategoryId] : undefined,
+        price_min: 0,
+        price_max: 0,
       });
 
       setProducts(productsResponse.data);

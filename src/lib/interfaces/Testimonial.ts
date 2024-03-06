@@ -1,6 +1,6 @@
 export interface Testimonial {
   id: number;
-  stars: number;
+  rating: number;
   userName: string;
   describe: string;
   date: string;
