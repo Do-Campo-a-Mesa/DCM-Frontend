@@ -14,6 +14,8 @@ export const useCustomStyles = (isHomePage?: boolean) => {
       typography: theme.customTypography.h7,
       fontFamily: theme.customTypography.fontFamily,
       height: isHomePage ? '5vh' : '4vh',
+      marginLeft: isHomePage ? '0px' : '50px',
+      maxWidth: '90%',
       '@media (max-width: 600px)': {
         height: '4vh',
         typography: theme.customTypography.h8,
