@@ -7,6 +7,12 @@ export const useCustomStyles = () => {
     backgroundColor: theme.customPalette.primary.background,
   };
 
+  const containerStyle = {
+    '@media (min-width: 1200px)': {
+      maxWidth: '1600px',
+    },
+  };
+
   const boxStyle1 = {
     flexGrow: 1,
     display: { xs: 'flex', sm: 'flex', md: 'none' },
@@ -62,5 +68,6 @@ export const useCustomStyles = () => {
     buttonStyle,
     menuStyle,
     menuItemStyle,
+    containerStyle,
   };
 };

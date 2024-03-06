@@ -16,6 +16,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { formatProductPrice } from '../../../../utils';
+
 interface Props {
   product: Product;
 }
@@ -72,7 +73,9 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
                 {product.name}
               </Typography>
               <Typography component="div" sx={style.titlePartnerStyle}>
-                {product.partner}
+                <div key={product.partner.id}>
+                  {product.partner.companyName}
+                </div>
               </Typography>
               <Rating
                 name="rating-read"

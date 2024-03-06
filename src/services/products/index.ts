@@ -7,8 +7,8 @@ import {
 
 const useMock = process.env.NODE_ENV === 'mock';
 
-export const getHomePageProducts: (
+export const getProducts: (
   filterInput: FilterProductInput
 ) => Promise<ProductsResponse> = useMock
-  ? mock.getHomePageProducts
-  : integration.getHomePageProducts;
+  ? mock.getProducts
+  : integration.getProducts;
