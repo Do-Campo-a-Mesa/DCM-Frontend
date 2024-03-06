@@ -1,6 +1,7 @@
 import products from '../../tests/mock/products/index.json';
 import {
   FilterProductInput,
+  Product,
   ProductsResponse,
 } from '../../lib/interfaces/Product';
 
@@ -43,4 +44,7 @@ export async function getProducts(
   }
 
   return { data: filteredProducts };
+}
+export function getProductById(id: number): Product | undefined {
+  return products.find((product: Product) => product.id === id);
 }
