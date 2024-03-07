@@ -6,13 +6,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Product } from '../../lib/interfaces/Product';
-import { getProductById } from '../../services/products/mock';
+import { ProductByID } from '../../lib/interfaces/Product';
+import { getProductById } from '../../services/products';
 
 const SingleProduct: React.FC = () => {
   const style = useCustomStyles();
   const { id } = useParams();
-  const [fetchedProduct, setFetchedProduct] = useState<Product | null>(null);
+  const [fetchedProduct, setFetchedProduct] = useState<ProductByID | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -20,7 +22,7 @@ const SingleProduct: React.FC = () => {
       const productId = parseInt(id, 10);
       const product = await getProductById(productId);
       if (product) {
-        setFetchedProduct(product);
+        setFetchedProduct(product.data);
       } else {
         console.error('Product not found');
       }
@@ -60,9 +62,9 @@ const SingleProduct: React.FC = () => {
               spaceBetween={0}
               slidesPerView={1}
             >
-              {fetchedProduct.photos.map((photo, index) => (
-                <SwiperSlide key={index}>
-                  <img src={photo} alt={`Photo ${index + 1}`} />
+              {fetchedProduct.photos?.map((photo, index) => (
+                <SwiperSlide key={photo}>
+                  <img src={photo} alt={`${index + 1}`} />
                 </SwiperSlide>
               ))}
             </Swiper>
