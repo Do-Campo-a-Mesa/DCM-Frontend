@@ -13,7 +13,7 @@ import { Partner } from '../../interfaces/Partner';
 
 interface Props {
   partners: Partner[];
-  onPartnerSelectionChange: (selectedPartners: number[]) => void;
+  onPartnerSelectionChange: (selectedPartners: string[]) => void;
 }
 
 const PartnerSearchCard: React.FC<Props> = ({
@@ -22,17 +22,17 @@ const PartnerSearchCard: React.FC<Props> = ({
 }) => {
   const style = useCustomStyles();
   const [inputValue, setInputValue] = useState('');
-  const [selectedPartners, setSelectedPartners] = useState<number[]>([]);
+  const [selectedPartners, setSelectedPartners] = useState<string[]>([]);
   const [filteredPartners, setFilteredPartners] = useState<Partner[]>(partners);
 
   useEffect(() => {
     const filtered = partners.filter((partner) =>
-      partner.companyName.toLowerCase().includes(inputValue.toLowerCase())
+      partner.name.toLowerCase().includes(inputValue.toLowerCase())
     );
     setFilteredPartners(filtered);
   }, [inputValue, partners]);
 
-  const handlePartnerToggle = (partnerId: number) => {
+  const handlePartnerToggle = (partnerId: string) => {
     const newSelectedPartners = selectedPartners.includes(partnerId)
       ? selectedPartners.filter((id) => id !== partnerId)
       : [...selectedPartners, partnerId];
@@ -66,7 +66,7 @@ const PartnerSearchCard: React.FC<Props> = ({
                     onChange={() => handlePartnerToggle(partner.id)}
                   />
                 }
-                label={partner.companyName}
+                label={partner.name}
                 sx={style.checklabelStyle}
               />
             ))}

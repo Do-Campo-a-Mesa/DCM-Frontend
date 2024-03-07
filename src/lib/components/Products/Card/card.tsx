@@ -60,9 +60,9 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
                 spaceBetween={0}
                 slidesPerView={1}
               >
-                {product.photos.map((photo, index) => (
-                  <SwiperSlide key={index}>
-                    <img src={photo} alt={`Photo ${index + 1}`} />
+                {product.photos?.map((photo, index) => (
+                  <SwiperSlide key={photo}>
+                    <img src={photo} alt={`${index + 1}`} />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -73,9 +73,7 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
                 {product.name}
               </Typography>
               <Typography component="div" sx={style.titlePartnerStyle}>
-                <div key={product.partner.id}>
-                  {product.partner.companyName}
-                </div>
+                <div key={product.partner.id}>{product.partner.name}</div>
               </Typography>
               <Rating
                 name="rating-read"

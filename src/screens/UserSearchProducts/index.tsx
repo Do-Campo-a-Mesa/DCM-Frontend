@@ -30,7 +30,7 @@ export default function UserSearchProducts() {
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-  const [selectedPartners, setSelectedPartners] = useState<number[]>([]);
+  const [selectedPartners, setSelectedPartners] = useState<string[]>([]);
 
   const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
 
@@ -75,7 +75,7 @@ export default function UserSearchProducts() {
   const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
     setSelectedCategoryIds(selectedCategoryIds);
   };
-  const handlePartnerSelectionChange = (selectedPartners: number[]) => {
+  const handlePartnerSelectionChange = (selectedPartners: string[]) => {
     setSelectedPartners(selectedPartners);
   };
 

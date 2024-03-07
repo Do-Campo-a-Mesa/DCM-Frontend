@@ -10,7 +10,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -24,7 +24,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": 4, "companyName": "Youtube1", "description": "teste" }
+    "partner": { "id": "4", "name": "Youtube1", "description": "teste" }
   },
   {
     "id": 3,
@@ -37,7 +37,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": 4, "companyName": "Youtube1", "description": "teste" }
+    "partner": { "id": "4", "name": "Youtube1", "description": "teste" }
   },
   {
     "id": 4,
@@ -49,7 +49,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": 4, "companyName": "Youtube1", "description": "teste" }
+    "partner": { "id": "4", "name": "Youtube1", "description": "teste" }
   },
   {
     "id": 5,
@@ -62,7 +62,7 @@
       { "id": 2, "name": "Queijos" },
       { "id": 3, "name": "Laticínios" }
     ],
-    "partner": { "id": 4, "companyName": "Youtube1", "description": "teste" }
+    "partner": { "id": "4", "name": "Youtube1", "description": "teste" }
   },
   {
     "id": 6,
@@ -74,7 +74,7 @@
       { "id": 2, "name": "Queijos" },
       { "id": 3, "name": "Laticínios" }
     ],
-    "partner": { "id": 4, "companyName": "Youtube1", "description": "teste" }
+    "partner": { "id": "4", "name": "Youtube1", "description": "teste" }
   },
   {
     "id": 7,
@@ -87,7 +87,7 @@
       { "id": 2, "name": "Queijos" },
       { "id": 3, "name": "Laticínios" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -101,7 +101,7 @@
       { "id": 2, "name": "Queijos" },
       { "id": 3, "name": "Laticínios" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -115,7 +115,7 @@
       { "id": 4, "name": "Legumes" },
       { "id": 5, "name": "Frutas" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -129,7 +129,7 @@
       { "id": 4, "name": "Legumes" },
       { "id": 5, "name": "Frutas" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -143,7 +143,7 @@
       { "id": 4, "name": "Legumes" },
       { "id": 5, "name": "Frutas" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -157,7 +157,7 @@
       { "id": 4, "name": "Legumes" },
       { "id": 5, "name": "Frutas" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -171,7 +171,7 @@
       { "id": 4, "name": "Legumes" },
       { "id": 5, "name": "Frutas" }
     ],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -182,7 +182,7 @@
     "price": 11,
     "review": 3.5,
     "categories": [{ "id": 5, "name": "Frutas" }],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -193,7 +193,7 @@
     "price": 9,
     "review": 3.5,
     "categories": [{ "id": 5, "name": "Frutas" }],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   },
   {
@@ -204,7 +204,7 @@
     "price": 10,
     "review": 4.5,
     "categories": [{ "id": 3, "name": "Laticínios" }],
-    "partner": { "id": 1, "companyName": "Youtube" },
+    "partner": { "id": "1", "name": "Youtube" },
     "description": "teste"
   }
 ]

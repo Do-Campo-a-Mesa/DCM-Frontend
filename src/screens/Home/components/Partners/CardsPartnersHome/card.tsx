@@ -53,18 +53,15 @@ const CardPartnersHome: React.FC<Props> = ({ partner }) => {
   };
 
   return (
-    <Link
-      to={`/empresa/${partner.companyName}`}
-      style={{ textDecoration: 'none' }}
-    >
+    <Link to={`/empresa/${partner.id}`} style={{ textDecoration: 'none' }}>
       <Card sx={CardStyle}>
         <Box sx={BoxStyle}>
-          <img src={partner.logotipo} alt={partner.companyName} id="Logo" />
+          <img src={partner.logo} alt={partner.name} id="Logo" />
         </Box>
         <Box sx={BoxStyle2}>
           <CardContent sx={CardContentStyle}>
             <Typography component="div" sx={TitleCompanyStyle}>
-              {partner.companyName}
+              {partner.name}
             </Typography>
             <Typography component="div" sx={TitleBusinessStyle}>
               {partner.business}
