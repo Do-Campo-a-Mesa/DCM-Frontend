@@ -1,9 +1,10 @@
 {
   "id": 1,
-  "name": "Queijo Coalho Temperado com pimenta 300g",
+  "name": "Queijo Coalho Temperado com pimenta",
   "description": "Experimente a delícia do queijo coalho temperado! Combinando o sabor tradicional do queijo coalho com um toque de tempero especial, nosso queijo coalho temperado é perfeito para qualquer ocasião. Feito com os melhores ingredientes e temperado com cuidado, cada mordida oferece uma explosão de sabores irresistíveis. Seja grelhado na churrasqueira ou saboreado puro, nosso queijo coalho temperado é uma opção versátil e deliciosa para satisfazer seus desejos de laticínios. Desfrute da qualidade e do sabor autêntico do queijo coalho temperado em cada pedaço!",
   "unit_of_measurement": "unit",
   "validity": 30,
+  "review": 4.5,
   "photos": ["/logo.png", "/logo.png"],
 
   "price": 15.5,
@@ -17,7 +18,8 @@
 
   "store": {
     "id": "1",
-    "name": "Empresa Teste"
+    "name": "Empresa Teste",
+    "logo": "/logo.png"
   },
   "categories": [
     {
