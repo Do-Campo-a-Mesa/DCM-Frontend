@@ -1,13 +1,25 @@
 import { useCustomStyles } from './style';
-import { Container, Grid, Typography } from '@mui/material';
+import {
+  Container,
+  Grid,
+  IconButton,
+  Rating,
+  Tab,
+  Tabs,
+  Typography,
+} from '@mui/material';
 import Navbar from '../../lib/components/Navbar/Navbar';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ProductByID } from '../../lib/interfaces/Product';
 import { getProductById } from '../../services/products';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { formatProductPrice } from '../../utils';
+import React from 'react';
 
 const SingleProduct: React.FC = () => {
   const style = useCustomStyles();
@@ -30,12 +42,32 @@ const SingleProduct: React.FC = () => {
     fetchProduct();
   }, [id]);
 
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  function getStatusEstoque(quantidade: number) {
+    if (quantidade > 0) {
+      return 'Em estoque';
+    } else {
+      return 'Estoque indisponível';
+    }
+  }
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       <Navbar isHomePage={false} />
       <Container sx={style.ContainerStyle}>
         {fetchedProduct ? (
-          <Grid container>
+          <Grid container spacing={2} sx={style.ContainerStyle}>
             <Grid item xs={12} md={6}>
               <Swiper
                 id="swiperProducts"
@@ -58,12 +90,95 @@ const SingleProduct: React.FC = () => {
                 ))}
               </Swiper>
             </Grid>
+
             <Grid item xs={12} md={6}>
-              <Grid item xs={10}>
-                <Typography sx={style.Title}>{fetchedProduct.name}</Typography>
-              </Grid>
-              <Grid item xs={2}>
-                <Typography sx={style.Title}>{fetchedProduct.name}</Typography>
+              <Grid container spacing={2}>
+                <Grid item xs={11} md={11} sx={style.GridTitle}>
+                  <Typography sx={style.Title}>
+                    {fetchedProduct.name}
+                  </Typography>
+                </Grid>
+                <Grid item xs={1} md={1} sx={style.WishlistGridStyle}>
+                  <IconButton
+                    sx={style.WishlistButtonStyle}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    onClick={handleClick}
+                  >
+                    {isHovered || isClicked ? (
+                      <FavoriteIcon />
+                    ) : (
+                      <FavoriteBorderIcon />
+                    )}
+                  </IconButton>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography>
+                    Produto vendido e enviado por{' '}
+                    <Link
+                      to={`/parceiro/${fetchedProduct.store.id}`}
+                      style={{ textDecoration: 'none' }}
+                    >
+                      {fetchedProduct.store.name}
+                      <img src={fetchedProduct.store.logo} />
+                    </Link>
+                  </Typography>
+
+                  <Grid item xs={12}>
+                    <Typography>
+                      {getStatusEstoque(fetchedProduct.quantity)}
+                    </Typography>
+                  </Grid>
+                </Grid>
+                <Grid item xs={8}>
+                  <Typography>
+                    {formatProductPrice(fetchedProduct.price)}
+                  </Typography>
+                </Grid>
+                <Grid item xs={4}>
+                  <Rating
+                    name="rating-read"
+                    defaultValue={fetchedProduct.review}
+                    precision={0.5}
+                    readOnly
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography>Quantidade</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography>Calcule o frete</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="product tabs"
+                    variant="scrollable"
+                    scrollButtons="auto"
+                    TabIndicatorProps={{
+                      sx: {
+                        backgroundColor: style.Theme.customPalette.primary.main,
+                      },
+                    }}
+                  >
+                    <Tab label="Description" />
+                    <Tab label="Detalhes" />
+                    <Tab label="Dúvidas" />
+                  </Tabs>
+
+                  {value === 0 && (
+                    <Typography>{fetchedProduct.description}</Typography>
+                  )}
+                  {value === 1 && (
+                    <Typography>
+                      {fetchedProduct.unit_of_measurement}
+                    </Typography>
+                  )}
+                  {value === 2 && (
+                    <Typography>{/* Conteúdo das especificações */}</Typography>
+                  )}
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

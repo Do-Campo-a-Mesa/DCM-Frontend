@@ -13,6 +13,7 @@ export const useCustomStyles = () => {
     },
   };
   const ContainerStyle = {
+    pt: '3em',
     '@media (min-width: 1200px)': {
       maxWidth: '1600px',
     },
@@ -28,10 +29,40 @@ export const useCustomStyles = () => {
       textAlign: 'center',
     },
   };
+  const GridContainerStyle = {
+    pt: '10em',
+  };
+  const WishlistGridStyle = {
+    pr: 3,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+  const WishlistButtonStyle = {
+    color: Theme.customPalette.primary.main,
+  };
+  const GridTitle = {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  };
+  const GridInfoProduct = {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    '& .Mui-Typography-root': {
+      m: 2,
+    },
+  };
   return {
     Theme,
     SmallFooterStyle,
     ContainerStyle,
     Title,
+    GridContainerStyle,
+    WishlistButtonStyle,
+    WishlistGridStyle,
+    GridTitle,
+    GridInfoProduct,
   };
 };
