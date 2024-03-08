@@ -1,8 +1,8 @@
 export interface Testimonial {
   id: number;
   rating: number;
-  userName: string;
-  describe: string;
+  username: string;
+  description: string;
   date: string;
 }
 
