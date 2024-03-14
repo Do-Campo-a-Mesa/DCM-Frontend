@@ -14,3 +14,9 @@ export async function getProducts(
 export async function getProductById(id: number): Promise<ProductResponse> {
   return api.get(`/product/${id}`);
 }
+
+export async function getProductsByStoreId(
+  id: number
+): Promise<ProductsResponse> {
+  return api.get(`/store/${id}/product`);
+}

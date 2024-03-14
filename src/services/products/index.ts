@@ -17,3 +17,6 @@ export const getProducts: (
 export const getProductById: (id: number) => Promise<ProductResponse> = useMock
   ? mock.getProductById
   : integration.getProductById;
+
+export const getProductsByStoreId: (id: number) => Promise<ProductsResponse> =
+  useMock ? mock.getProductsByStoreId : integration.getProductsByStoreId;

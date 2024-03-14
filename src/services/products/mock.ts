@@ -50,3 +50,7 @@ export async function getProducts(
 export async function getProductById(): Promise<ProductResponse> {
   return { data: product };
 }
+
+export async function getProductsByStoreId(): Promise<ProductsResponse> {
+  return { data: products };
+}
