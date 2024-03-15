@@ -11,3 +11,7 @@ export async function getShoppingCartByUserId(): Promise<UserShoppingCartRespons
 export async function addProductToShoppingCart(): Promise<IterationShoppingCartResponse> {
   return { message: 'Produto adicionado com sucesso ao carrinho de compras' };
 }
+
+export async function updateShoppingCartItem(): Promise<IterationShoppingCartResponse> {
+  return { message: 'Produto adicionado com sucesso ao carrinho de compras' };
+}

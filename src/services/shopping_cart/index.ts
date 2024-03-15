@@ -1,8 +1,9 @@
 import * as mock from './mock';
 import * as integration from './integration';
 import {
+  UpdateItemInput,
   UserAddItemToShoppingCartInput,
-  UserAddItemToShoppingCartResponse,
+  IterationShoppingCartResponse,
   UserShoppingCartResponse,
 } from '../../lib/interfaces/ShoppingCart';
 
@@ -16,6 +17,12 @@ export const getShoppingCartByUserId: (
 
 export const addProductToShoppingCart: (
   AddItemInput: UserAddItemToShoppingCartInput
-) => Promise<UserAddItemToShoppingCartResponse> = useMock
+) => Promise<IterationShoppingCartResponse> = useMock
   ? mock.addProductToShoppingCart
   : integration.addProductToShoppingCart;
+
+export const updateShoppingCartItem: (
+  updateItemInput: UpdateItemInput
+) => Promise<IterationShoppingCartResponse> = useMock
+  ? mock.updateShoppingCartItem
+  : integration.updateShoppingCartItem;
