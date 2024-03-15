@@ -2,7 +2,7 @@ import { api } from '../api';
 import {
   UserShoppingCartResponse,
   UserAddItemToShoppingCartInput,
-  UserAddItemToShoppingCartResponse,
+  IterationShoppingCartResponse,
 } from '../../lib/interfaces/ShoppingCart';
 
 export async function getShoppingCartByUserId(
@@ -13,6 +13,6 @@ export async function getShoppingCartByUserId(
 
 export async function addProductToShoppingCart(
   AddItemInput: UserAddItemToShoppingCartInput
-): Promise<UserAddItemToShoppingCartResponse> {
+): Promise<IterationShoppingCartResponse> {
   return api.post('/shopping_cart', AddItemInput);
 }

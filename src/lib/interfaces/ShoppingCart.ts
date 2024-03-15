@@ -27,6 +27,11 @@ export interface UserAddItemToShoppingCartInput {
   quantity: number;
 }
 
-export interface UserAddItemToShoppingCartResponse {
+export interface IterationShoppingCartResponse {
   message: string;
+}
+
+export interface UpdateItemInput {
+  id: number;
+  new_quantity: number;
 }
