@@ -1,0 +1,22 @@
+export interface Item {
+  id: number;
+  name: string;
+  cart_quantity: number;
+  stock_quantity: number;
+  price: number;
+  total_price: number;
+  photos?: string[];
+}
+
+export interface CartPerStore {
+  store_id: string;
+  name: string;
+  logo?: string[];
+  minimum_order_value: number;
+  minimum_value_for_free_shipping: number;
+  items: Item[];
+}
+
+export interface UserShoppingCartResponse {
+  data: CartPerStore[];
+}
