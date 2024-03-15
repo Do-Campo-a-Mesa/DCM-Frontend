@@ -23,3 +23,9 @@ export async function updateShoppingCartItem(
 ): Promise<IterationShoppingCartResponse> {
   return api.put('/shopping_cart', updateItemInput);
 }
+
+export async function deleteShoppingCartItem(
+  id: number
+): Promise<IterationShoppingCartResponse> {
+  return api.delete(`/shopping_cart/${id}`);
+}

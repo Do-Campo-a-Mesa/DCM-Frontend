@@ -15,3 +15,7 @@ export async function addProductToShoppingCart(): Promise<IterationShoppingCartR
 export async function updateShoppingCartItem(): Promise<IterationShoppingCartResponse> {
   return { message: 'Item no carrinho de compras atualizado com sucesso' };
 }
+
+export async function deleteShoppingCartItem(): Promise<IterationShoppingCartResponse> {
+  return { message: 'Item do carrinho de compras foi removido com sucesso' };
+}

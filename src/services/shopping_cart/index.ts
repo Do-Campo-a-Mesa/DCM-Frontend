@@ -26,3 +26,9 @@ export const updateShoppingCartItem: (
 ) => Promise<IterationShoppingCartResponse> = useMock
   ? mock.updateShoppingCartItem
   : integration.updateShoppingCartItem;
+
+export const deleteShoppingCartItem: (
+  id: number
+) => Promise<IterationShoppingCartResponse> = useMock
+  ? mock.deleteShoppingCartItem
+  : integration.deleteShoppingCartItem;
