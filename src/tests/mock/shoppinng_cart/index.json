@@ -1,0 +1,22 @@
+[
+  {
+    "store_id": "be2994ea-1e77-42c4-a3af-368e82b86a17",
+    "name": "Empresa Teste 1",
+    "minimum_order_value": 50,
+    "minimum_value_for_free_shipping": 70,
+    "photos": ["/logo.png", "/logo.png"],
+    "items": [
+      {
+        "id": 1,
+        "product_id": 1,
+        "name": "Queijo Coalho Temperado 400g",
+        "cart_quantity": 20,
+        "stock_quantity": 500,
+        "price": 21.5,
+        "total_price": 430,
+        "photos": ["/logo.png", "/logo.png"]
+      }
+    ],
+    "total_price": 430
+  }
+]
