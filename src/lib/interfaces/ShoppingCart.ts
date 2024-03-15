@@ -20,3 +20,13 @@ export interface CartPerStore {
 export interface UserShoppingCartResponse {
   data: CartPerStore[];
 }
+
+export interface UserAddItemToShoppingCartInput {
+  user_id: string;
+  product_id: number;
+  quantity: number;
+}
+
+export interface UserAddItemToShoppingCartResponse {
+  message: string;
+}
