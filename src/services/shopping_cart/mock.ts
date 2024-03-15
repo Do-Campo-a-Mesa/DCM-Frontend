@@ -1,6 +1,13 @@
-import shopping_cart from '../../tests/mock/shoppinng_cart/index.json';
-import { UserShoppingCartResponse } from '../../lib/interfaces/ShoppingCart';
+import shopping_cart from '../../tests/mock/shopping_cart/index.json';
+import {
+  UserAddItemToShoppingCartResponse,
+  UserShoppingCartResponse,
+} from '../../lib/interfaces/ShoppingCart';
 
 export async function getShoppingCartByUserId(): Promise<UserShoppingCartResponse> {
   return { data: shopping_cart };
+}
+
+export async function addProductToShoppingCart(): Promise<UserAddItemToShoppingCartResponse> {
+  return { message: 'Produto adicionado com sucesso ao carrinho de compras' };
 }
