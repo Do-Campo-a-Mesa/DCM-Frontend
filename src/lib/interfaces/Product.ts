@@ -9,6 +9,13 @@ export interface FilterProductInput {
   status_promotion?: string;
 }
 
+export interface ProductOrder {
+  id: number;
+  name: string;
+  unit_of_measurement: string;
+  photos?: string[];
+}
+
 export interface Product {
   id: number;
   name: string;
