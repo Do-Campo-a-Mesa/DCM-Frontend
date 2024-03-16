@@ -135,7 +135,7 @@ const SingleProduct: React.FC = () => {
                     {formatProductPrice(fetchedProduct.price)}
                   </Typography>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} sx={style.RatingStyle}>
                   <Rating
                     name="rating-read"
                     defaultValue={fetchedProduct.review}

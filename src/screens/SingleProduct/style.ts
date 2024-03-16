@@ -40,6 +40,7 @@ export const useCustomStyles = () => {
   };
   const WishlistButtonStyle = {
     color: Theme.customPalette.primary.main,
+    p: 0,
   };
   const GridTitle = {
     display: 'flex',
@@ -54,6 +55,9 @@ export const useCustomStyles = () => {
       m: 2,
     },
   };
+  const RatingStyle = {
+    textAlign: 'Right',
+  };
   return {
     Theme,
     SmallFooterStyle,
@@ -64,5 +68,6 @@ export const useCustomStyles = () => {
     WishlistGridStyle,
     GridTitle,
     GridInfoProduct,
+    RatingStyle,
   };
 };
