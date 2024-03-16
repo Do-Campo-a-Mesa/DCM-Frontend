@@ -58,6 +58,17 @@ export const useCustomStyles = () => {
   const RatingStyle = {
     textAlign: 'Right',
   };
+  const GridTabsStyle = {
+    mb: 10,
+  };
+  const TabStyle = {
+    color: Theme.customPalette.neutral.inactive,
+    typography: Theme.customTypography.body4,
+    fontFamily: Theme.customTypography.fontFamily,
+    '&.Mui-selected': {
+      color: Theme.customPalette.primary.main,
+    },
+  };
   return {
     Theme,
     SmallFooterStyle,
@@ -69,5 +80,7 @@ export const useCustomStyles = () => {
     GridTitle,
     GridInfoProduct,
     RatingStyle,
+    GridTabsStyle,
+    TabStyle,
   };
 };
