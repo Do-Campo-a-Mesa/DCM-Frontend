@@ -33,9 +33,9 @@ export const useCustomStyles = () => {
     pt: '10em',
   };
   const WishlistGridStyle = {
-    pr: 3,
+    p: 0,
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'right',
     alignItems: 'center',
   };
   const WishlistButtonStyle = {
