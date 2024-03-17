@@ -33,13 +33,14 @@ export const useCustomStyles = () => {
     pt: '10em',
   };
   const WishlistGridStyle = {
-    pr: 3,
+    p: 0,
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'right',
     alignItems: 'center',
   };
   const WishlistButtonStyle = {
     color: Theme.customPalette.primary.main,
+    p: 0,
   };
   const GridTitle = {
     display: 'flex',
@@ -54,6 +55,20 @@ export const useCustomStyles = () => {
       m: 2,
     },
   };
+  const RatingStyle = {
+    textAlign: 'Right',
+  };
+  const GridTabsStyle = {
+    mb: 10,
+  };
+  const TabStyle = {
+    color: Theme.customPalette.neutral.inactive,
+    typography: Theme.customTypography.body4,
+    fontFamily: Theme.customTypography.fontFamily,
+    '&.Mui-selected': {
+      color: Theme.customPalette.primary.main,
+    },
+  };
   return {
     Theme,
     SmallFooterStyle,
@@ -64,5 +79,8 @@ export const useCustomStyles = () => {
     WishlistGridStyle,
     GridTitle,
     GridInfoProduct,
+    RatingStyle,
+    GridTabsStyle,
+    TabStyle,
   };
 };

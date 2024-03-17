@@ -135,7 +135,7 @@ const SingleProduct: React.FC = () => {
                     {formatProductPrice(fetchedProduct.price)}
                   </Typography>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} sx={style.RatingStyle}>
                   <Rating
                     name="rating-read"
                     defaultValue={fetchedProduct.review}
@@ -149,7 +149,7 @@ const SingleProduct: React.FC = () => {
                 <Grid item xs={12}>
                   <Typography>Calcule o frete</Typography>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={style.GridTabsStyle}>
                   <Tabs
                     value={value}
                     onChange={handleChange}
@@ -162,21 +162,25 @@ const SingleProduct: React.FC = () => {
                       },
                     }}
                   >
-                    <Tab label="Description" />
-                    <Tab label="Detalhes" />
-                    <Tab label="Dúvidas" />
+                    <Tab sx={style.TabStyle} label="Descrição" />
+                    <Tab sx={style.TabStyle} label="Detalhes" />
+                    <Tab sx={style.TabStyle} label="Dúvidas" />
                   </Tabs>
 
                   {value === 0 && (
-                    <Typography>{fetchedProduct.description}</Typography>
+                    <Typography sx={{ mt: 3 }}>
+                      {fetchedProduct.description}
+                    </Typography>
                   )}
                   {value === 1 && (
-                    <Typography>
+                    <Typography sx={{ mt: 3 }}>
                       {fetchedProduct.unit_of_measurement}
                     </Typography>
                   )}
                   {value === 2 && (
-                    <Typography>{/* Conteúdo das especificações */}</Typography>
+                    <Typography sx={{ mt: 3 }}>
+                      formulario de perguntas
+                    </Typography>
                   )}
                 </Grid>
               </Grid>
