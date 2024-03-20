@@ -1,6 +1,11 @@
 import * as mock from './mock';
 import * as integration from './integration';
-import { CreateUserInput, GeneralResponse } from '../../lib/interfaces/User';
+import {
+  CreateUserInput,
+  GeneralResponse,
+  LoginResponse,
+  LoginUserInput,
+} from '../../lib/interfaces/User';
 
 const useMock = process.env.NODE_ENV === 'mock';
 
@@ -9,3 +14,7 @@ export const createUserAccount: (
 ) => Promise<GeneralResponse> = useMock
   ? mock.createUserAccount
   : integration.createUserAccount;
+
+export const userLogIn: (
+  userLoginInput: LoginUserInput
+) => Promise<LoginResponse> = useMock ? mock.userLogIn : integration.userLogIn;
