@@ -1,12 +1,12 @@
 export interface Partner {
-  id: number;
-  companyName: string;
-  business: string;
-  logotipo: string;
+  id: string;
+  name: string;
+  business?: string;
+  logo?: string;
 }
 export interface ProductCardPartner {
-  id: number;
-  companyName: string;
+  id: string;
+  name: string;
 }
 export interface PartnersResponse {
   data: Partner[];

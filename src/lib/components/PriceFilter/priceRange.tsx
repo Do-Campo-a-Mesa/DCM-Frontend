@@ -26,7 +26,7 @@ const PriceSearchCard: React.FC<Props> = ({ products, onFilterChange }) => {
   }, []);
 
   const handlePriceRangeChange = (
-    event: Event,
+    _event: Event,
     newValue: number | number[]
   ) => {
     setPriceRange(newValue as number[]);

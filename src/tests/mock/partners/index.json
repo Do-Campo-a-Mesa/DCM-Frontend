@@ -1,38 +1,38 @@
 [
   {
-    "id": 1,
-    "companyName": "Youtube",
+    "id": "1",
+    "name": "Youtube",
     "business": "Site de vídeos",
-    "logotipo": "/logo.png"
+    "logo": "/logo.png"
   },
   {
-    "id": 2,
-    "companyName": "Linkedin",
+    "id": "2",
+    "name": "Linkedin",
     "business": "Rede social",
-    "logotipo": "/logo.png"
+    "logo": "/logo.png"
   },
   {
-    "id": 3,
-    "companyName": "Linkedin1",
+    "id": "3",
+    "name": "Linkedin1",
     "business": "Rede social",
-    "logotipo": "/logo.png"
+    "logo": "/logo.png"
   },
   {
-    "id": 4,
-    "companyName": "Youtube1",
+    "id": "4",
+    "name": "Youtube1",
     "business": "Site de vídeos",
-    "logotipo": "/logo.png"
+    "logo": "/logo.png"
   },
   {
-    "id": 5,
-    "companyName": "Linkedin2",
+    "id": "5",
+    "name": "Linkedin2",
     "business": "Rede social",
-    "logotipo": "/logo.png"
+    "logo": "/logo.png"
   },
   {
-    "id": 6,
-    "companyName": "Linkedin3",
+    "id": "6",
+    "name": "Linkedin3",
     "business": "Rede social",
-    "logotipo": "/logo.png"
+    "logo": "/logo.png"
   }
 ]

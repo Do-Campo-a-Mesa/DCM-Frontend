@@ -1,4 +1,3 @@
-import './styles.css';
 import ProductsList from '../../lib/components/Products/List/listProducts';
 import {
   Accordion,
@@ -31,7 +30,7 @@ export default function UserSearchProducts() {
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-  const [selectedPartners, setSelectedPartners] = useState<number[]>([]);
+  const [selectedPartners, setSelectedPartners] = useState<string[]>([]);
 
   const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
 
@@ -76,7 +75,7 @@ export default function UserSearchProducts() {
   const handleCategorySelectionChange = (selectedCategoryIds: number[]) => {
     setSelectedCategoryIds(selectedCategoryIds);
   };
-  const handlePartnerSelectionChange = (selectedPartners: number[]) => {
+  const handlePartnerSelectionChange = (selectedPartners: string[]) => {
     setSelectedPartners(selectedPartners);
   };
 
@@ -85,35 +84,35 @@ export default function UserSearchProducts() {
   return (
     <>
       <Navbar isHomePage={false} />
-      <Container sx={style.containerStyle}>
+      <Container sx={style.ContainerStyle}>
         <Grid
           container
           maxWidth={'1600px'}
           minHeight={'100vh'}
-          sx={style.gridStyle}
+          sx={style.GridStyle}
         >
           <Grid item xs={12} md={3}>
-            <Typography sx={style.subtitle}>Filtrar</Typography>
+            <Typography sx={style.Subtitle}>Filtrar</Typography>
             <Grid item sm={12}>
               {isMobile ? (
-                <Accordion sx={style.filterAccordionStyle}>
+                <Accordion sx={style.FilterAccordionStyle}>
                   <AccordionSummary
                     expandIcon={
                       <ExpandMoreIcon
-                        sx={{ color: style.theme.customPalette.primary.main }}
+                        sx={{ color: style.Theme.customPalette.primary.main }}
                       />
                     }
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography sx={style.filterTypeStyle}>
+                    <Typography sx={style.FilterTypeStyle}>
                       Ver filtros
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Grid container spacing={2}>
                       <Grid item xs={12}>
-                        <Typography sx={style.filterTypeStyle}>
+                        <Typography sx={style.FilterTypeStyle}>
                           Categorias
                         </Typography>
                         <CategorySearchCard
@@ -124,7 +123,7 @@ export default function UserSearchProducts() {
                         />
                       </Grid>
                       <Grid item xs={12}>
-                        <Typography sx={style.filterTypeStyle}>
+                        <Typography sx={style.FilterTypeStyle}>
                           Lojas
                         </Typography>
                         <PartnerSearchCard
@@ -135,7 +134,7 @@ export default function UserSearchProducts() {
                         />
                       </Grid>
                       <Grid item xs={12}>
-                        <Typography sx={style.filterTypeStyle}>
+                        <Typography sx={style.FilterTypeStyle}>
                           Preço
                         </Typography>
                         <PriceSearchCard
@@ -148,17 +147,17 @@ export default function UserSearchProducts() {
                 </Accordion>
               ) : (
                 <>
-                  <Typography sx={style.filterTypeStyle}>Categorias</Typography>
+                  <Typography sx={style.FilterTypeStyle}>Categorias</Typography>
                   <CategorySearchCard
                     categories={categories}
                     onCategorySelectionChange={handleCategorySelectionChange}
                   />
-                  <Typography sx={style.filterTypeStyle}>Lojas</Typography>
+                  <Typography sx={style.FilterTypeStyle}>Lojas</Typography>
                   <PartnerSearchCard
                     partners={partners}
                     onPartnerSelectionChange={handlePartnerSelectionChange}
                   />
-                  <Typography sx={style.filterTypeStyle}>Preço</Typography>
+                  <Typography sx={style.FilterTypeStyle}>Preço</Typography>
                   <PriceSearchCard
                     products={products}
                     onFilterChange={setPriceRange}
@@ -168,7 +167,7 @@ export default function UserSearchProducts() {
             </Grid>
           </Grid>
           <Grid item xs={12} md={9}>
-            <Typography sx={style.title}>resultados</Typography>
+            <Typography sx={style.Title}>resultados</Typography>
             <ProductsList products={products} />
           </Grid>
         </Grid>

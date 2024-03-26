@@ -3,6 +3,7 @@ import * as integration from './integration';
 import {
   FilterProductInput,
   ProductsResponse,
+  ProductResponse,
 } from '../../lib/interfaces/Product';
 
 const useMock = process.env.NODE_ENV === 'mock';
@@ -12,3 +13,10 @@ export const getProducts: (
 ) => Promise<ProductsResponse> = useMock
   ? mock.getProducts
   : integration.getProducts;
+
+export const getProductById: (id: number) => Promise<ProductResponse> = useMock
+  ? mock.getProductById
+  : integration.getProductById;
+
+export const getProductsByStoreId: (id: number) => Promise<ProductsResponse> =
+  useMock ? mock.getProductsByStoreId : integration.getProductsByStoreId;

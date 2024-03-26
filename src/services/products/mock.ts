@@ -1,6 +1,8 @@
 import products from '../../tests/mock/products/index.json';
+import product from '../../tests/mock/products/product.json';
 import {
   FilterProductInput,
+  ProductResponse,
   ProductsResponse,
 } from '../../lib/interfaces/Product';
 
@@ -43,4 +45,12 @@ export async function getProducts(
   }
 
   return { data: filteredProducts };
+}
+
+export async function getProductById(): Promise<ProductResponse> {
+  return { data: product };
+}
+
+export async function getProductsByStoreId(): Promise<ProductsResponse> {
+  return { data: products };
 }

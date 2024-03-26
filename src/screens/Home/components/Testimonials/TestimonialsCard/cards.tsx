@@ -41,16 +41,16 @@ const CardTestimonialsHome: React.FC<Props> = ({ testimonial }) => {
         <Box>
           <Rating
             name="rating-read"
-            defaultValue={testimonial.stars}
+            defaultValue={testimonial.rating}
             precision={0.5}
             readOnly
           />
         </Box>
         <Box>
-          <Typography sx={DescribeStyle}>{testimonial.describe}</Typography>
+          <Typography sx={DescribeStyle}>{testimonial.description}</Typography>
         </Box>
         <Box>
-          <Typography sx={UsernameStyle}>{testimonial.userName}</Typography>
+          <Typography sx={UsernameStyle}>{testimonial.username}</Typography>
         </Box>
         <Box>
           <Typography sx={DateStyle}>{testimonial.date}</Typography>

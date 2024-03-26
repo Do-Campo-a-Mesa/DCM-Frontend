@@ -1,35 +1,35 @@
 import { useTheme } from '@mui/material/styles';
 
 export const useCustomStyles = () => {
-  const theme = useTheme();
-  const title = {
-    typography: theme.customTypography.h4,
-    fontFamily: theme.customTypography.fontFamily,
-    color: theme.customPalette.primary.black,
+  const Theme = useTheme();
+  const Title = {
+    typography: Theme.customTypography.h4,
+    fontFamily: Theme.customTypography.fontFamily,
+    color: Theme.customPalette.primary.black,
     textTransform: 'uppercase',
     '@media (max-width: 600px)': {
-      typography: theme.customTypography.h4,
+      typography: Theme.customTypography.h4,
       mt: 2,
       textAlign: 'center',
     },
   };
-  const subtitle = {
+  const Subtitle = {
     pt: 2,
-    typography: theme.customTypography.h7,
-    fontFamily: theme.customTypography.fontFamily,
-    color: theme.customPalette.primary.black,
+    typography: Theme.customTypography.h7,
+    fontFamily: Theme.customTypography.fontFamily,
+    color: Theme.customPalette.primary.black,
     textTransform: 'uppercase',
     mb: 2,
     '@media (max-width: 600px)': {
       textAlign: 'center',
     },
   };
-  const containerStyle = {
+  const ContainerStyle = {
     '@media (min-width: 1200px)': {
       maxWidth: '1600px',
     },
   };
-  const gridStyle = {
+  const GridStyle = {
     direction: 'row',
     justifyContent: 'center',
     pt: 5,
@@ -44,25 +44,25 @@ export const useCustomStyles = () => {
       maxWidth: 'none',
     },
   };
-  const filterTypeStyle = {
-    fontFamily: theme.customTypography.fontFamily,
-    typography: theme.customTypography.h6,
-    color: theme.customPalette.primary.black,
+  const FilterTypeStyle = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.h6,
+    color: Theme.customPalette.primary.black,
     pt: 1,
   };
-  const filterAccordionStyle = {
+  const FilterAccordionStyle = {
     mr: 2,
-    backgroundColor: theme.customPalette.primary.background,
+    backgroundColor: Theme.customPalette.primary.background,
   };
 
   return {
-    theme,
-    title,
-    containerStyle,
-    gridStyle,
-    subtitle,
+    Theme,
+    Title,
+    ContainerStyle,
+    GridStyle,
+    Subtitle,
     SmallFooterStyle,
-    filterTypeStyle,
-    filterAccordionStyle,
+    FilterTypeStyle,
+    FilterAccordionStyle,
   };
 };
