@@ -6,6 +6,7 @@ import {
   LoginResponse,
   LoginUserInput,
 } from '../../lib/interfaces/User';
+import { ContactForm } from '../../lib/interfaces/Contact';
 
 const useMock = process.env.NODE_ENV === 'mock';
 
@@ -18,3 +19,9 @@ export const createUserAccount: (
 export const userLogIn: (
   userLoginInput: LoginUserInput
 ) => Promise<LoginResponse> = useMock ? mock.userLogIn : integration.userLogIn;
+
+export const sendContactForm: (
+  dataForm: ContactForm
+) => Promise<GeneralResponse> = useMock
+  ? mock.sendContactForm
+  : integration.sendContactForm;

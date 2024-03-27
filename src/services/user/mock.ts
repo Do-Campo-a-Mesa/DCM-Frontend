@@ -8,3 +8,7 @@ export async function createUserAccount(): Promise<GeneralResponse> {
 export async function userLogIn(): Promise<LoginResponse> {
   return user_login_response;
 }
+
+export async function sendContactForm(): Promise<GeneralResponse> {
+  return { message: 'Formulário de Contato enviado com Sucesso' };
+}
