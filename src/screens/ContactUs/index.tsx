@@ -12,16 +12,7 @@ const ContactUs: React.FC = () => {
   return (
     <>
       <Navbar isHomePage={true} />
-      <Container
-        sx={style.ContainerStyle}
-        style={{
-          backgroundColor: 'green',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '100vh',
-        }}
-      >
+      <Container sx={style.ContainerStyle}>
         <Grid
           container
           maxWidth={'1600px'}
@@ -29,7 +20,14 @@ const ContactUs: React.FC = () => {
           sx={style.GridStyle}
         >
           <Grid item xs={12} sx={style.GridTitle}>
-            <Typography sx={style.Title}>Contate-nos</Typography>
+            <Typography
+              variant="h1"
+              component="div"
+              className="text-overlay"
+              sx={style.Title}
+            >
+              Contate-nos
+            </Typography>
           </Grid>
           <Grid item xs={12} sx={style.GridTitle}>
             <Grid item xs={5} sx={style.GridSubTitle}>
@@ -42,27 +40,33 @@ const ContactUs: React.FC = () => {
           <Grid item xs={8}>
             <form style={{ textAlign: 'center' }}>
               <TextField
+                required
                 id="name"
-                label="Name"
+                label="Nome"
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                sx={style.TextFieldStyle}
               />
               <TextField
+                required
                 id="email"
                 label="Email"
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                sx={style.TextFieldStyle}
               />
               <TextField
+                required
                 id="message"
-                label="Message"
+                label="Mensagem"
                 variant="outlined"
                 multiline
                 rows={4}
                 fullWidth
                 margin="normal"
+                sx={style.TextFieldStyle}
               />
               <Button variant="contained" sx={style.ButtonStyle}>
                 ENVIAR MENSAGEM
