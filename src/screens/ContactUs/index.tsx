@@ -1,10 +1,10 @@
 import { useCustomStyles } from './style';
-import { Container, TextField, Button, Typography, Grid } from '@mui/material';
+import { Container, Typography, Grid } from '@mui/material';
 import Navbar from '../../lib/components/Navbar/Navbar';
-
 import React from 'react';
 import BigFooter from '../../lib/components/Footer/bigFooter';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
+import Form from './Components/Form/form';
 
 const ContactUs: React.FC = () => {
   const style = useCustomStyles();
@@ -13,13 +13,8 @@ const ContactUs: React.FC = () => {
     <>
       <Navbar isHomePage={true} />
       <Container sx={style.ContainerStyle}>
-        <Grid
-          container
-          maxWidth={'1600px'}
-          minHeight={'100vh'}
-          sx={style.GridStyle}
-        >
-          <Grid item xs={12} sx={style.GridTitle}>
+        <Grid container spacing={2} direction="column" alignItems="center">
+          <Grid item xs={12}>
             <Typography
               variant="h1"
               component="div"
@@ -29,49 +24,14 @@ const ContactUs: React.FC = () => {
               Contate-nos
             </Typography>
           </Grid>
-          <Grid item xs={12} sx={style.GridTitle}>
-            <Grid item xs={5} sx={style.GridSubTitle}>
-              <Typography sx={style.SubTitle}>
-                Teve alguma dúvida? Envie-nos uma mensagem, estamos aguardando
-                para respondê-lo.
-              </Typography>
-            </Grid>
+          <Grid item xs={12}>
+            <Typography sx={style.SubTitle}>
+              Teve alguma dúvida? Envie-nos uma mensagem, estamos aguardando
+              para respondê-lo.
+            </Typography>
           </Grid>
-          <Grid item xs={8}>
-            <form style={{ textAlign: 'center' }}>
-              <TextField
-                required
-                id="name"
-                label="Nome"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                sx={style.TextFieldStyle}
-              />
-              <TextField
-                required
-                id="email"
-                label="Email"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                sx={style.TextFieldStyle}
-              />
-              <TextField
-                required
-                id="message"
-                label="Mensagem"
-                variant="outlined"
-                multiline
-                rows={4}
-                fullWidth
-                margin="normal"
-                sx={style.TextFieldStyle}
-              />
-              <Button variant="contained" sx={style.ButtonStyle}>
-                ENVIAR MENSAGEM
-              </Button>
-            </form>
+          <Grid item xs={12}>
+            <Form />
           </Grid>
         </Grid>
       </Container>
