@@ -373,7 +373,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
       body3: {
         fontSize: '16px',
         lineHeight: '20px',
-        fontWeight: '400',
+        fontWeight: '600',
       },
       body4: {
         fontSize: '16px',

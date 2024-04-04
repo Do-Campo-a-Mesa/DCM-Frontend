@@ -20,7 +20,7 @@ export const useCustomStyles = () => {
     color: theme.customPalette.primary.black,
     pb: 2,
     fontFamily: theme.customTypography.fontFamily,
-    typography: theme.customTypography.h7,
+    typography: theme.customTypography.body3,
   };
   const gridLinkStyle = {
     pt: 1,
