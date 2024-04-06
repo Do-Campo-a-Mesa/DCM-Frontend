@@ -16,7 +16,7 @@ export const useCustomStyles = () => {
   const ContainerStyle1 = {
     display: 'flex',
     justifyContent: 'center',
-    pt: '3em',
+    pt: '1em',
     pb: '3em',
     backgroundColor: Theme.customPalette.primary.background,
     textAlign: 'left',
