@@ -1,13 +1,25 @@
 import { useCustomStyles } from './style';
 import { Container, Typography, Grid } from '@mui/material';
 import Navbar from '../../lib/components/Navbar/Navbar';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BigFooter from '../../lib/components/Footer/bigFooter';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
 import about from '../../assets/aboutus_img.png';
 import aboutUsImg from '../../assets/aboutus_img1.png';
 import parnterImg from '../../assets/aboutus_img2.png';
+import { BusinessValues } from '../../lib/interfaces/BusinessValues';
+import { getBusinessValues } from '../../services/businessValues/index.ts';
+import BusinessValuesCarousel from './components/BusinessValues/carousel.tsx';
 const AboutUs: React.FC = () => {
+  const [businessValue, setBusinessValue] = useState<BusinessValues[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const businessValuesResponse = await getBusinessValues();
+      setBusinessValue(businessValuesResponse.data);
+    })();
+  }, []);
+
   const style = useCustomStyles();
 
   return (
@@ -41,14 +53,21 @@ const AboutUs: React.FC = () => {
         </Grid>
       </Container>
       <Container sx={style.ContainerStyle1}>
-        <Typography
-          variant="h1"
-          component="div"
-          className="text-overlay"
-          sx={style.SectionTitleStyle}
-        >
-          Valores
-        </Typography>
+        <Grid container maxWidth={'lg'} spacing={3} sx={style.GridStyle2}>
+          <Grid item xs={12}>
+            <Typography
+              variant="h1"
+              component="div"
+              className="text-overlay"
+              sx={style.SectionTitleStyle}
+            >
+              Valores
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <BusinessValuesCarousel businessValues={businessValue} />
+          </Grid>
+        </Grid>
       </Container>
       <Container sx={style.ContainerStyle2}>
         <Grid container maxWidth={'lg'} spacing={3} sx={style.GridStyle2}>
