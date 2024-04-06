@@ -14,13 +14,15 @@ const AboutUs: React.FC = () => {
       <Container sx={style.ContainerStyle}>
         <Grid
           container
-          maxWidth={'1200px'}
+          maxWidth={'lg'}
           spacing={3}
           direction="row"
           alignItems="center"
           justifyContent="center"
+          paddingLeft="3em"
+          paddingRight="3em"
         >
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <Typography
               variant="h1"
               component="div"
@@ -31,8 +33,8 @@ const AboutUs: React.FC = () => {
               industry.
             </Typography>
           </Grid>
-          <Grid item xs={6}>
-            <img src={about} />
+          <Grid item xs={12} sm={12} md={6} sx={style.GridImgStyle}>
+            <img src={about} style={{ maxWidth: '100%' }} />
           </Grid>
         </Grid>
       </Container>
