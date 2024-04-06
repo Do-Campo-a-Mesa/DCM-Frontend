@@ -22,6 +22,7 @@ declare module '@mui/material/styles' {
       };
       secondary: {
         main: string;
+        background: string;
       };
       neutral: {
         secondaryText: string;
@@ -147,6 +148,7 @@ declare module '@mui/material/styles' {
       };
       secondary?: {
         main?: string;
+        background?: string;
       };
       neutral?: {
         secondaryText?: string;
@@ -274,6 +276,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
       },
       secondary: {
         main: '#7EC042',
+        background: '#E5FFE9',
       },
       neutral: {
         secondaryText: '#A3A3A3',
