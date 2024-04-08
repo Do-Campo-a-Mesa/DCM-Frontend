@@ -113,14 +113,15 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
               </Box>
               <Box sx={style.boxStyle2}>
                 {sections.map((section) => (
-                  <Button
-                    disableRipple
-                    key={section.label}
-                    onClick={handleCloseNavMenu}
-                    sx={style.buttonStyle}
-                  >
-                    {section.label}
-                  </Button>
+                  <Link to={section.path} key={section.path}>
+                    <Button
+                      disableRipple
+                      onClick={handleCloseNavMenu}
+                      sx={style.buttonStyle}
+                    >
+                      {section.label}
+                    </Button>
+                  </Link>
                 ))}
               </Box>
             </>
