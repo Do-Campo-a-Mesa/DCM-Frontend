@@ -4,7 +4,7 @@ import Navbar from '../../lib/components/Navbar/Navbar';
 import React from 'react';
 import BigFooter from '../../lib/components/Footer/bigFooter';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
-import Form from './Components/Form/form';
+import Form from './components/Form/form';
 
 const ContactUs: React.FC = () => {
   const style = useCustomStyles();
