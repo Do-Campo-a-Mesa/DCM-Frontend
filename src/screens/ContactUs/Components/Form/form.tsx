@@ -1,12 +1,14 @@
 import { Button, TextField } from '@mui/material';
 import { useCustomStyles } from './style';
 import { useState } from 'react';
+import { ContactForm } from '../../../../lib/interfaces/Contact';
 
 const Form: React.FC = () => {
   const style = useCustomStyles();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactForm>({
     name: '',
     email: '',
+    subject: '',
     message: '',
   });
   const handleChange = (
@@ -28,6 +30,7 @@ const Form: React.FC = () => {
       name: '',
       email: '',
       message: '',
+      subject: '',
     });
   };
   return (
@@ -54,6 +57,19 @@ const Form: React.FC = () => {
         onChange={handleChange}
         sx={style.TextFieldStyle}
       />
+
+      <TextField
+        required
+        id="subject"
+        label="Assunto"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        value={formData.subject}
+        onChange={handleChange}
+        sx={style.TextFieldStyle}
+      />
+
       <TextField
         required
         id="message"
