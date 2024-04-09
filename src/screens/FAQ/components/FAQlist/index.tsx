@@ -2,7 +2,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Button,
   Typography,
 } from '@mui/material';
 import { useCustomStyles } from './style';
@@ -22,23 +21,23 @@ const FAQlist: React.FC<Props> = ({ FAQs }) => {
     setExpanded(!expanded);
   };
   return (
-    <>
-      <Accordion expanded={expanded} onChange={handleExpand}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="h6" sx={style.TitleStyle}>
-            {FAQs.title}
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={style.DescriptionStyle}>
-            {FAQs.description}
-          </Typography>
-          <Button variant="contained" color="primary">
-            Ver Resposta
-          </Button>
-        </AccordionDetails>
-      </Accordion>
-    </>
+    <Accordion
+      sx={style.AccordionStyle}
+      expanded={expanded}
+      onChange={handleExpand}
+    >
+      <AccordionSummary
+        sx={style.AccordionStyle1}
+        expandIcon={<ExpandMoreIcon sx={style.IconStyle} />}
+      >
+        <Typography variant="h6" sx={style.TitleStyle}>
+          {FAQs.title}
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails sx={style.AccordionDetailStyle}>
+        <Typography sx={style.DescriptionStyle}>{FAQs.description}</Typography>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 

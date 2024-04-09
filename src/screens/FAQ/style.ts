@@ -5,7 +5,7 @@ export const useCustomStyles = () => {
   const ContainerStyle = {
     pt: '3em',
     '@media (min-width: 1200px)': {
-      maxWidth: '1600px',
+      maxWidth: '1200px',
     },
     minHeight: '80vh',
   };
