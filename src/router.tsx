@@ -5,6 +5,7 @@ import UserSearchProducts from './screens/UserSearchProducts';
 import SingleProduct from './screens/SingleProduct';
 import ContactUs from './screens/ContactUs';
 import AboutUs from './screens/AboutUs';
+import FAQPage from './screens/FAQ';
 
 const AppRouter = () => {
   return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
         <Route path="/produto/:id" element={<SingleProduct />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/faq" element={<FAQPage />} />
       </Routes>
     </Router>
   );
