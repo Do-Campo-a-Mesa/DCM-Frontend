@@ -15,8 +15,8 @@ const AppRouter = () => {
         <Route path="*" element={<NotFound404 />} />
         <Route path="/buscar" element={<UserSearchProducts />} />
         <Route path="/produto/:id" element={<SingleProduct />} />
-        <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/formulario_de_contato" element={<ContactUs />} />
+        <Route path="/sobre" element={<AboutUs />} />
         <Route path="/faq" element={<FAQPage />} />
       </Routes>
     </Router>
