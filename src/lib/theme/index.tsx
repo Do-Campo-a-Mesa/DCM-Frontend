@@ -380,7 +380,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
       },
       body4: {
         fontSize: '16px',
-        lineHeight: '20px',
+        lineHeight: '30px',
         fontWeight: '500',
       },
       button: {

@@ -1,12 +1,22 @@
 import { useCustomStyles } from './style';
 import { Container, Typography, Grid } from '@mui/material';
 import Navbar from '../../lib/components/Navbar/Navbar';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BigFooter from '../../lib/components/Footer/bigFooter';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
-import Form from './components/Form/form';
+import { FAQ } from '../../lib/interfaces/FAQ';
+import { getFAQ } from '../../services/faq/index';
+import FAQPageList from './components/FAQlist/list';
 
-const ContactUs: React.FC = () => {
+const FAQPage: React.FC = () => {
+  const [FAQs, setFAQs] = useState<FAQ[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const FAQResponse = await getFAQ();
+      setFAQs(FAQResponse.data);
+    })();
+  }, []);
   const style = useCustomStyles();
 
   return (
@@ -21,17 +31,11 @@ const ContactUs: React.FC = () => {
               className="text-overlay"
               sx={style.Title}
             >
-              Contate-nos
+              Perguntas mais frequentes
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography sx={style.SubTitle}>
-              Teve alguma dúvida? Envie-nos uma mensagem, estamos aguardando
-              para respondê-lo.
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Form />
+            <FAQPageList FAQs={FAQs} />
           </Grid>
         </Grid>
       </Container>
@@ -45,4 +49,4 @@ const ContactUs: React.FC = () => {
   );
 };
 
-export default ContactUs;
+export default FAQPage;
