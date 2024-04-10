@@ -1,21 +1,8 @@
-import SmallFooter from '../../lib/components/Footer/smallFooter';
-import { Container } from '@mui/material';
-import { useCustomStyles } from './style';
-import LoginForm from './components/loginForm';
+import LoginForm from './loginForm';
+import LayoutRegisterOrLogin from '../../lib/layout/login_and_register';
 
 const Login: React.FC = () => {
-  const style = useCustomStyles();
-
-  return (
-    <>
-      <Container>
-        <LoginForm />
-      </Container>
-      <Container sx={style.SmallFooterStyles} maxWidth={false}>
-        <SmallFooter />
-      </Container>
-    </>
-  );
+  return <LayoutRegisterOrLogin formComponent={<LoginForm />} />;
 };
 
 export default Login;
