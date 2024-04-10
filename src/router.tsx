@@ -6,6 +6,7 @@ import SingleProduct from './screens/SingleProduct';
 import ContactUs from './screens/ContactUs';
 import AboutUs from './screens/AboutUs';
 import FAQPage from './screens/FAQ';
+import PartnerRegister from './screens/PartnerRegister';
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/formulario_de_contato" element={<ContactUs />} />
         <Route path="/sobre" element={<AboutUs />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/cadastrar_parceiro" element={<PartnerRegister />} />
       </Routes>
     </Router>
   );
