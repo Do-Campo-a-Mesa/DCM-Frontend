@@ -101,13 +101,15 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
                   sx={style.menuStyle}
                 >
                   {sections.map((section) => (
-                    <MenuItem
-                      key={section.label}
-                      onClick={handleCloseNavMenu}
-                      sx={style.menuItemStyle}
-                    >
-                      {section.label}
-                    </MenuItem>
+                    <Link to={section.path} key={section.path}>
+                      <MenuItem
+                        key={section.path}
+                        onClick={handleCloseNavMenu}
+                        sx={style.menuItemStyle}
+                      >
+                        {section.label}
+                      </MenuItem>
+                    </Link>
                   ))}
                 </Menu>
               </Box>
@@ -157,13 +159,15 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
                   onClose={handleCloseNavUser}
                 >
                   {user_no_login_options.map((user_option) => (
-                    <MenuItem
-                      key={user_option.label}
-                      onClick={handleCloseNavUser}
-                      sx={style.menuItemStyle}
-                    >
-                      {user_option.label}
-                    </MenuItem>
+                    <Link to={user_option.path} key={user_option.path}>
+                      <MenuItem
+                        key={user_option.path}
+                        onClick={handleCloseNavUser}
+                        sx={style.menuItemStyle}
+                      >
+                        {user_option.label}
+                      </MenuItem>
+                    </Link>
                   ))}
                 </Menu>
               </Box>
