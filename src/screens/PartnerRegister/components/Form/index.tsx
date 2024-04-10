@@ -23,7 +23,7 @@ const PartnerRegisterForm: React.FC = () => {
   };
 
   const onSubmit = (data: PartnerForm) => {
-    // Integração com a API ou qualquer outra lógica de submissão de formulário
+    // Integração com a API
     console.log('Dados do formulário:', data);
     if (activeStep === 2) {
       // Se for a última etapa
@@ -103,10 +103,10 @@ const PartnerRegisterForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper sx={{ mt: '1em' }} activeStep={activeStep} alternativeLabel>
         {steps.map((label, index) => (
           <Step key={index}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel sx={style.LabelStep}>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>

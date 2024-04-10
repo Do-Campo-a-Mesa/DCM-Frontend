@@ -52,9 +52,39 @@ export const useCustomStyles = () => {
       },
     },
   };
+  const LabelStep = {
+    '.MuiStepLabel-label': {
+      fontFamily: Theme.customTypography.fontFamily,
+      typography: Theme.customTypography.h9,
+      color: Theme.customPalette.primary.black,
+      '&.Mui-completed': {
+        fontFamily: Theme.customTypography.fontFamily,
+        typography: Theme.customTypography.button1,
+        color: Theme.customPalette.primary.black,
+      },
+    },
+    '.MuiStepIcon-root': {
+      color: Theme.customPalette.primary.black,
+      '&.Mui-active': {
+        color: Theme.customPalette.primary.yellow,
+        '.MuiStepIcon-text': {
+          fill: Theme.customPalette.primary.black,
+        },
+      },
+      '&.Mui-completed': {
+        color: Theme.customPalette.primary.black,
+      },
+      '.MuiStepIcon-text': {
+        fontFamily: Theme.customTypography.fontFamily,
+        typography: Theme.customTypography.h9,
+        color: Theme.customPalette.primary.black,
+      },
+    },
+  };
   return {
     Theme,
     ButtonStyle,
     TextFieldStyle,
+    LabelStep,
   };
 };
