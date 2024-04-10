@@ -1,6 +1,46 @@
 export interface PartnerForm {
-  name: string;
+  nomeEmpresa: string;
+  nomeFantasia: string;
+  cnpj: number;
   email: string;
-  subject: string;
-  message: string;
+  telefone: string;
+  instagram: string;
+  cep: number;
+  rua: string;
+  numero: number;
+  cidade: string;
+  bairro: string;
+  estado:
+    | 'AC'
+    | 'AL'
+    | 'AP'
+    | 'AM'
+    | 'BA'
+    | 'CE'
+    | 'DF'
+    | 'ES'
+    | 'GO'
+    | 'MA'
+    | 'MT'
+    | 'MS'
+    | 'MG'
+    | 'PA'
+    | 'PB'
+    | 'PR'
+    | 'PE'
+    | 'PI'
+    | 'RJ'
+    | 'RN'
+    | 'RS'
+    | 'RO'
+    | 'RR'
+    | 'SC'
+    | 'SP'
+    | 'SE'
+    | 'TO';
+  complemento: string;
+  entrega: boolean;
+  entregaTipo: 'Entrega expressa' | 'Entrega padrão' | 'Outro' | string;
+  entregaDias: boolean[];
+  tempoProcessamento: number;
 }
