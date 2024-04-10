@@ -9,7 +9,7 @@ const PartnerRegister: React.FC = () => {
   return (
     <>
       <Grid container spacing={2} direction="row" sx={style.ContainerStyle}>
-        <Grid item xs={6} sx={style.FormContainer}>
+        <Grid item sm={12} md={6} sx={style.FormContainer}>
           <Grid item xs={7} sx={style.FormGrid}>
             <Typography
               variant="h1"
@@ -30,7 +30,7 @@ const PartnerRegister: React.FC = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={6} sx={style.FormContainer1}>
+        <Grid item sm={12} md={6} sx={style.FormContainer1}>
           <Grid item xs={7} sx={style.FormGrid}>
             <Typography
               variant="h1"
