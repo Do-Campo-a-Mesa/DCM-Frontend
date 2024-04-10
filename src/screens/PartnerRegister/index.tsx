@@ -3,6 +3,7 @@ import { Container, Typography, Grid, Button } from '@mui/material';
 import React from 'react';
 import SmallFooter from '../../lib/components/Footer/smallFooter';
 import BasicTimeline from './components/Timeline';
+import PartnerRegisterForm from './components/Form';
 const PartnerRegister: React.FC = () => {
   const style = useCustomStyles();
 
@@ -28,6 +29,7 @@ const PartnerRegister: React.FC = () => {
                 Acessar minha conta
               </Button>
             </Typography>
+            <PartnerRegisterForm />
           </Grid>
         </Grid>
         <Grid item sm={12} md={6} sx={style.FormContainer1}>
@@ -41,7 +43,7 @@ const PartnerRegister: React.FC = () => {
               Como firmar Parceria?
             </Typography>
             <Typography sx={style.SubTitle1}>
-              tenha seus produtos na vitrine mais vista do Brasil.
+              Tenha seus produtos na vitrine mais vista do Brasil.
             </Typography>
             <BasicTimeline />
           </Grid>

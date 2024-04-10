@@ -13,11 +13,13 @@ export const useCustomStyles = () => {
     fontFamily: Theme.customTypography.fontFamily,
     typography: Theme.customTypography.h3,
     color: Theme.customPalette.primary.background,
+    pb: '0.3em',
   };
   const Title1 = {
     fontFamily: Theme.customTypography.fontFamily,
     typography: Theme.customTypography.h3,
     color: Theme.customPalette.primary.black,
+    pb: '0.3em',
   };
   const SubTitle = {
     fontFamily: Theme.customTypography.fontFamily,
