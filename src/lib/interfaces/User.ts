@@ -1,6 +1,7 @@
 export interface CreateUserInput {
   email: string;
   password: string;
+  repeat_password: string;
 }
 
 export interface LoginUserInput {
