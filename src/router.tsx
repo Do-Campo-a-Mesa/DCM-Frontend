@@ -6,12 +6,14 @@ import SingleProduct from './screens/SingleProduct';
 import ContactUs from './screens/ContactUs';
 import AboutUs from './screens/AboutUs';
 import FAQPage from './screens/FAQ';
+import Login from './screens/Login';
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound404 />} />
         <Route path="/buscar" element={<UserSearchProducts />} />
         <Route path="/produto/:id" element={<SingleProduct />} />
