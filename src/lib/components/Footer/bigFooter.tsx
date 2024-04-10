@@ -14,16 +14,16 @@ const BigFooter: React.FC = () => {
   const linksUteis = [
     { text: 'Produtos', href: '#' },
     { text: 'Depoimentos', href: '#' },
-    { text: 'Sobre nós', href: '#' },
+    { text: 'Sobre nós', href: 'sobre' },
     { text: 'Login', href: '#' },
-    { text: 'Cadastro', href: '#' },
+    { text: 'Cadastro', href: 'cadastro' },
   ];
   const linksAjuda = [
     { text: 'Pagamento', href: '#' },
     { text: 'Produto impróprio', href: '#' },
     { text: 'Entregas', href: '#' },
     { text: 'Suporte', href: '#' },
-    { text: 'Contato', href: '#' },
+    { text: 'Contato', href: 'formulario_de_contato' },
   ];
   const Categorias = [
     { text: 'Doces', href: '#' },

@@ -15,7 +15,6 @@ export const useCustomStyles = () => {
     '&:hover': {
       boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
     },
-    cursor: 'pointer',
   };
   const BoxStyle = {
     display: 'flex',
