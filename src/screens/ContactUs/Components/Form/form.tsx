@@ -1,77 +1,60 @@
 import { Button, TextField } from '@mui/material';
 import { useCustomStyles } from './style';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { ContactForm } from '../../../../lib/interfaces/Contact';
 
 const Form: React.FC = () => {
   const style = useCustomStyles();
-  const [formData, setFormData] = useState<ContactForm>({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { id, value } = event.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
-  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactForm>();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Integração com a API
+  const onSubmit = (formData: ContactForm) => {
+    // Integração com a API ou qualquer outra lógica de submissão de formulário
     console.log('Dados do formulário:', formData);
-
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-      subject: '',
-    });
+    reset(); // Limpa os campos do formulário após a submissão
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        required
+        {...register('name', { required: true })}
         id="name"
         label="Nome"
         variant="outlined"
         fullWidth
         margin="normal"
-        value={formData.name}
-        onChange={handleChange}
         sx={style.TextFieldStyle}
       />
+      {errors.name && <span>Este campo é obrigatório</span>}
+
       <TextField
-        required
+        {...register('email', { required: true })}
         id="email"
         label="Email"
         variant="outlined"
         fullWidth
         margin="normal"
-        value={formData.email}
-        onChange={handleChange}
         sx={style.TextFieldStyle}
       />
+      {errors.email && <span>Este campo é obrigatório</span>}
 
       <TextField
-        required
+        {...register('subject', { required: true })}
         id="subject"
         label="Assunto"
         variant="outlined"
         fullWidth
         margin="normal"
-        value={formData.subject}
-        onChange={handleChange}
         sx={style.TextFieldStyle}
       />
+      {errors.subject && <span>Este campo é obrigatório</span>}
 
       <TextField
-        required
+        {...register('message', { required: true })}
         id="message"
         label="Mensagem"
         variant="outlined"
@@ -79,10 +62,10 @@ const Form: React.FC = () => {
         rows={4}
         fullWidth
         margin="normal"
-        value={formData.message}
-        onChange={handleChange}
         sx={style.TextFieldStyle}
       />
+      {errors.message && <span>Este campo é obrigatório</span>}
+
       <Button variant="contained" type="submit" sx={style.ButtonStyle}>
         ENVIAR MENSAGEM
       </Button>
