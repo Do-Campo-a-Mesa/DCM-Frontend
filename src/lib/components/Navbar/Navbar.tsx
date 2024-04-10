@@ -170,13 +170,15 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
 
               <Box sx={style.boxStyle4}>
                 {user_no_login_options.map((user_option) => (
-                  <Button
-                    key={user_option.label}
-                    onClick={handleCloseNavMenu}
-                    sx={style.buttonStyle}
-                  >
-                    {user_option.label}
-                  </Button>
+                  <Link to={user_option.path} key={user_option.path}>
+                    <Button
+                      key={user_option.label}
+                      onClick={handleCloseNavMenu}
+                      sx={style.buttonStyle}
+                    >
+                      {user_option.label}
+                    </Button>
+                  </Link>
                 ))}
               </Box>
             </>
