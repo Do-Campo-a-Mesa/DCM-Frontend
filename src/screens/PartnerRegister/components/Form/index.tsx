@@ -42,20 +42,36 @@ const PartnerRegisterForm: React.FC = () => {
         return (
           <>
             <TextField
-              {...register('name', { required: true })}
-              id="name"
-              label="Nome"
+              {...register('nomeEmpresa', { required: true })}
+              id="nomeEmpresa"
+              label="Nome da Empresa"
               variant="outlined"
               fullWidth
               margin="normal"
               sx={style.TextFieldStyle}
             />
-            {errors.name && <span>Este campo é obrigatório</span>}
-          </>
-        );
-      case 1:
-        return (
-          <>
+            {errors.nomeEmpresa && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('nomeFantasia', { required: true })}
+              id="nomeFantasia"
+              label="Nome Fantasia"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.nomeFantasia && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('cnpj', { required: true })}
+              id="cnpj"
+              label="CNPJ"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+              inputProps={{ maxLength: 14 }} // Define o máximo de 14 caracteres para o CNPJ
+            />
+            {errors.cnpj && <span>Este campo é obrigatório</span>}
             <TextField
               {...register('email', { required: true })}
               id="email"
@@ -66,26 +82,123 @@ const PartnerRegisterForm: React.FC = () => {
               sx={style.TextFieldStyle}
             />
             {errors.email && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('telefone', { required: true })}
+              id="telefone"
+              label="Telefone"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+              type="tel"
+            />
+            {errors.telefone && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('instagram', { required: false })}
+              id="instagram"
+              label="Instagram"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+          </>
+        );
+      case 1:
+        return (
+          <>
+            <TextField
+              {...register('cep', { required: true })}
+              id="cep"
+              label="cep"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+              inputProps={{ maxLength: 8 }} // Define o máximo de 8 caracteres para o CEP
+            />
+            {errors.cep && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('rua', { required: true })}
+              id="rua"
+              label="rua"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.rua && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('numero', { required: true })}
+              id="numero"
+              label="numero"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+              type="number"
+            />
+            {errors.numero && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('cidade', { required: true })}
+              id="cidade"
+              label="cidade"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.cidade && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('bairro', { required: true })}
+              id="bairro"
+              label="bairro"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.bairro && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('estado', { required: true })}
+              id="estado"
+              label="estado"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.estado && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('complemento', { required: true })}
+              id="complemento"
+              label="complemento"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.complemento && <span>Este campo é obrigatório</span>}
           </>
         );
       case 2:
         return (
           <>
             <TextField
-              {...register('subject', { required: true })}
-              id="subject"
-              label="Assunto"
+              {...register('entrega', { required: true })}
+              id="entrega"
+              label="Você possui estrutura para entrega dos produtos?"
               variant="outlined"
               fullWidth
               margin="normal"
               sx={style.TextFieldStyle}
             />
-            {errors.subject && <span>Este campo é obrigatório</span>}
+            {errors.entrega && <span>Este campo é obrigatório</span>}
 
             <TextField
-              {...register('message', { required: true })}
-              id="message"
-              label="Mensagem"
+              {...register('entregaTipo', { required: true })}
+              id="entregaTipo"
+              label="Selecione ou escreva o tipo de logística"
               variant="outlined"
               multiline
               rows={4}
@@ -93,7 +206,31 @@ const PartnerRegisterForm: React.FC = () => {
               margin="normal"
               sx={style.TextFieldStyle}
             />
-            {errors.message && <span>Este campo é obrigatório</span>}
+            {errors.entregaTipo && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('entregaDias', { required: true })}
+              id="entregaDias"
+              label="Dias de entrega"
+              variant="outlined"
+              multiline
+              rows={4}
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.entregaDias && <span>Este campo é obrigatório</span>}
+            <TextField
+              {...register('tempoProcessamento', { required: true })}
+              id="tempoProcessamento"
+              label="Tempo para processamento de pedidos (em dias)"
+              variant="outlined"
+              multiline
+              rows={4}
+              fullWidth
+              margin="normal"
+              sx={style.TextFieldStyle}
+            />
+            {errors.tempoProcessamento && <span>Este campo é obrigatório</span>}
           </>
         );
       default:
@@ -118,10 +255,14 @@ const PartnerRegisterForm: React.FC = () => {
           <Button onClick={handlePreviousStep}>Voltar</Button>
         )}
         {activeStep !== steps.length - 1 && (
-          <Button type="submit">Próximo</Button>
+          <Button type="submit" sx={style.ButtonStyle}>
+            Próximo
+          </Button>
         )}
         {activeStep === steps.length - 1 && (
-          <Button type="submit">Enviar</Button>
+          <Button type="submit" sx={style.ButtonStyle}>
+            Enviar
+          </Button>
         )}
       </div>
     </form>

@@ -17,7 +17,7 @@ export default function BasicTimeline() {
     >
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot sx={{ backgroundColor: 'green' }} />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
@@ -26,21 +26,21 @@ export default function BasicTimeline() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot sx={{ backgroundColor: 'green' }} />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>Passo 2: Aguarde a verificação</TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot sx={{ backgroundColor: 'green' }} />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>Passo 3: Notificação de aprovação</TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot sx={{ backgroundColor: 'green' }} />
         </TimelineSeparator>
         <TimelineContent>Passo 4: Anuncie seu primeiro produto</TimelineContent>
       </TimelineItem>
