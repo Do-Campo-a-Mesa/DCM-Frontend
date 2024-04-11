@@ -10,11 +10,18 @@ export const useCustomStyles = () => {
     backgroundColor: Theme.status.warning.secondary,
     border: 1,
     borderColor: Theme.customPalette.primary.main,
-    mb: 4,
-    mt: 2,
     '&:hover': {
       backgroundColor: Theme.customPalette.primary.yellow,
       color: Theme.customPalette.primary.black,
+    },
+  };
+  const ButtonStyle1 = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.button1,
+    color: Theme.status.warning.secondary,
+    textDecoration: 'underline',
+    '&:hover': {
+      color: Theme.customPalette.primary.yellow,
     },
   };
   const TextFieldStyle = {
@@ -84,6 +91,7 @@ export const useCustomStyles = () => {
   return {
     Theme,
     ButtonStyle,
+    ButtonStyle1,
     TextFieldStyle,
     LabelStep,
   };

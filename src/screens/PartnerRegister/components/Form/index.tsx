@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, TextField, Stepper, Step, StepLabel } from '@mui/material';
+import {
+  Button,
+  TextField,
+  Stepper,
+  Step,
+  StepLabel,
+  FormControl,
+  FormLabel,
+  FormControlLabel,
+  FormGroup,
+  Checkbox,
+  RadioGroup,
+  Radio,
+} from '@mui/material';
 import { useCustomStyles } from './style';
 import { PartnerForm } from '../../../../lib/interfaces/PartnerRegister';
 
@@ -42,7 +55,7 @@ const PartnerRegisterForm: React.FC = () => {
         return (
           <>
             <TextField
-              {...register('nomeEmpresa', { required: true })}
+              {...register('nomeEmpresa', { required: false })}
               id="nomeEmpresa"
               label="Nome da Empresa"
               variant="outlined"
@@ -52,7 +65,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.nomeEmpresa && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('nomeFantasia', { required: true })}
+              {...register('nomeFantasia', { required: false })}
               id="nomeFantasia"
               label="Nome Fantasia"
               variant="outlined"
@@ -62,7 +75,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.nomeFantasia && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('cnpj', { required: true })}
+              {...register('cnpj', { required: false })}
               id="cnpj"
               label="CNPJ"
               variant="outlined"
@@ -73,7 +86,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.cnpj && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('email', { required: true })}
+              {...register('email', { required: false })}
               id="email"
               label="Email"
               variant="outlined"
@@ -83,7 +96,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.email && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('telefone', { required: true })}
+              {...register('telefone', { required: false })}
               id="telefone"
               label="Telefone"
               variant="outlined"
@@ -108,7 +121,7 @@ const PartnerRegisterForm: React.FC = () => {
         return (
           <>
             <TextField
-              {...register('cep', { required: true })}
+              {...register('cep', { required: false })}
               id="cep"
               label="cep"
               variant="outlined"
@@ -119,7 +132,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.cep && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('rua', { required: true })}
+              {...register('rua', { required: false })}
               id="rua"
               label="rua"
               variant="outlined"
@@ -129,7 +142,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.rua && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('numero', { required: true })}
+              {...register('numero', { required: false })}
               id="numero"
               label="numero"
               variant="outlined"
@@ -140,7 +153,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.numero && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('cidade', { required: true })}
+              {...register('cidade', { required: false })}
               id="cidade"
               label="cidade"
               variant="outlined"
@@ -150,7 +163,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.cidade && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('bairro', { required: true })}
+              {...register('bairro', { required: false })}
               id="bairro"
               label="bairro"
               variant="outlined"
@@ -160,7 +173,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.bairro && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('estado', { required: true })}
+              {...register('estado', { required: false })}
               id="estado"
               label="estado"
               variant="outlined"
@@ -170,7 +183,7 @@ const PartnerRegisterForm: React.FC = () => {
             />
             {errors.estado && <span>Este campo é obrigatório</span>}
             <TextField
-              {...register('complemento', { required: true })}
+              {...register('complemento', { required: false })}
               id="complemento"
               label="complemento"
               variant="outlined"
@@ -184,19 +197,25 @@ const PartnerRegisterForm: React.FC = () => {
       case 2:
         return (
           <>
-            <TextField
-              {...register('entrega', { required: true })}
-              id="entrega"
-              label="Você possui estrutura para entrega dos produtos?"
-              variant="outlined"
-              fullWidth
-              margin="normal"
-              sx={style.TextFieldStyle}
-            />
+            <FormControl component="fieldset">
+              <FormLabel component="legend">
+                Você possui estrutura para entrega dos produtos?
+              </FormLabel>
+              <RadioGroup
+                {...register('entrega', { required: false })}
+                id="entrega"
+                aria-label="Você possui estrutura para entrega dos produtos?"
+                name="entrega"
+                sx={{ flexDirection: 'row' }}
+              >
+                <FormControlLabel value="sim" control={<Radio />} label="Sim" />
+                <FormControlLabel value="nao" control={<Radio />} label="Não" />
+              </RadioGroup>
+            </FormControl>
             {errors.entrega && <span>Este campo é obrigatório</span>}
 
             <TextField
-              {...register('entregaTipo', { required: true })}
+              {...register('entregaTipo', { required: false })}
               id="entregaTipo"
               label="Selecione ou escreva o tipo de logística"
               variant="outlined"
@@ -207,28 +226,66 @@ const PartnerRegisterForm: React.FC = () => {
               sx={style.TextFieldStyle}
             />
             {errors.entregaTipo && <span>Este campo é obrigatório</span>}
-            <TextField
-              {...register('entregaDias', { required: true })}
-              id="entregaDias"
-              label="Dias de entrega"
-              variant="outlined"
-              multiline
-              rows={4}
-              fullWidth
-              margin="normal"
-              sx={style.TextFieldStyle}
-            />
+
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Dias de entrega</FormLabel>
+              <FormGroup sx={{ flexDirection: 'row' }}>
+                <FormControlLabel
+                  control={
+                    <Checkbox {...register('entregaDias')} value="Segunda" />
+                  }
+                  label="Segunda"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox {...register('entregaDias')} value="Terça" />
+                  }
+                  label="Terça"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox {...register('entregaDias')} value="Quarta" />
+                  }
+                  label="Quarta"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox {...register('entregaDias')} value="Quinta" />
+                  }
+                  label="Quinta"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox {...register('entregaDias')} value="Sexta" />
+                  }
+                  label="Sexta"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox {...register('entregaDias')} value="Sábado" />
+                  }
+                  label="Sábado"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox {...register('entregaDias')} value="Domingo" />
+                  }
+                  label="Domingo"
+                />
+              </FormGroup>
+            </FormControl>
             {errors.entregaDias && <span>Este campo é obrigatório</span>}
+
             <TextField
-              {...register('tempoProcessamento', { required: true })}
+              {...register('tempoProcessamento', { required: false })}
               id="tempoProcessamento"
               label="Tempo para processamento de pedidos (em dias)"
               variant="outlined"
-              multiline
               rows={4}
               fullWidth
               margin="normal"
               sx={style.TextFieldStyle}
+              type="number"
             />
             {errors.tempoProcessamento && <span>Este campo é obrigatório</span>}
           </>
@@ -250,9 +307,17 @@ const PartnerRegisterForm: React.FC = () => {
 
       {renderStepContent(activeStep)}
 
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         {activeStep !== 0 && (
-          <Button onClick={handlePreviousStep}>Voltar</Button>
+          <Button onClick={handlePreviousStep} sx={style.ButtonStyle1}>
+            Voltar
+          </Button>
         )}
         {activeStep !== steps.length - 1 && (
           <Button type="submit" sx={style.ButtonStyle}>
