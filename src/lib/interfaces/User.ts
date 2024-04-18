@@ -18,9 +18,12 @@ export interface UserLoginResponse {
 }
 
 export interface LoginResponse {
-  message: string;
-  user: UserLoginResponse;
-  token: string;
+  status: number;
+  data: {
+    message: string;
+    user: UserLoginResponse;
+    token: string;
+  };
 }
 
 export interface GeneralResponse {
