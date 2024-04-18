@@ -1,19 +1,24 @@
 import { Button, TextField } from '@mui/material';
-//import { useCustomStyles } from '../style';
 import { useForm } from 'react-hook-form';
 import { LoginUserInput } from '../../lib/interfaces/User';
+import { userLogIn } from '../../services/user';
 
 const LoginForm: React.FC = () => {
-  //const style = useCustomStyles();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginUserInput>();
 
-  const onSubmit = (formData: LoginUserInput) => {
-    // Integração com a API ou qualquer outra lógica de submissão de formulário
-    console.log('Dados do formulário:', formData);
+  const onSubmit = async (formData: LoginUserInput) => {
+    await userLogIn(formData)
+      .then((response) => {
+        // lógica de manipulação da resposta aqui
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error('Erro na requisição de login:', error);
+      });
   };
 
   return (
