@@ -2,6 +2,8 @@ import { Button, TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { LoginUserInput } from '../../lib/interfaces/User';
 import { userLogIn } from '../../services/user';
+import { useDispatch } from 'react-redux';
+import { userState } from '../../lib/store/reducers/user';
 
 const LoginForm: React.FC = () => {
   const {
@@ -10,11 +12,24 @@ const LoginForm: React.FC = () => {
     formState: { errors },
   } = useForm<LoginUserInput>();
 
+  const dispatch = useDispatch();
+
   const onSubmit = async (formData: LoginUserInput) => {
     await userLogIn(formData)
       .then((response) => {
-        // lógica de manipulação da resposta aqui
-        console.log(response);
+        if (response.status == 200) {
+          dispatch(
+            userState({
+              id: response.data.user.id,
+              first_name: response.data.user.first_name,
+              last_name: response.data.user.last_name,
+              email: response.data.user.email,
+              token: response.data.token,
+            })
+          );
+          // Redirecionamento usando o objeto de histórico do navegador
+          window.location.href = '/'; // Redireciona para a rota '/'
+        }
       })
       .catch((error) => {
         console.error('Erro na requisição de login:', error);
