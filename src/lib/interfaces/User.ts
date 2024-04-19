@@ -27,5 +27,6 @@ export interface LoginResponse {
 }
 
 export interface GeneralResponse {
-  message: string;
+  status: number;
+  data: { message: string };
 }
