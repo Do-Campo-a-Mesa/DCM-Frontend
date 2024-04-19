@@ -5,17 +5,21 @@ import { userLogIn } from '../../services/user';
 import { useDispatch } from 'react-redux';
 import { userState } from '../../lib/store/reducers/user';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const LoginForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<LoginUserInput>();
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState<string>(''); // Use o useState para armazenar a mensagem de erro
 
   const onSubmit = async (formData: LoginUserInput) => {
     await userLogIn(formData)
@@ -36,6 +40,8 @@ const LoginForm: React.FC = () => {
       })
       .catch((error) => {
         console.error('Erro na requisição de login:', error);
+        setErrorMessage('Credenciais inválidas. Por favor, tente novamente.'); // Define a mensagem de erro
+        reset(); // Limpa os campos do formulário
       });
   };
 
@@ -50,7 +56,6 @@ const LoginForm: React.FC = () => {
         margin="normal"
       />
       {errors.email && <span>Este campo é obrigatório</span>}
-
       <TextField
         {...register('password', { required: true })}
         id="password"
@@ -61,7 +66,8 @@ const LoginForm: React.FC = () => {
         type="password"
       />
       {errors.password && <span>Este campo é obrigatório</span>}
-
+      {errorMessage && <span>{errorMessage}</span>}{' '}
+      {/* Exibe a mensagem de erro, se houver */}
       <Button variant="contained" type="submit">
         ENVIAR MENSAGEM
       </Button>
