@@ -16,7 +16,7 @@ const BigFooter: React.FC = () => {
     { text: 'Depoimentos', href: '#' },
     { text: 'Sobre nós', href: 'sobre' },
     { text: 'Login', href: '#' },
-    { text: 'Cadastro', href: '#' },
+    { text: 'Cadastro', href: 'cadastro' },
   ];
   const linksAjuda = [
     { text: 'Pagamento', href: '#' },

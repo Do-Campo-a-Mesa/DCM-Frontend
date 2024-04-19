@@ -4,7 +4,7 @@ export const sections = [
   { label: 'Produtos', path: '/buscar' },
   { label: 'Parceiros', path: '/parceiros' },
   { label: 'Depoimentos', path: '/depoimentos' },
-  { label: 'Contatos', path: '/formulario_de_contato' },
+  { label: 'Contato', path: '/formulario_de_contato' },
 ];
 
 export const user_no_login_options = [

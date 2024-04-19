@@ -1,6 +1,7 @@
 export interface CreateUserInput {
   email: string;
   password: string;
+  repeat_password: string;
 }
 
 export interface LoginUserInput {
@@ -17,11 +18,15 @@ export interface UserLoginResponse {
 }
 
 export interface LoginResponse {
-  message: string;
-  user: UserLoginResponse;
-  token: string;
+  status: number;
+  data: {
+    message: string;
+    user: UserLoginResponse;
+    token: string;
+  };
 }
 
 export interface GeneralResponse {
-  message: string;
+  status: number;
+  data: { message: string };
 }
