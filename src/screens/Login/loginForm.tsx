@@ -4,6 +4,7 @@ import { LoginUserInput } from '../../lib/interfaces/User';
 import { userLogIn } from '../../services/user';
 import { useDispatch } from 'react-redux';
 import { userState } from '../../lib/store/reducers/user';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
   const {
@@ -13,6 +14,8 @@ const LoginForm: React.FC = () => {
   } = useForm<LoginUserInput>();
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const onSubmit = async (formData: LoginUserInput) => {
     await userLogIn(formData)
@@ -27,8 +30,8 @@ const LoginForm: React.FC = () => {
               token: response.data.token,
             })
           );
-          // Redirecionamento usando o objeto de histórico do navegador
-          window.location.href = '/'; // Redireciona para a rota '/'
+          // Redireciona para a rota '/'
+          navigate('/');
         }
       })
       .catch((error) => {
