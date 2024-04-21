@@ -88,11 +88,40 @@ export const useCustomStyles = () => {
       },
     },
   };
+  const LabelOptions = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.body4,
+    color: Theme.customPalette.primary.background,
+    pt: 2,
+    textDecoration: 'none',
+
+    '&.Mui-focused': {
+      color: Theme.customPalette.primary.background,
+    },
+  };
+  const RadioOptions = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.body4,
+    color: Theme.customPalette.primary.background,
+    pt: 1,
+
+    '.MuiButtonBase-root': {
+      color: Theme.customPalette.primary.background,
+      '&.Mui-checked': {
+        color: Theme.customPalette.primary.yellow,
+      },
+    },
+    '&.Mui-checked': {
+      color: Theme.customPalette.primary.yellow,
+    },
+  };
   return {
     Theme,
     ButtonStyle,
     ButtonStyle1,
     TextFieldStyle,
     LabelStep,
+    LabelOptions,
+    RadioOptions,
   };
 };

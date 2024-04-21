@@ -1,3 +1,5 @@
+import { DeliveryOption } from './DeliveryOptions';
+
 export interface PartnerForm {
   nomeEmpresa: string;
   nomeFantasia: string;
@@ -40,7 +42,7 @@ export interface PartnerForm {
     | 'TO';
   complemento: string;
   entrega: boolean;
-  entregaTipo: 'Entrega expressa' | 'Entrega padrão' | 'Outro' | string;
+  entregaTipo: DeliveryOption[];
   entregaDias: boolean[];
   tempoProcessamento: number;
 }

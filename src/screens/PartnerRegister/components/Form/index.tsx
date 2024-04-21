@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
   Button,
@@ -13,13 +13,38 @@ import {
   Checkbox,
   RadioGroup,
   Radio,
+  Autocomplete,
 } from '@mui/material';
 import { useCustomStyles } from './style';
 import { PartnerForm } from '../../../../lib/interfaces/PartnerRegister';
+import { getAllDeliveryOptions } from '../../../../services/deliveryOptions';
+import { DeliveryOption } from '../../../../lib/interfaces/DeliveryOptions';
 
 const PartnerRegisterForm: React.FC = () => {
   const style = useCustomStyles();
   const [activeStep, setActiveStep] = useState(0);
+  const [deliveryOption, setDeliveryOption] = useState<DeliveryOption[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const DeliveryOptionResponse = await getAllDeliveryOptions();
+      setDeliveryOption(DeliveryOptionResponse.data);
+    })();
+  }, []);
+
+  const [selectedDelivery, setSelectedDelivery] =
+    useState<DeliveryOption | null>(null);
+
+  const handleChange = (
+    _event: React.ChangeEvent<unknown>,
+    value: DeliveryOption | string | null
+  ) => {
+    if (typeof value === 'string') {
+      setSelectedDelivery(null);
+    } else {
+      setSelectedDelivery(value);
+    }
+  };
   const {
     register,
     handleSubmit,
@@ -35,19 +60,17 @@ const PartnerRegisterForm: React.FC = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
-  const onSubmit = (data: PartnerForm) => {
-    // Integração com a API
+  const onSubmit = (data: unknown) => {
     console.log('Dados do formulário:', data);
     if (activeStep === 2) {
-      // Se for a última etapa
-      reset(); // Limpa os campos do formulário após a submissão
-      setActiveStep(0); // Reinicia o formulário
+      reset();
+      setActiveStep(0);
     } else {
-      handleNextStep(); // Avança para a próxima etapa
+      handleNextStep();
     }
   };
 
-  const steps = ['Etapa 1', 'Etapa 2', 'Etapa 3']; // Defina os rótulos das etapas aqui
+  const steps = ['Etapa 1', 'Etapa 2', 'Etapa 3'];
 
   const renderStepContent = (step: number) => {
     switch (step) {
@@ -198,7 +221,7 @@ const PartnerRegisterForm: React.FC = () => {
         return (
           <>
             <FormControl component="fieldset">
-              <FormLabel component="legend">
+              <FormLabel component="legend" sx={style.LabelOptions}>
                 Você possui estrutura para entrega dos produtos?
               </FormLabel>
               <RadioGroup
@@ -208,67 +231,127 @@ const PartnerRegisterForm: React.FC = () => {
                 name="entrega"
                 sx={{ flexDirection: 'row' }}
               >
-                <FormControlLabel value="sim" control={<Radio />} label="Sim" />
-                <FormControlLabel value="nao" control={<Radio />} label="Não" />
+                <FormControlLabel
+                  sx={style.RadioOptions}
+                  value="sim"
+                  control={<Radio />}
+                  label="Sim"
+                />
+                <FormControlLabel
+                  sx={style.RadioOptions}
+                  value="nao"
+                  control={<Radio />}
+                  label="Não"
+                />
               </RadioGroup>
             </FormControl>
             {errors.entrega && <span>Este campo é obrigatório</span>}
 
-            <TextField
-              {...register('entregaTipo', { required: false })}
-              id="entregaTipo"
-              label="Selecione ou escreva o tipo de logística"
-              variant="outlined"
-              multiline
-              rows={4}
-              fullWidth
-              margin="normal"
-              sx={style.TextFieldStyle}
+            <Autocomplete
+              sx={{ pt: 2 }}
+              value={selectedDelivery}
+              onChange={handleChange}
+              options={deliveryOption}
+              getOptionLabel={(option) => {
+                if (typeof option === 'string') {
+                  return option;
+                } else {
+                  return option.name;
+                }
+              }}
+              renderInput={(params) => (
+                <TextField
+                  sx={style.TextFieldStyle}
+                  {...register('entregaTipo', { required: false })}
+                  {...params}
+                  label="Escolha ou escreva"
+                  variant="outlined"
+                  fullWidth
+                />
+              )}
+              freeSolo
             />
             {errors.entregaTipo && <span>Este campo é obrigatório</span>}
 
             <FormControl component="fieldset">
-              <FormLabel component="legend">Dias de entrega</FormLabel>
+              <FormLabel component="legend" sx={style.LabelOptions}>
+                Dias de entrega
+              </FormLabel>
               <FormGroup sx={{ flexDirection: 'row' }}>
                 <FormControlLabel
+                  sx={style.LabelOptions}
                   control={
-                    <Checkbox {...register('entregaDias')} value="Segunda" />
+                    <Checkbox
+                      sx={style.RadioOptions}
+                      {...register('entregaDias')}
+                      value="Segunda"
+                    />
                   }
                   label="Segunda"
                 />
                 <FormControlLabel
+                  sx={style.LabelOptions}
                   control={
-                    <Checkbox {...register('entregaDias')} value="Terça" />
+                    <Checkbox
+                      sx={style.RadioOptions}
+                      {...register('entregaDias')}
+                      value="Terça"
+                    />
                   }
                   label="Terça"
                 />
                 <FormControlLabel
+                  sx={style.LabelOptions}
                   control={
-                    <Checkbox {...register('entregaDias')} value="Quarta" />
+                    <Checkbox
+                      sx={style.RadioOptions}
+                      {...register('entregaDias')}
+                      value="Quarta"
+                    />
                   }
                   label="Quarta"
                 />
                 <FormControlLabel
+                  sx={style.LabelOptions}
                   control={
-                    <Checkbox {...register('entregaDias')} value="Quinta" />
+                    <Checkbox
+                      sx={style.RadioOptions}
+                      {...register('entregaDias')}
+                      value="Quinta"
+                    />
                   }
                   label="Quinta"
                 />
                 <FormControlLabel
+                  sx={style.LabelOptions}
                   control={
-                    <Checkbox {...register('entregaDias')} value="Sexta" />
+                    <Checkbox
+                      sx={style.RadioOptions}
+                      {...register('entregaDias')}
+                      value="Sexta"
+                    />
                   }
                   label="Sexta"
                 />
                 <FormControlLabel
+                  sx={style.LabelOptions}
                   control={
-                    <Checkbox {...register('entregaDias')} value="Sábado" />
+                    <Checkbox
+                      sx={style.RadioOptions}
+                      {...register('entregaDias')}
+                      value="Sábado"
+                    />
                   }
                   label="Sábado"
                 />
                 <FormControlLabel
+                  sx={style.LabelOptions}
                   control={
-                    <Checkbox {...register('entregaDias')} value="Domingo" />
+                    <Checkbox
+                      sx={style.RadioOptions}
+                      {...register('entregaDias')}
+                      value="Domingo"
+                    />
                   }
                   label="Domingo"
                 />
@@ -314,19 +397,19 @@ const PartnerRegisterForm: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        {activeStep !== 0 && (
-          <Button onClick={handlePreviousStep} sx={style.ButtonStyle1}>
-            Voltar
-          </Button>
-        )}
         {activeStep !== steps.length - 1 && (
-          <Button type="submit" sx={style.ButtonStyle}>
+          <Button onClick={handleNextStep} sx={style.ButtonStyle}>
             Próximo
           </Button>
         )}
         {activeStep === steps.length - 1 && (
           <Button type="submit" sx={style.ButtonStyle}>
             Enviar
+          </Button>
+        )}
+        {activeStep !== 0 && (
+          <Button onClick={handlePreviousStep} sx={style.ButtonStyle1}>
+            Voltar
           </Button>
         )}
       </div>
