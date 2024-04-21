@@ -47,6 +47,7 @@ export const useCustomStyles = () => {
     backgroundColor: Theme.customPalette.primary.main,
     display: 'flex',
     justifyContent: 'center',
+    pb: '2em',
   };
   const FormContainer1 = {
     backgroundColor: Theme.customPalette.primary.background,

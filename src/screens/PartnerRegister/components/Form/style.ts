@@ -10,12 +10,14 @@ export const useCustomStyles = () => {
     backgroundColor: Theme.status.warning.secondary,
     border: 1,
     borderColor: Theme.customPalette.primary.main,
+    width: '100%',
     '&:hover': {
       backgroundColor: Theme.customPalette.primary.yellow,
       color: Theme.customPalette.primary.black,
     },
   };
   const ButtonStyle1 = {
+    width: '100%',
     fontFamily: Theme.customTypography.fontFamily,
     typography: Theme.customTypography.button1,
     color: Theme.status.warning.secondary,
@@ -69,7 +71,13 @@ export const useCustomStyles = () => {
         typography: Theme.customTypography.button1,
         color: Theme.customPalette.primary.black,
       },
+      '&.Mui-active': {
+        fontFamily: Theme.customTypography.fontFamily,
+        typography: Theme.customTypography.button1,
+        color: Theme.customPalette.primary.yellow,
+      },
     },
+
     '.MuiStepIcon-root': {
       color: Theme.customPalette.primary.black,
       '&.Mui-active': {
