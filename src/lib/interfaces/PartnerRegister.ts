@@ -3,11 +3,11 @@ import { DeliveryOption } from './DeliveryOptions';
 export interface PartnerForm {
   nomeEmpresa: string;
   nomeFantasia: string;
-  cnpj: number;
+  cnpj: string;
   email: string;
   telefone: string;
   instagram: string;
-  cep: number;
+  cep: string;
   rua: string;
   numero: number;
   cidade: string;
