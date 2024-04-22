@@ -1,11 +1,14 @@
 {
-  "user": {
-    "id": "20e54670-88c7-41f8-b1a9-74af3911cf4a",
-    "email": "efrain_test_email@gmail.com",
-    "first_name": "Efrain",
-    "last_name": "Marcelo",
-    "phone": "84999687594"
-  },
-  "message": "Usuário Logado com Sucesso",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjBlNTQ2NzAtODhjNy00MWY4LWIxYTktNzRhZjM5MTFjZjRhIiwiaWF0IjoxNzEwOTM3MzExLCJleHAiOjE3MTEwMjM3MTF9.tXPSspmKmF8Dp5HVa5spiVaNS_-y--8ohGw7BwGFI50"
+  "status": 200,
+  "data": {
+    "user": {
+      "id": "20e54670-88c7-41f8-b1a9-74af3911cf4a",
+      "email": "efrain_test_email@gmail.com",
+      "first_name": "Efrain",
+      "last_name": "Marcelo",
+      "phone": "84999687594"
+    },
+    "message": "Usuário Logado com Sucesso",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjBlNTQ2NzAtODhjNy00MWY4LWIxYTktNzRhZjM5MTFjZjRhIiwiaWF0IjoxNzEwOTM3MzExLCJleHAiOjE3MTEwMjM3MTF9.tXPSspmKmF8Dp5HVa5spiVaNS_-y--8ohGw7BwGFI50"
+  }
 }
