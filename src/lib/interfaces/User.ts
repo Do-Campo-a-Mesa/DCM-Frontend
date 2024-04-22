@@ -1,3 +1,4 @@
+import { PartnerOnLogin } from './Partner';
 export interface CreateUserInput {
   email: string;
   password: string;
@@ -15,6 +16,7 @@ export interface UserLoginResponse {
   first_name?: string;
   last_name?: string;
   phone?: string;
+  store?: PartnerOnLogin;
 }
 
 export interface LoginResponse {

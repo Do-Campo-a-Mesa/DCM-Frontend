@@ -11,3 +11,10 @@ export interface ProductCardPartner {
 export interface PartnersResponse {
   data: Partner[];
 }
+
+export interface PartnerOnLogin {
+  id: string;
+  cnpj?: string;
+  name: string;
+  logo?: string;
+}
