@@ -134,6 +134,11 @@ declare module '@mui/material/styles' {
         lineHeight: string;
         fontWeight: string;
       };
+      button1: {
+        fontSize: string;
+        lineHeight: string;
+        fontWeight: string;
+      };
     };
   }
 
@@ -260,6 +265,11 @@ declare module '@mui/material/styles' {
         lineHeight?: string;
         fontWeight?: string;
       };
+      button1?: {
+        fontSize?: string;
+        lineHeight?: string;
+        fontWeight?: string;
+      };
     };
   }
 }
@@ -346,7 +356,7 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
       h8: {
         fontSize: '12px',
         lineHeight: '28px',
-        fontWeight: '700',
+        fontWeight: '600',
       },
       h9: {
         fontSize: '12px',
@@ -387,6 +397,11 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
         fontSize: '10px',
         lineHeight: '20px',
         fontWeight: '600',
+      },
+      button1: {
+        fontSize: '12px',
+        lineHeight: '20px',
+        fontWeight: '700',
       },
     },
   });
