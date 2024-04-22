@@ -52,18 +52,17 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        {...register('cep', { required: false })}
+        {...register('cep', { required: true, minLength: 9, maxLength: 9 })}
         id="cep"
         label="cep"
         variant="outlined"
         fullWidth
         margin="normal"
         sx={style.TextFieldStyle}
-        inputProps={{ maxLength: 9 }}
       />
       {errors.cep && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('rua', { required: false })}
+        {...register('rua', { required: true })}
         id="rua"
         label="rua"
         variant="outlined"
@@ -73,7 +72,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       />
       {errors.rua && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('numero', { required: false })}
+        {...register('numero', { required: true })}
         id="numero"
         label="numero"
         variant="outlined"
@@ -84,7 +83,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       />
       {errors.numero && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('cidade', { required: false })}
+        {...register('cidade', { required: true })}
         id="cidade"
         label="cidade"
         variant="outlined"
@@ -94,7 +93,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       />
       {errors.cidade && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('bairro', { required: false })}
+        {...register('bairro', { required: true })}
         id="bairro"
         label="bairro"
         variant="outlined"
@@ -154,7 +153,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       </FormControl>
       {errors.estado && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('complemento', { required: false })}
+        {...register('complemento', { required: true })}
         id="complemento"
         label="complemento"
         variant="outlined"

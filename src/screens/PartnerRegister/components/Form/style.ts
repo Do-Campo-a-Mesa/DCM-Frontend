@@ -11,6 +11,7 @@ export const useCustomStyles = () => {
     border: 1,
     borderColor: Theme.customPalette.primary.main,
     width: '100%',
+    mt: '1em',
     '&:hover': {
       backgroundColor: Theme.customPalette.primary.yellow,
       color: Theme.customPalette.primary.black,
@@ -123,6 +124,29 @@ export const useCustomStyles = () => {
       color: Theme.customPalette.primary.yellow,
     },
   };
+  const Title = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.h7,
+    color: Theme.customPalette.neutral.boards,
+    pt: '1em',
+  };
+  const Subtitle = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.body3,
+    color: Theme.customPalette.neutral.boards,
+    pt: '1em',
+  };
+  const Label = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.h9,
+    color: Theme.customPalette.neutral.boards,
+    pt: '0.5em',
+  };
+  const Answer = {
+    fontFamily: Theme.customTypography.fontFamily,
+    typography: Theme.customTypography.body4,
+    color: Theme.status.warning.background,
+  };
   return {
     Theme,
     ButtonStyle,
@@ -131,5 +155,9 @@ export const useCustomStyles = () => {
     LabelStep,
     LabelOptions,
     RadioOptions,
+    Title,
+    Subtitle,
+    Label,
+    Answer,
   };
 };

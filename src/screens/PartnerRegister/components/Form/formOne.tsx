@@ -65,7 +65,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        {...register('nomeEmpresa', { required: false })}
+        {...register('nomeEmpresa', { required: true })}
         id="nomeEmpresa"
         label="Nome da Empresa"
         variant="outlined"
@@ -75,7 +75,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.nomeEmpresa && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('nomeFantasia', { required: false })}
+        {...register('nomeFantasia', { required: true })}
         id="nomeFantasia"
         label="Nome Fantasia"
         variant="outlined"
@@ -85,7 +85,11 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.nomeFantasia && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('cnpj', { required: false })}
+        {...register('cnpj', {
+          required: true,
+          minLength: 18,
+          maxLength: 18,
+        })}
         id="cnpj"
         label="CNPJ"
         variant="outlined"
@@ -95,7 +99,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.cnpj && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('email', { required: false })}
+        {...register('email', { required: true })}
         id="email"
         label="Email"
         variant="outlined"
@@ -105,7 +109,11 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.email && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('telefone', { required: false })}
+        {...register('telefone', {
+          required: true,
+          minLength: 15,
+          maxLength: 15,
+        })}
         id="telefone"
         label="Telefone"
         variant="outlined"
@@ -115,7 +123,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.telefone && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('instagram', { required: false })}
+        {...register('instagram', { required: true })}
         id="instagram"
         label="Instagram"
         variant="outlined"
