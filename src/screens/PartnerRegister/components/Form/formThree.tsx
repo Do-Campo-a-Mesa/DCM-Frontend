@@ -1,5 +1,4 @@
 import {
-  Autocomplete,
   Button,
   Checkbox,
   FormControl,
@@ -18,6 +17,8 @@ import { DeliveryOption } from '../../../../lib/interfaces/DeliveryOptions';
 import { getAllDeliveryOptions } from '../../../../services/deliveryOptions';
 import { PartnerForm } from '../../../../lib/interfaces/PartnerRegister';
 import { useCustomStyles } from './style';
+import DeliveryOptionsDropdown from '../DeliveryDropdown';
+
 interface FormThreeProps {
   onSubmit: (
     data: Pick<
@@ -47,29 +48,24 @@ const FormThree: React.FC<FormThreeProps> = ({ onSubmit, formData }) => {
   useEffect(() => {
     (async () => {
       const DeliveryOptionResponse = await getAllDeliveryOptions();
+      console.log(DeliveryOptionResponse.data);
       setDeliveryOption(DeliveryOptionResponse.data);
     })();
   }, []);
 
-  const [selectedDelivery, setSelectedDelivery] =
-    useState<DeliveryOption | null>(null);
-
-  const handleChange = (
-    _event: React.ChangeEvent<unknown>,
-    value: DeliveryOption | string | null
-  ) => {
-    if (typeof value === 'string') {
-      setSelectedDelivery(null);
-    } else {
-      setSelectedDelivery(value);
-    }
-  };
   useEffect(() => {
+    console.log('entrega', formData.entrega);
+    console.log('entrega', formData.entregaTipo);
+    console.log('entrega', formData.entregaDias);
+    console.log('entrega', formData.tempoProcessamento);
     setValue('entrega', formData.entrega);
     setValue('entregaTipo', formData.entregaTipo);
     setValue('entregaDias', formData.entregaDias);
     setValue('tempoProcessamento', formData.tempoProcessamento);
   }, [formData, setValue]);
+  const handleEntregaTipoChange = (selectedOptions: DeliveryOption[]) => {
+    setValue('entregaTipo', selectedOptions); // Atualiza o valor de entregaTipo
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl component="fieldset">
@@ -82,6 +78,7 @@ const FormThree: React.FC<FormThreeProps> = ({ onSubmit, formData }) => {
           aria-label="Você possui estrutura para entrega dos produtos?"
           name="entrega"
           sx={{ flexDirection: 'row' }}
+          defaultValue={formData.entrega}
         >
           <FormControlLabel
             sx={style.RadioOptions}
@@ -99,30 +96,18 @@ const FormThree: React.FC<FormThreeProps> = ({ onSubmit, formData }) => {
       </FormControl>
       {errors.entrega && <span>Este campo é obrigatório</span>}
 
-      <Autocomplete
-        sx={{ pt: 2 }}
-        value={selectedDelivery}
-        onChange={handleChange}
-        options={deliveryOption}
-        getOptionLabel={(option) => {
-          if (typeof option === 'string') {
-            return option;
-          } else {
-            return option.name;
-          }
-        }}
-        renderInput={(params) => (
-          <TextField
-            sx={style.TextFieldStyle}
-            {...register('entregaTipo', { required: false })}
-            {...params}
-            label="Escolha ou escreva"
-            variant="outlined"
-            fullWidth
-          />
-        )}
-        freeSolo
-      />
+      <FormControl
+        fullWidth
+        variant="outlined"
+        sx={style.TextFieldStyle}
+        margin="normal"
+      >
+        <DeliveryOptionsDropdown
+          options={deliveryOption}
+          onChange={handleEntregaTipoChange}
+          defaultValue={formData.entregaTipo}
+        />
+      </FormControl>
 
       {errors.entregaTipo && <span>Este campo é obrigatório</span>}
 
@@ -133,37 +118,79 @@ const FormThree: React.FC<FormThreeProps> = ({ onSubmit, formData }) => {
         <FormGroup sx={{ flexDirection: 'row' }}>
           <FormControlLabel
             sx={style.RadioOptions}
-            control={<Checkbox {...register('entregaDias')} value="Segunda" />}
+            control={
+              <Checkbox
+                {...register('entregaDias')}
+                value="Segunda"
+                defaultChecked={formData.entregaDias.includes('Segunda')}
+              />
+            }
             label="Segunda"
           />
           <FormControlLabel
             sx={style.RadioOptions}
-            control={<Checkbox {...register('entregaDias')} value="Terça" />}
+            control={
+              <Checkbox
+                {...register('entregaDias')}
+                value="Terça"
+                defaultChecked={formData.entregaDias.includes('Terça')}
+              />
+            }
             label="Terça"
           />
           <FormControlLabel
             sx={style.RadioOptions}
-            control={<Checkbox {...register('entregaDias')} value="Quarta" />}
+            control={
+              <Checkbox
+                {...register('entregaDias')}
+                value="Quarta"
+                defaultChecked={formData.entregaDias.includes('Quarta')}
+              />
+            }
             label="Quarta"
           />
           <FormControlLabel
             sx={style.RadioOptions}
-            control={<Checkbox {...register('entregaDias')} value="Quinta" />}
+            control={
+              <Checkbox
+                {...register('entregaDias')}
+                value="Quinta"
+                defaultChecked={formData.entregaDias.includes('Quinta')}
+              />
+            }
             label="Quinta"
           />
           <FormControlLabel
             sx={style.RadioOptions}
-            control={<Checkbox {...register('entregaDias')} value="Sexta" />}
+            control={
+              <Checkbox
+                {...register('entregaDias')}
+                value="Sexta"
+                defaultChecked={formData.entregaDias.includes('Sexta')}
+              />
+            }
             label="Sexta"
           />
           <FormControlLabel
             sx={style.RadioOptions}
-            control={<Checkbox {...register('entregaDias')} value="Sábado" />}
+            control={
+              <Checkbox
+                {...register('entregaDias')}
+                value="Sábado"
+                defaultChecked={formData.entregaDias.includes('Sábado')}
+              />
+            }
             label="Sábado"
           />
           <FormControlLabel
             sx={style.RadioOptions}
-            control={<Checkbox {...register('entregaDias')} value="Domingo" />}
+            control={
+              <Checkbox
+                {...register('entregaDias')}
+                value="Domingo"
+                defaultChecked={formData.entregaDias.includes('Domingo')}
+              />
+            }
             label="Domingo"
           />
         </FormGroup>
@@ -180,6 +207,7 @@ const FormThree: React.FC<FormThreeProps> = ({ onSubmit, formData }) => {
         margin="normal"
         sx={style.TextFieldStyle}
         type="number"
+        defaultValue={formData.tempoProcessamento}
       />
       {errors.tempoProcessamento && <span>Este campo é obrigatório</span>}
 

@@ -75,7 +75,6 @@ const PartnerRegisterForm: React.FC = () => {
     >
   ) => {
     updateFormData(data);
-    console.log('etapa 3:', formData);
     handleNextStep();
   };
 

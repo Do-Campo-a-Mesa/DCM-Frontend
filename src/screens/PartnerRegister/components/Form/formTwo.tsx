@@ -52,7 +52,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        {...register('cep', { required: true, minLength: 9, maxLength: 9 })}
+        {...register('cep', { required: false, minLength: 9, maxLength: 9 })}
         id="cep"
         label="cep"
         variant="outlined"
@@ -62,7 +62,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       />
       {errors.cep && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('rua', { required: true })}
+        {...register('rua', { required: false })}
         id="rua"
         label="rua"
         variant="outlined"
@@ -72,7 +72,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       />
       {errors.rua && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('numero', { required: true })}
+        {...register('numero', { required: false })}
         id="numero"
         label="numero"
         variant="outlined"
@@ -83,7 +83,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       />
       {errors.numero && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('cidade', { required: true })}
+        {...register('cidade', { required: false })}
         id="cidade"
         label="cidade"
         variant="outlined"
@@ -93,7 +93,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       />
       {errors.cidade && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('bairro', { required: true })}
+        {...register('bairro', { required: false })}
         id="bairro"
         label="bairro"
         variant="outlined"
@@ -112,7 +112,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
         <Select
           labelId="estado-label"
           id="estado"
-          {...register('estado', { required: true })}
+          {...register('estado', { required: false })}
           label="Estado"
           defaultValue={'AC'}
         >
@@ -153,7 +153,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ onSubmit, formData }) => {
       </FormControl>
       {errors.estado && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('complemento', { required: true })}
+        {...register('complemento', { required: false })}
         id="complemento"
         label="complemento"
         variant="outlined"

@@ -65,7 +65,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        {...register('nomeEmpresa', { required: true })}
+        {...register('nomeEmpresa', { required: false })}
         id="nomeEmpresa"
         label="Nome da Empresa"
         variant="outlined"
@@ -75,7 +75,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.nomeEmpresa && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('nomeFantasia', { required: true })}
+        {...register('nomeFantasia', { required: false })}
         id="nomeFantasia"
         label="Nome Fantasia"
         variant="outlined"
@@ -86,7 +86,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       {errors.nomeFantasia && <span>Este campo é obrigatório</span>}
       <TextField
         {...register('cnpj', {
-          required: true,
+          required: false,
           minLength: 18,
           maxLength: 18,
         })}
@@ -99,7 +99,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.cnpj && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('email', { required: true })}
+        {...register('email', { required: false })}
         id="email"
         label="Email"
         variant="outlined"
@@ -110,7 +110,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       {errors.email && <span>Este campo é obrigatório</span>}
       <TextField
         {...register('telefone', {
-          required: true,
+          required: false,
           minLength: 15,
           maxLength: 15,
         })}
@@ -123,7 +123,7 @@ const FormOne: React.FC<FormOneProps> = ({ onSubmit, formData }) => {
       />
       {errors.telefone && <span>Este campo é obrigatório</span>}
       <TextField
-        {...register('instagram', { required: true })}
+        {...register('instagram', { required: false })}
         id="instagram"
         label="Instagram"
         variant="outlined"
