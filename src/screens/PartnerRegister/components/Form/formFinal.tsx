@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { PartnerForm } from '../../../../lib/interfaces/PartnerRegister';
 import { useCustomStyles } from './style';
 
@@ -10,49 +10,68 @@ interface FormFinalProps {
 
 const FormFinal: React.FC<FormFinalProps> = ({ formData, onSubmit }) => {
   const style = useCustomStyles();
+  console.log('formData.entregaTipo:', formData.entregaTipo);
+
   return (
     <div>
-      <h2>Revisão dos Dados</h2>
+      <Typography sx={style.Title}>Confira as informações</Typography>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>
-          <h3>Dados da Empresa</h3>
-          <p>Nome da Empresa: {formData.nomeEmpresa}</p>
-          <p>Nome Fantasia: {formData.nomeFantasia}</p>
-          <p>CNPJ: {formData.cnpj}</p>
-          <p>Email: {formData.email}</p>
-          <p>Telefone: {formData.telefone}</p>
-          <p>Instagram: {formData.instagram}</p>
+          <Typography sx={style.Subtitle}>Dados da Empresa</Typography>
+          <Typography sx={style.Label}>Nome da Empresa</Typography>
+          <Typography sx={style.Answer}>{formData.nomeEmpresa}</Typography>
+          <Typography sx={style.Label}>Nome Fantasia</Typography>
+          <Typography sx={style.Answer}>{formData.nomeFantasia}</Typography>
+          <Typography sx={style.Label}>CNPJ</Typography>
+          <Typography sx={style.Answer}>{formData.cnpj}</Typography>
+          <Typography sx={style.Label}>Email</Typography>
+          <Typography sx={style.Answer}>{formData.email}</Typography>
+          <Typography sx={style.Label}>Telefone</Typography>
+          <Typography sx={style.Answer}>{formData.telefone}</Typography>
+          <Typography sx={style.Label}>Instagram</Typography>
+          <Typography sx={style.Answer}>{formData.instagram}</Typography>
         </div>
         <div>
-          <h3>Endereço</h3>
-          <p>CEP: {formData.cep}</p>
-          <p>Rua: {formData.rua}</p>
-          <p>Número: {formData.numero}</p>
-          <p>Cidade: {formData.cidade}</p>
-          <p>Bairro: {formData.bairro}</p>
-          <p>Estado: {formData.estado}</p>
-          <p>Complemento: {formData.complemento}</p>
+          <Typography sx={style.Subtitle}>Endereço</Typography>
+          <Typography sx={style.Label}>CEP</Typography>
+          <Typography sx={style.Answer}>{formData.cep}</Typography>
+          <Typography sx={style.Label}>Rua</Typography>
+          <Typography sx={style.Answer}>{formData.rua}</Typography>
+          <Typography sx={style.Label}>Número</Typography>
+          <Typography sx={style.Answer}>{formData.numero}</Typography>
+          <Typography sx={style.Label}>Cidade</Typography>
+          <Typography sx={style.Answer}>{formData.cidade}</Typography>
+          <Typography sx={style.Label}>Bairro</Typography>
+          <Typography sx={style.Answer}>{formData.bairro}</Typography>
+          <Typography sx={style.Label}>Estado</Typography>
+          <Typography sx={style.Answer}>{formData.estado}</Typography>
+          <Typography sx={style.Label}>Complemento</Typography>
+          <Typography sx={style.Answer}>{formData.complemento}</Typography>
         </div>
       </div>
       <div>
-        <h3>Opções de Entrega</h3>
-        <p>Possui estrutura para entrega: {formData.entrega ? 'Sim' : 'Não'}</p>
-        <p>
-          Tipo de entrega:{' '}
-          {formData.entregaTipo.length > 0
+        <Typography sx={style.Subtitle}>Opções de Entrega</Typography>
+        <Typography sx={style.Label}>Possui estrutura para entrega </Typography>
+        <Typography sx={style.Answer}>
+          {formData.entrega ? 'Sim' : 'Não'}
+        </Typography>
+        <Typography sx={style.Label}>Tipo de entrega</Typography>
+        <Typography sx={style.Answer}>
+          {Array.isArray(formData.entregaTipo) &&
+          formData.entregaTipo.length > 0
             ? formData.entregaTipo.join(', ')
-            : ''}
-        </p>
-        <p>
-          Dias de entrega:{' '}
-          {formData.entregaDias.length > 0
-            ? formData.entregaDias.join(', ')
-            : ''}
-        </p>
-        <p>
-          Tempo para processamento de pedidos: {formData.tempoProcessamento}{' '}
-          dias
-        </p>
+            : 'N/A'}
+        </Typography>
+        <Typography sx={style.Label}>Dias de entrega</Typography>
+        <Typography sx={style.Answer}>
+          {formData.entregaDias.join(', ')}
+        </Typography>
+        <Typography sx={style.Label}>
+          Tempo para processamento de pedidos
+        </Typography>
+        <Typography sx={style.Answer}>
+          {formData.tempoProcessamento} dias
+        </Typography>
       </div>
       <Button sx={style.ButtonStyle} onClick={onSubmit}>
         Enviar

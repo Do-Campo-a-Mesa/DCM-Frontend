@@ -16,6 +16,6 @@ export interface PartnerForm {
   complemento: string;
   entrega: boolean;
   entregaTipo: DeliveryOption[];
-  entregaDias: boolean[];
+  entregaDias: string[];
   tempoProcessamento: number;
 }
