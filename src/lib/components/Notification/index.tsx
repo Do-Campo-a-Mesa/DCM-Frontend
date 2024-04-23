@@ -39,7 +39,7 @@ const Notification: React.FC<Props> = ({
           variant: notification.variant,
           severity: notification.severity,
           message: notification.message,
-          visibility: true,
+          visibility: false,
         })
       );
     }
