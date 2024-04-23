@@ -9,6 +9,7 @@ import FAQPage from './screens/FAQ';
 import PartnerRegister from './screens/PartnerRegister';
 import Login from './screens/Login';
 import UserRegister from './screens/UserRegister';
+import PersonalDataClient from './screens/PersonalDataClient';
 
 const AppRouter = () => {
   return (
@@ -24,6 +25,7 @@ const AppRouter = () => {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/cadastrar_parceiro" element={<PartnerRegister />} />
         <Route path="/cadastro" element={<UserRegister />} />
+        <Route path="/perfil/dados_pessoais" element={<PersonalDataClient />} />
       </Routes>
     </Router>
   );
