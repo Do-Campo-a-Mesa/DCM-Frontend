@@ -3,6 +3,9 @@ import { Container, Typography, Grid } from '@mui/material';
 import React from 'react';
 import SmallFooter from '../../components/Footer/smallFooter';
 import Image from '../../../assets/userRegister_img.png';
+import Notification from '../../components/Notification';
+import { RootState } from '../../store';
+import { useSelector } from 'react-redux';
 
 interface Props {
   isLogin?: boolean;
@@ -12,8 +15,18 @@ interface Props {
 const LayoutRegisterOrLogin: React.FC<Props> = ({ isLogin, formComponent }) => {
   const style = useCustomStyles();
 
+  // Acessa o estado do usuário
+  const notification = useSelector((state: RootState) => state.notification);
+
   return (
     <>
+      <Notification
+        variant={notification.variant}
+        severity={notification.severity}
+        message={notification.message}
+        visibility={notification.visibility}
+      />
+
       <Grid container spacing={2} direction="row">
         <Grid item xs={6} sx={style.FormContainer}>
           <Grid item xs={7}>

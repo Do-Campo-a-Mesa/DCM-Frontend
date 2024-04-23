@@ -19,6 +19,9 @@ import CategoriesList from './components/CategoriesList/index.tsx';
 import { Product } from '../../lib/interfaces/Product.ts';
 import { getProducts } from '../../services/products/index.ts';
 import ProductList from '../../lib/components/Products/List/listProducts.tsx';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../lib/store/index.tsx';
+import Notification from '../../lib/components/Notification/index.tsx';
 
 export default function Home() {
   const theme = useTheme();
@@ -69,6 +72,9 @@ export default function Home() {
   const handleSearch = (term: string) => {
     setSearchTerm(term);
   };
+
+  // Acessa o estado do usuário
+  const notification = useSelector((state: RootState) => state.notification);
 
   const BannerTitleStyle = {
     typography: theme.customTypography.h1,
@@ -268,6 +274,12 @@ export default function Home() {
       <Container sx={SmallFooterStyles} maxWidth={false}>
         <SmallFooter></SmallFooter>
       </Container>
+      <Notification
+        variant={notification.variant}
+        severity={notification.severity}
+        message={notification.message}
+        visibility={notification.visibility}
+      />
     </>
   );
 }
