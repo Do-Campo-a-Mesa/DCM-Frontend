@@ -1,10 +1,12 @@
 import { createAction, createReducer, PayloadAction } from '@reduxjs/toolkit';
+import { PartnerOnLogin } from '../../interfaces/Partner';
 
 interface UserObj {
   id: string;
   first_name?: string;
   last_name?: string;
   email: string;
+  store?: PartnerOnLogin;
   token: string;
 }
 
