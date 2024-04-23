@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { userState } from '../../lib/store/reducers/user';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { notificationState } from '../../lib/store/reducers/notification';
 
 const LoginForm: React.FC = () => {
   const {
@@ -32,6 +33,14 @@ const LoginForm: React.FC = () => {
               last_name: response.data.user.last_name,
               email: response.data.user.email,
               token: response.data.token,
+            })
+          );
+          dispatch(
+            notificationState({
+              variant: 'standard',
+              severity: 'success',
+              message: 'Usuário Logado com Sucesso',
+              visibility: true,
             })
           );
           // Redireciona para a rota '/'
