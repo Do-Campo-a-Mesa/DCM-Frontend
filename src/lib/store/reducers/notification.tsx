@@ -1,10 +1,10 @@
 import { createAction, createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 interface NotificationObj {
-  variant: string;
-  severity: string;
-  message: string;
+  severity: 'info' | 'error' | 'success' | 'warning';
+  variant: 'standard' | 'filled' | 'outlined';
   visibility: boolean;
+  message: string;
 }
 
 const NOTIFICATION_OBJ: NotificationObj = {
