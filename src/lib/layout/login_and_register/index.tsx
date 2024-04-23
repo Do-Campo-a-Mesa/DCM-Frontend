@@ -47,6 +47,7 @@ const LayoutRegisterOrLogin: React.FC<Props> = ({ isLogin, formComponent }) => {
         </Grid>
         <Grid item xs={6} sx={style.ImageContainer}>
           <img
+            alt="Fundo de tela do formulário de Login ou de Cadastro de Conta"
             src={Image}
             title="UserRegister Image"
             style={{ maxWidth: '100%' }}
