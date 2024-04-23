@@ -9,7 +9,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { IconButton } from '@mui/material';
+import { Container } from '@mui/material';
 
 interface DrawerProps {
   isOpen: boolean;
@@ -34,50 +34,50 @@ const DrawerProfile: React.FC<DrawerProps> = ({
           top: 0,
           left: 0,
           height: '100%',
-          width: 240,
+          width: '100%',
           zIndex: 0,
         },
       }}
     >
-      <List>
-        {backButton && (
-          <ListItem>
+      <Container>
+        <List>
+          {backButton && (
+            <ListItem>
+              <ListItemIcon>{backButton}</ListItemIcon>
+            </ListItem>
+          )}
+          <ListItem key="dados-pessoais">
             <ListItemIcon>
-              <IconButton onClick={onClose}>{backButton}</IconButton>
+              <AccountCircleIcon />
             </ListItemIcon>
+            <ListItemText primary="Dados Pessoais" />
           </ListItem>
-        )}
-        <ListItem key="dados-pessoais">
-          <ListItemIcon>
-            <AccountCircleIcon />
-          </ListItemIcon>
-          <ListItemText primary="Dados Pessoais" />
-        </ListItem>
-        <ListItem key="pedidos">
-          <ListItemIcon>
-            <ShoppingCartIcon />
-          </ListItemIcon>
-          <ListItemText primary="Pedidos" />
-        </ListItem>
-        <ListItem key="enderecos">
-          <ListItemIcon>
-            <LocationOnIcon />
-          </ListItemIcon>
-          <ListItemText primary="Endereços" />
-        </ListItem>
-        <ListItem key="cartoes">
-          <ListItemIcon>
-            <CreditCardIcon />
-          </ListItemIcon>
-          <ListItemText primary="Cartões" />
-        </ListItem>
-        <ListItem key="lista-de-desejos">
-          <ListItemIcon>
-            <FavoriteIcon />
-          </ListItemIcon>
-          <ListItemText primary="Lista de Desejos" />
-        </ListItem>
-      </List>
+          <ListItem key="pedidos">
+            <ListItemIcon>
+              <ShoppingCartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Pedidos" />
+          </ListItem>
+          <ListItem key="enderecos">
+            <ListItemIcon>
+              <LocationOnIcon />
+            </ListItemIcon>
+            <ListItemText primary="Endereços" />
+          </ListItem>
+          <ListItem key="cartoes">
+            <ListItemIcon>
+              <CreditCardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Cartões" />
+          </ListItem>
+          <ListItem key="lista-de-desejos">
+            <ListItemIcon>
+              <FavoriteIcon />
+            </ListItemIcon>
+            <ListItemText primary="Lista de Desejos" />
+          </ListItem>
+        </List>
+      </Container>
     </Drawer>
   );
 };
