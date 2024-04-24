@@ -22,53 +22,85 @@ export default function PersonalDataClient() {
     setIsDrawerOpen(false);
     setIsMiniDrawerOpen(true);
   };
+  const [gridSize, setGridSize] = useState({ sm: 4, md: 4 });
+  const [gridItemSize, setGridItemSize] = useState({ sm: 8, md: 8 });
+  const toggleGridSize = () => {
+    setGridSize((gridSize) => ({
+      sm: gridSize.sm === 4 ? 3 : 4,
+      md: gridSize.md === 4 ? 3 : 4,
+    }));
+  };
+  const toggleGridItemSize = () => {
+    setGridItemSize((gridItemSize) => ({
+      sm: gridItemSize.sm === 8 ? 6 : 8,
+      md: gridItemSize.md === 8 ? 6 : 8,
+    }));
+  };
   return (
     <>
       <Navbar isHomePage={false} />
-      <Grid
-        container
-        maxWidth={'1000px'}
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={3}
-      >
-        <Grid item xs={12} sm={4} md={4}>
-          {isDrawerOpen && (
-            <DrawerProfile
-              isOpen={true}
-              onClose={openMiniDrawer}
-              backButton={
-                <IconButton
-                  onClick={openMiniDrawer}
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  sx={{ position: 'absolute', left: '0', zIndex: '1' }}
-                >
-                  <ArrowBackIcon />
-                </IconButton>
-              }
-            />
-          )}
-          {isMiniDrawerOpen && (
-            <MiniDrawer
-              isOpen={true}
-              onClose={openDrawer}
-              forwardButton={
-                <IconButton
-                  onClick={openDrawer}
-                  color="inherit"
-                  aria-label="menu"
-                  sx={{ position: 'absolute', right: '0', zIndex: '1' }}
-                >
-                  <ArrowNextIcon />
-                </IconButton>
-              }
-            />
-          )}
+      <Container sx={style.Content}>
+        <Grid container sm={gridSize.sm} md={gridSize.md} sx={style.Content1}>
+          <Grid
+            item
+            xs={12}
+            sm={gridItemSize.sm}
+            md={gridItemSize.sm}
+            sx={style.Item}
+          >
+            {isDrawerOpen && (
+              <DrawerProfile
+                isOpen={true}
+                onClose={openMiniDrawer}
+                backButton={
+                  <IconButton
+                    onClick={() => {
+                      openMiniDrawer();
+                      toggleGridSize();
+                      toggleGridItemSize();
+                    }}
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    sx={{
+                      position: 'absolute',
+                      right: '0',
+                      zIndex: '1',
+                    }}
+                  >
+                    <ArrowBackIcon />
+                  </IconButton>
+                }
+              />
+            )}
+            {isMiniDrawerOpen && (
+              <MiniDrawer
+                isOpen={true}
+                onClose={openDrawer}
+                forwardButton={
+                  <IconButton
+                    onClick={() => {
+                      openDrawer();
+                      toggleGridSize();
+                      toggleGridItemSize();
+                    }}
+                    color="inherit"
+                    aria-label="menu"
+                    sx={{ position: 'absolute', right: '0', zIndex: '1' }}
+                  >
+                    <ArrowNextIcon />
+                  </IconButton>
+                }
+              />
+            )}
+          </Grid>
         </Grid>
-      </Grid>
+        <Grid
+          container
+          sx={{ backgroundColor: style.Theme.customPalette.primary.background }}
+        ></Grid>
+      </Container>
+
       <Container sx={style.SmallFooterStyle}>
         <SmallFooter />
       </Container>

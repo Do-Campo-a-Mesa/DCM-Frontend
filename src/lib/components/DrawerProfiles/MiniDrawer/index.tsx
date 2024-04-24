@@ -8,7 +8,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
+import { useCustomStyles } from './style';
 
 interface MiniDrawerProps {
   isOpen: boolean;
@@ -21,30 +22,23 @@ const MiniDrawer: React.FC<MiniDrawerProps> = ({
   onClose,
   forwardButton,
 }) => {
+  const style = useCustomStyles();
   return (
     <Drawer
       variant="persistent"
       anchor="left"
       open={isOpen}
       onClose={onClose}
-      sx={{
-        '& .MuiDrawer-paper': {
-          position: 'relative',
-          top: 0,
-          left: 0,
-          height: '100%',
-          width: '100%',
-          zIndex: 0,
-        },
-      }}
+      sx={style.MiniDrawerProfile}
     >
       <Container>
         <List>
           {forwardButton && (
             <ListItem>
-              <ListItemIcon>{forwardButton}</ListItemIcon>
+              <ListItemIcon sx={{ pb: '2em' }}>{forwardButton}</ListItemIcon>
             </ListItem>
           )}
+          <Typography>Olá, User!</Typography>
           <ListItem key="dados-pessoais">
             <ListItemIcon>
               <AccountCircleIcon />
