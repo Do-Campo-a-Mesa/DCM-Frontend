@@ -25,7 +25,7 @@ const AppRouter = () => {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/cadastrar_parceiro" element={<PartnerRegister />} />
         <Route path="/cadastro" element={<UserRegister />} />
-        <Route path="/perfil/dados_pessoais" element={<PersonalDataClient />} />
+        <Route path="/perfil" element={<PersonalDataClient />} />
       </Routes>
     </Router>
   );
