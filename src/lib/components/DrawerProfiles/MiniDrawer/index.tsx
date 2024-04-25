@@ -10,6 +10,7 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Container, Typography } from '@mui/material';
 import { useCustomStyles } from './style';
+import { Link } from 'react-router-dom';
 
 interface MiniDrawerProps {
   isOpen: boolean;
@@ -39,29 +40,56 @@ const MiniDrawer: React.FC<MiniDrawerProps> = ({
             </ListItem>
           )}
           <Typography>Olá, User!</Typography>
+
           <ListItem key="dados-pessoais">
             <ListItemIcon>
-              <AccountCircleIcon />
+              <Link
+                to="/dados-pessoais"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <AccountCircleIcon />
+              </Link>
             </ListItemIcon>
           </ListItem>
+
           <ListItem key="pedidos">
             <ListItemIcon>
-              <ShoppingCartIcon />
+              <Link
+                to="/pedidos"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <ShoppingCartIcon />
+              </Link>
             </ListItemIcon>
           </ListItem>
           <ListItem key="enderecos">
             <ListItemIcon>
-              <LocationOnIcon />
+              <Link
+                to="/enderecos"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <LocationOnIcon />
+              </Link>
             </ListItemIcon>
           </ListItem>
           <ListItem key="cartoes">
             <ListItemIcon>
-              <CreditCardIcon />
+              <Link
+                to="/cartoes"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <CreditCardIcon />
+              </Link>
             </ListItemIcon>
           </ListItem>
           <ListItem key="lista-de-desejos">
             <ListItemIcon>
-              <FavoriteIcon />
+              <Link
+                to="/lista-de-desejos"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <FavoriteIcon />
+              </Link>
             </ListItemIcon>
           </ListItem>
         </List>
