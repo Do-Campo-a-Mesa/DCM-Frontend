@@ -8,9 +8,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Container, Typography } from '@mui/material';
+import { Container, ListItemButton, Typography } from '@mui/material';
 import { useCustomStyles } from './style';
-import { Link } from 'react-router-dom';
 
 interface MiniDrawerProps {
   isOpen: boolean;
@@ -43,53 +42,38 @@ const MiniDrawer: React.FC<MiniDrawerProps> = ({
 
           <ListItem key="dados-pessoais">
             <ListItemIcon>
-              <Link
-                to="/dados-pessoais"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
+              <ListItemButton component="a" href="/dados-pessoais">
                 <AccountCircleIcon />
-              </Link>
+              </ListItemButton>
             </ListItemIcon>
           </ListItem>
 
           <ListItem key="pedidos">
             <ListItemIcon>
-              <Link
-                to="/pedidos"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
+              <ListItemButton component="a" href="/pedidos">
                 <ShoppingCartIcon />
-              </Link>
+              </ListItemButton>
             </ListItemIcon>
           </ListItem>
           <ListItem key="enderecos">
             <ListItemIcon>
-              <Link
-                to="/enderecos"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
+              <ListItemButton component="a" href="/enderecos">
                 <LocationOnIcon />
-              </Link>
+              </ListItemButton>
             </ListItemIcon>
           </ListItem>
           <ListItem key="cartoes">
             <ListItemIcon>
-              <Link
-                to="/cartoes"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
+              <ListItemButton component="a" href="/cartoes">
                 <CreditCardIcon />
-              </Link>
+              </ListItemButton>
             </ListItemIcon>
           </ListItem>
           <ListItem key="lista-de-desejos">
             <ListItemIcon>
-              <Link
-                to="/lista-de-desejos"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
+              <ListItemButton component="a" href="/lista-de-desejos">
                 <FavoriteIcon />
-              </Link>
+              </ListItemButton>
             </ListItemIcon>
           </ListItem>
         </List>

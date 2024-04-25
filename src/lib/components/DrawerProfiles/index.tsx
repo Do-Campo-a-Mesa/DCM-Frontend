@@ -9,7 +9,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Container, Typography } from '@mui/material';
+import { Container, ListItemButton, Typography } from '@mui/material';
 import { useCustomStyles } from './style';
 
 interface DrawerProps {
@@ -42,36 +42,36 @@ const DrawerProfile: React.FC<DrawerProps> = ({
           <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
             Olá, User!
           </Typography>
-          <ListItem key="dados-pessoais">
+          <ListItemButton component="a" href="/dados-pessoais">
             <ListItemIcon>
               <AccountCircleIcon />
             </ListItemIcon>
             <ListItemText primary="Dados Pessoais" />
-          </ListItem>
-          <ListItem key="pedidos">
+          </ListItemButton>
+          <ListItemButton component="a" href="/pedidos">
             <ListItemIcon>
               <ShoppingCartIcon />
             </ListItemIcon>
             <ListItemText primary="Pedidos" />
-          </ListItem>
-          <ListItem key="enderecos">
+          </ListItemButton>
+          <ListItemButton component="a" href="/enderecos">
             <ListItemIcon>
               <LocationOnIcon />
             </ListItemIcon>
             <ListItemText primary="Endereços" />
-          </ListItem>
-          <ListItem key="cartoes">
+          </ListItemButton>
+          <ListItemButton component="a" href="/cartoes">
             <ListItemIcon>
               <CreditCardIcon />
             </ListItemIcon>
             <ListItemText primary="Cartões" />
-          </ListItem>
-          <ListItem key="lista-de-desejos">
+          </ListItemButton>
+          <ListItemButton component="a" href="/lista-de-desejos">
             <ListItemIcon>
               <FavoriteIcon />
             </ListItemIcon>
             <ListItemText primary="Lista de Desejos" />
-          </ListItem>
+          </ListItemButton>
         </List>
       </Container>
     </Drawer>
