@@ -40,7 +40,13 @@ export default function PersonalDataClient() {
     <>
       <Navbar isHomePage={false} />
       <Container sx={style.Content}>
-        <Grid container sm={gridSize.sm} md={gridSize.md} sx={style.Content1}>
+        <Grid
+          container
+          item
+          sm={gridSize.sm}
+          md={gridSize.md}
+          sx={style.Content1}
+        >
           <Grid
             item
             xs={12}
