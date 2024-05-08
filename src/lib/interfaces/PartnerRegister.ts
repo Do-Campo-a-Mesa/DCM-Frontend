@@ -24,7 +24,7 @@ export interface StoreModel {
   owner_user_id: string;
   cnpj: string;
   name: string;
-  short_description: string;
+  short_description?: string;
   uf: string;
   city: string;
   bairro: string;
