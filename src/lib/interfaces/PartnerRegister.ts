@@ -35,7 +35,7 @@ export interface StoreModel {
   email: string;
   instagram: string;
   minimum_order_value: number;
-  minimum_value_for_free_shipping: number;
+  minimum_value_for_free_shipping?: number;
   order_processing_time: number;
   delivery_logistics: string;
 }
