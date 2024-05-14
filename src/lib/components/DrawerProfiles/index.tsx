@@ -16,13 +16,20 @@ interface DrawerProps {
   isOpen: boolean;
   onClose: () => void;
   backButton?: React.ReactNode;
+  onItemClick?: (key: string) => void;
 }
 
 const DrawerProfile: React.FC<DrawerProps> = ({
   isOpen,
   onClose,
   backButton,
+  onItemClick,
 }) => {
+  const handleItemClick = (key: string) => {
+    if (onItemClick) {
+      onItemClick(key);
+    }
+  };
   const style = useCustomStyles();
   return (
     <Drawer
@@ -42,31 +49,31 @@ const DrawerProfile: React.FC<DrawerProps> = ({
           <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
             Olá, User!
           </Typography>
-          <ListItemButton component="a" href="/dados-pessoais">
+          <ListItemButton onClick={() => handleItemClick('dados-pessoais')}>
             <ListItemIcon>
               <AccountCircleIcon />
             </ListItemIcon>
             <ListItemText primary="Dados Pessoais" />
           </ListItemButton>
-          <ListItemButton component="a" href="/pedidos">
+          <ListItemButton onClick={() => handleItemClick('pedidos')}>
             <ListItemIcon>
               <ShoppingCartIcon />
             </ListItemIcon>
             <ListItemText primary="Pedidos" />
           </ListItemButton>
-          <ListItemButton component="a" href="/enderecos">
+          <ListItemButton onClick={() => handleItemClick('enderecos')}>
             <ListItemIcon>
               <LocationOnIcon />
             </ListItemIcon>
             <ListItemText primary="Endereços" />
           </ListItemButton>
-          <ListItemButton component="a" href="/cartoes">
+          <ListItemButton onClick={() => handleItemClick('cartoes')}>
             <ListItemIcon>
               <CreditCardIcon />
             </ListItemIcon>
             <ListItemText primary="Cartões" />
           </ListItemButton>
-          <ListItemButton component="a" href="/lista-de-desejos">
+          <ListItemButton onClick={() => handleItemClick('lista-de-desejos')}>
             <ListItemIcon>
               <FavoriteIcon />
             </ListItemIcon>

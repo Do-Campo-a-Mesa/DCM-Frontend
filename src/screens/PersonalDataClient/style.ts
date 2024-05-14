@@ -7,7 +7,7 @@ export const useCustomStyles = () => {
     display: 'flex',
     justifyContent: 'center',
     p: '0',
-
+    minHeight: '100vh',
     '@media (min-width: 1200px)': {
       maxWidth: 'none',
     },
@@ -32,7 +32,10 @@ export const useCustomStyles = () => {
       pl: '0',
     },
   };
-
+  const ContainerStyle = {
+    backgroundColor: Theme.customPalette.primary.background,
+    p: '3em',
+  };
   const Title = {
     typography: Theme.customTypography.h4,
     fontFamily: Theme.customTypography.fontFamily,
@@ -57,6 +60,7 @@ export const useCustomStyles = () => {
   };
 
   return {
+    ContainerStyle,
     Content,
     Content1,
     Item,

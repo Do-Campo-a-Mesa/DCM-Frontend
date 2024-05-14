@@ -15,14 +15,21 @@ interface MiniDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   forwardButton?: React.ReactNode;
+  onItemClick?: (key: string) => void;
 }
 
 const MiniDrawer: React.FC<MiniDrawerProps> = ({
   isOpen,
   onClose,
   forwardButton,
+  onItemClick,
 }) => {
   const style = useCustomStyles();
+  const handleItemClick = (key: string) => {
+    if (onItemClick) {
+      onItemClick(key);
+    }
+  };
   return (
     <Drawer
       variant="persistent"
@@ -42,7 +49,7 @@ const MiniDrawer: React.FC<MiniDrawerProps> = ({
 
           <ListItem key="dados-pessoais">
             <ListItemIcon>
-              <ListItemButton component="a" href="/dados-pessoais">
+              <ListItemButton onClick={() => handleItemClick('dados-pessoais')}>
                 <AccountCircleIcon />
               </ListItemButton>
             </ListItemIcon>
@@ -50,28 +57,30 @@ const MiniDrawer: React.FC<MiniDrawerProps> = ({
 
           <ListItem key="pedidos">
             <ListItemIcon>
-              <ListItemButton component="a" href="/pedidos">
+              <ListItemButton onClick={() => handleItemClick('pedidos')}>
                 <ShoppingCartIcon />
               </ListItemButton>
             </ListItemIcon>
           </ListItem>
           <ListItem key="enderecos">
             <ListItemIcon>
-              <ListItemButton component="a" href="/enderecos">
+              <ListItemButton onClick={() => handleItemClick('enderecos')}>
                 <LocationOnIcon />
               </ListItemButton>
             </ListItemIcon>
           </ListItem>
           <ListItem key="cartoes">
             <ListItemIcon>
-              <ListItemButton component="a" href="/cartoes">
+              <ListItemButton onClick={() => handleItemClick('cartoes')}>
                 <CreditCardIcon />
               </ListItemButton>
             </ListItemIcon>
           </ListItem>
           <ListItem key="lista-de-desejos">
             <ListItemIcon>
-              <ListItemButton component="a" href="/lista-de-desejos">
+              <ListItemButton
+                onClick={() => handleItemClick('lista-de-desejos')}
+              >
                 <FavoriteIcon />
               </ListItemButton>
             </ListItemIcon>

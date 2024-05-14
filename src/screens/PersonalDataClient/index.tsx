@@ -9,10 +9,14 @@ import { useState } from 'react';
 import ArrowNextIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MiniDrawer from '../../lib/components/DrawerProfiles/MiniDrawer';
+import PersonalInfo from './components/personalData';
+import PersonalAddress from './components/personalAddress';
 export default function PersonalDataClient() {
   const style = useCustomStyles();
   const [isDrawerOpen, setIsDrawerOpen] = useState(true);
   const [isMiniDrawerOpen, setIsMiniDrawerOpen] = useState(false);
+  const [showPersonalInfo, setShowPersonalInfo] = useState(true);
+  const [showPersonalAddress, setShowPersonalAddress] = useState(false);
   const openDrawer = () => {
     setIsDrawerOpen(true);
     setIsMiniDrawerOpen(false);
@@ -36,6 +40,15 @@ export default function PersonalDataClient() {
       md: gridItemSize.md === 8 ? 6 : 8,
     }));
   };
+  const handleItemClick = (key: string) => {
+    if (key === 'dados-pessoais') {
+      setShowPersonalInfo(true);
+      setShowPersonalAddress(false);
+    } else if (key === 'enderecos') {
+      setShowPersonalInfo(false);
+      setShowPersonalAddress(true);
+    }
+  };
   return (
     <>
       <Navbar isHomePage={false} />
@@ -58,6 +71,7 @@ export default function PersonalDataClient() {
               <DrawerProfile
                 isOpen={true}
                 onClose={openMiniDrawer}
+                onItemClick={handleItemClick}
                 backButton={
                   <IconButton
                     onClick={() => {
@@ -101,12 +115,17 @@ export default function PersonalDataClient() {
             )}
           </Grid>
         </Grid>
-        <Grid
-          container
-          sx={{ backgroundColor: style.Theme.customPalette.primary.background }}
-        ></Grid>
+        {showPersonalInfo && (
+          <Grid container sx={style.ContainerStyle}>
+            <PersonalInfo />
+          </Grid>
+        )}
+        {showPersonalAddress && (
+          <Grid container sx={style.ContainerStyle}>
+            <PersonalAddress />
+          </Grid>
+        )}
       </Container>
-
       <Container sx={style.SmallFooterStyle}>
         <SmallFooter />
       </Container>
