@@ -23,6 +23,9 @@ const CategoriesList: React.FC<Props> = ({
 
   const style = useCustomStyles();
 
+  // Verificação para garantir que categories é um array
+  const validCategories = Array.isArray(categories) ? categories : [];
+
   return (
     <Box sx={style.boxStyle}>
       <Tabs
@@ -44,7 +47,7 @@ const CategoriesList: React.FC<Props> = ({
           iconPosition="start"
           sx={style.tabStyle}
         />
-        {categories.map((category: ProductCategory) => (
+        {validCategories.map((category: ProductCategory) => (
           <Tab
             key={category.id}
             label={category.name}
