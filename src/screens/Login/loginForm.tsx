@@ -40,8 +40,10 @@ const LoginForm: React.FC = () => {
               visibility: true,
             })
           );
-          // Redireciona para a rota '/'
-          navigate('/');
+          // Adiciona um pequeno atraso antes de redirecionar
+          setTimeout(() => {
+            navigate('/');
+          }, 1000); // 1000 milissegundos = 1 segundo
         }
       })
       .catch(() => {
