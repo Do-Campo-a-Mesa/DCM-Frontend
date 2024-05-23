@@ -44,10 +44,24 @@ export default function Home() {
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   useEffect(() => {
     (async () => {
-      const productCategoriesResponse = await getAllProductsCategories();
-      setCategories(productCategoriesResponse.data);
+      try {
+        const productCategoriesResponse = await getAllProductsCategories();
+        // Certifique-se de que a resposta está no formato esperado
+        const categoriesData = productCategoriesResponse.data;
+        if (Array.isArray(categoriesData)) {
+          setCategories(categoriesData);
+        } else {
+          console.error(
+            'Unexpected response format:',
+            productCategoriesResponse
+          );
+        }
+      } catch (error) {
+        console.error('Error fetching product categories:', error);
+      }
     })();
   }, []);
+
   //Partners
   const [partners, setPartners] = useState<Partner[]>([]);
 

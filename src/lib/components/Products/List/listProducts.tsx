@@ -43,8 +43,8 @@ const ProductsList: React.FC<Props> = ({ products }) => {
   ) => {
     setCurrentPage(page);
   };
-  const renderProductCards = (products: Product[]) => {
-    const sortedProducts = [...products];
+  const renderProductCards = (products_to_render: Product[]) => {
+    const sortedProducts = [...products_to_render];
 
     if (sortBy === 'asc') {
       sortedProducts.sort((a, b) => a.price - b.price);

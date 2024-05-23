@@ -36,7 +36,7 @@ const UserRegisterForm: React.FC = () => {
     }
 
     await createUserAccount(formData)
-      .then((response) => {
+      .then(async (response) => {
         if (response.status == 201) {
           // Redireciona para a rota de login
           dispatch(
@@ -47,7 +47,10 @@ const UserRegisterForm: React.FC = () => {
               visibility: true,
             })
           );
-          navigate('/login');
+          // Adiciona um pequeno atraso antes de redirecionar
+          setTimeout(() => {
+            navigate('/login');
+          }, 1000); // 1000 milissegundos = 1 segundo
         }
       })
       .catch(() => {

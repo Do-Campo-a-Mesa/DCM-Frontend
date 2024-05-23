@@ -8,7 +8,7 @@ import {
 export async function getProducts(
   filterInput: FilterProductInput
 ): Promise<ProductsResponse> {
-  return api.post('/products', filterInput);
+  return api.post('/product', filterInput);
 }
 
 export async function getProductById(id: number): Promise<ProductResponse> {

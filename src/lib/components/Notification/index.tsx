@@ -30,8 +30,6 @@ const Notification: React.FC<Props> = ({
   const notification = useSelector((state: RootState) => state.notification);
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    console.log('Message length:', message?.length);
-    console.log('Visibility:', visibility);
     if (message?.length && visibility === true) {
       setOpen(true);
       dispatch(
