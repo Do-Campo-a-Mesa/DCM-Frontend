@@ -19,6 +19,7 @@ import CategoriesList from './components/CategoriesList/index.tsx';
 import { Product } from '../../lib/interfaces/Product.ts';
 import { getProducts } from '../../services/products/index.ts';
 import ProductList from '../../lib/components/Products/List/listProducts.tsx';
+import { FavoritesProvider } from '../../lib/components/Wishlist/favoritesContext.tsx';
 
 export default function Home() {
   const theme = useTheme();
@@ -249,7 +250,9 @@ export default function Home() {
           categoryId={selectedCategoryId}
           setCategory={setSelectedCategoryId}
         />
-        <ProductList products={products}></ProductList>
+        <FavoritesProvider>
+          <ProductList products={products}></ProductList>
+        </FavoritesProvider>
       </Container>
       <Container>
         <Typography sx={SectionTitleStyle}>Parceiros</Typography>

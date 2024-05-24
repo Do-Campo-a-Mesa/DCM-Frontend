@@ -23,6 +23,7 @@ import { getHomePagePartners } from '../../services/partners/index';
 import PriceSearchCard from '../../lib/components/PriceFilter/priceRange';
 import Navbar from '../../lib/components/Navbar/Navbar';
 import { useLocation } from 'react-router-dom';
+import { FavoritesProvider } from '../../lib/components/Wishlist/favoritesContext';
 
 export default function UserSearchProducts() {
   const style = useCustomStyles();
@@ -168,7 +169,9 @@ export default function UserSearchProducts() {
           </Grid>
           <Grid item xs={12} md={9}>
             <Typography sx={style.Title}>resultados</Typography>
-            <ProductsList products={products} />
+            <FavoritesProvider>
+              <ProductsList products={products} />
+            </FavoritesProvider>
           </Grid>
         </Grid>
       </Container>

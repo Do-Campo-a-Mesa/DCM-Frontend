@@ -16,28 +16,35 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { formatProductPrice } from '../../../../utils';
+import { useFavorites } from '../../Wishlist/favoritesContext';
 
 interface Props {
   product: Product;
 }
 const CardProductsHome: React.FC<Props> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
-  const handleClick = () => {
+  const { favorites, toggleFavorite } = useFavorites();
+  const isFavorited = favorites.includes(product.id);
+  //const [isClicked, setIsClicked] = useState(false);
+  /*const handleClick = () => {
     setIsClicked(!isClicked); // Alternar entre true e false quando o ícone é clicado
-  };
+  };*/
   const style = useCustomStyles();
   return (
     <Card sx={style.cardStyle}>
       <Grid container>
-        <Grid item xs={12} sm={12} sx={style.wishlistGridStyle}>
+        <Grid item xs={12} sm={12} md={12} sx={style.wishlistGridStyle}>
           <IconButton
             sx={style.wishlistButtonStyle}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={handleClick}
+            onClick={() => toggleFavorite(product.id)}
           >
-            {isHovered || isClicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+            {isHovered || isFavorited ? (
+              <FavoriteIcon />
+            ) : (
+              <FavoriteBorderIcon />
+            )}
           </IconButton>
         </Grid>
         <Grid item xs={12}>
