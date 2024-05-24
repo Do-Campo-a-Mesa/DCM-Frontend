@@ -5,6 +5,7 @@ import {
   ProductResponse,
   ProductsResponse,
 } from '../../lib/interfaces/Product';
+import { GeneralResponse } from '../../lib/interfaces/User';
 
 export async function getProducts(
   filterInput: FilterProductInput
@@ -53,4 +54,13 @@ export async function getProductById(): Promise<ProductResponse> {
 
 export async function getProductsByStoreId(): Promise<ProductsResponse> {
   return { data: products };
+}
+
+export async function registerProduct(): Promise<GeneralResponse> {
+  return {
+    status: 201,
+    data: {
+      message: 'Produto Cadastrado com Sucesso',
+    },
+  };
 }

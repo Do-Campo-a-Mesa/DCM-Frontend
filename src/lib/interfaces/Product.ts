@@ -62,6 +62,17 @@ export interface ProductByID {
   categories: ProductCardCategory[];
 }
 
+export interface RegisterProductInput {
+  name: string;
+  description?: string;
+  unit_of_measurement: 'unit' | 'kg' | 'liter' | 'meters' | 'square meters';
+  validity: number;
+  photos?: string[];
+  price: number;
+  quantity: number;
+  store_id: string;
+}
+
 export interface ProductResponse {
   data: ProductByID;
 }

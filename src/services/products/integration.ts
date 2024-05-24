@@ -3,7 +3,9 @@ import {
   FilterProductInput,
   ProductsResponse,
   ProductResponse,
+  RegisterProductInput,
 } from '../../lib/interfaces/Product';
+import { GeneralResponse } from '../../lib/interfaces/User';
 
 export async function getProducts(
   filterInput: FilterProductInput
@@ -19,4 +21,10 @@ export async function getProductsByStoreId(
   id: number
 ): Promise<ProductsResponse> {
   return api.get(`/store/${id}/product`);
+}
+
+export async function registerProduct(
+  data: RegisterProductInput
+): Promise<GeneralResponse> {
+  return api.post('/create_product', data);
 }
