@@ -4,13 +4,18 @@ import {
   ProductsResponse,
   ProductResponse,
   RegisterProductInput,
+  Product,
 } from '../../lib/interfaces/Product';
 import { GeneralResponse } from '../../lib/interfaces/User';
 
 export async function getProducts(
   filterInput: FilterProductInput
 ): Promise<ProductsResponse> {
-  return api.post('/product', filterInput);
+  const products_response = await api.post('/product', filterInput);
+  products_response.data.forEach((product: Product) => {
+    product.photos = product.photos ? product.photos : ['/logo.png'];
+  });
+  return products_response;
 }
 
 export async function getProductById(id: number): Promise<ProductResponse> {
