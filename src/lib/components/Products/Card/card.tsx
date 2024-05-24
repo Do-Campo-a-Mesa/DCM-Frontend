@@ -73,7 +73,7 @@ const CardProductsHome: React.FC<Props> = ({ product }) => {
                 {product.name}
               </Typography>
               <Typography component="div" sx={style.titlePartnerStyle}>
-                <div key={product.partner.id}>{product.partner.name}</div>
+                <div key={product.store.id}>{product.store.name}</div>
               </Typography>
               <Rating
                 name="rating-read"

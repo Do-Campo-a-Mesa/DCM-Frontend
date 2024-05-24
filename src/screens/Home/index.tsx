@@ -29,6 +29,7 @@ export default function Home() {
   //Products
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number>(0);
+
   useEffect(() => {
     (async () => {
       const productsResponse = await getProducts({
@@ -41,6 +42,7 @@ export default function Home() {
       setProducts(productsResponse.data);
     })();
   }, [selectedCategoryId]);
+
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   useEffect(() => {
     (async () => {
@@ -232,7 +234,6 @@ export default function Home() {
   return (
     <>
       <Navbar isHomePage={true} />
-
       <MyCarousel />
       <Typography
         variant="h1"
@@ -258,7 +259,6 @@ export default function Home() {
           isHomePage
         />
       </Container>
-
       <Container>
         <Typography sx={SectionTitleStyle}>Produtos</Typography>
         <Typography sx={SectionSubtitleStyle}>
@@ -269,7 +269,7 @@ export default function Home() {
           categoryId={selectedCategoryId}
           setCategory={setSelectedCategoryId}
         />
-        <ProductList products={products}></ProductList>
+        <ProductList products={products} />
       </Container>
       <Container>
         <Typography sx={SectionTitleStyle}>Parceiros</Typography>

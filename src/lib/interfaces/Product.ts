@@ -31,7 +31,7 @@ export interface Product {
   take_y?: number;
   new_price_with_promotion?: number;
   categories: ProductCardCategory[];
-  partner: ProductCardPartner;
+  store: ProductCardPartner;
   description?: string;
 }
 
