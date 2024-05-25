@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "apelido": "teste",
+        "cpf": "XXX.XXX.XXX-XX",
+        "numero": "XXXX-XXXX-XXXX-XXXX",
+        "nome": "teste",
+        "validade": "YY/XXXX",
+        "codigo": "000",
+        "endereco": {
+            "id": "1",
+            "userId": "1",
+            "cep": "XXXXX-XXX",
+            "rua": "teste",
+            "numero": "123",
+            "cidade": "teste",
+            "estado": "teste",
+            "bairro": "teste",
+            "complemento": "Proximo a X"
+        }
+      },
+      {
+        "id": "2",
+        "apelido": "teste2",
+        "cpf": "XXX.XXX.XXX-XX",
+        "numero": "XXXX-XXXX-XXXX-XXXX",
+        "nome": "teste2",
+        "validade": "YY/XXXX",
+        "codigo": "000",
+        "endereco": {
+            "id": "2",
+            "userId": "1",
+            "cep": "XXXXX-XXX",
+            "rua": "teste2",
+            "numero": "123",
+            "cidade": "teste2",
+            "estado": "teste2",
+            "bairro": "teste2",
+            "complemento": "Proximo a X"
+        }
+      }
+  ]

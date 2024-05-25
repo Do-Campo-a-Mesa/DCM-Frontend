@@ -9,6 +9,8 @@ interface UserData {
   estado: string;
   cidade: string;
   bairro: string;
+  numero: number;
+  complemento: string;
 }
 
 const PersonalAddress: React.FC = () => {
@@ -19,6 +21,8 @@ const PersonalAddress: React.FC = () => {
     bairro: 'Teste2',
     cidade: 'Teste3',
     estado: 'Teste4',
+    numero: 10,
+    complemento: 'Próximo a exemplo',
   });
   const [editMode, setEditMode] = useState(false);
   useEffect(() => {
@@ -49,13 +53,14 @@ const PersonalAddress: React.FC = () => {
     // Implemente aqui a lógica para salvar as informações editadas no banco de dados
     console.log('Informações editadas:', userData);
     // Por exemplo, você poderia fazer uma solicitação PUT para uma API para atualizar os dados do usuário
-    // axios.put('sua-url-api', userData)
-    //   .then(response => {
-    //     console.log('Dados atualizados com sucesso:', response.data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Erro ao atualizar dados do usuário:', error);
-    //   });
+    /*axios
+      .put('sua-url-api', userData)
+      .then((response) => {
+        console.log('Dados atualizados com sucesso:', response.data);
+      })
+      .catch((error) => {
+        console.error('Erro ao atualizar dados do usuário:', error);
+      });*/
     setEditMode(false);
   };
 
@@ -65,17 +70,6 @@ const PersonalAddress: React.FC = () => {
         ENDEREÇOS
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            label="Rua"
-            name="Rua"
-            value={userData.rua}
-            onChange={handleInputChange}
-            disabled={!editMode}
-            InputLabelProps={{ shrink: true }}
-          />
-        </Grid>
         <Grid item xs={12}>
           <TextField
             fullWidth
@@ -90,9 +84,20 @@ const PersonalAddress: React.FC = () => {
         <Grid item xs={12}>
           <TextField
             fullWidth
-            label="Estado"
-            name="Estado"
-            value={userData.estado}
+            label="Rua"
+            name="Rua"
+            value={userData.rua}
+            onChange={handleInputChange}
+            disabled={!editMode}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Número"
+            name="Número"
+            value={userData.numero}
             onChange={handleInputChange}
             disabled={!editMode}
             InputLabelProps={{ shrink: true }}
@@ -112,6 +117,17 @@ const PersonalAddress: React.FC = () => {
         <Grid item xs={12}>
           <TextField
             fullWidth
+            label="Estado"
+            name="Estado"
+            value={userData.estado}
+            onChange={handleInputChange}
+            disabled={!editMode}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
             label="Bairro"
             name="Bairro"
             value={userData.bairro}
@@ -121,19 +137,31 @@ const PersonalAddress: React.FC = () => {
           />
         </Grid>
         <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Complemento"
+            name="Complemento"
+            value={userData.complemento}
+            onChange={handleInputChange}
+            disabled={!editMode}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Grid>
+        <Grid item xs={12}>
           {!editMode ? (
             <Button
               variant="contained"
-              color="primary"
               onClick={handleEditClick}
+              sx={style.Button}
             >
               Editar
             </Button>
           ) : (
             <Button
               variant="contained"
-              color="primary"
+              type="submit"
               onClick={handleSaveClick}
+              sx={style.Button}
             >
               Salvar
             </Button>

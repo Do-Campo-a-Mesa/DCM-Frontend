@@ -7,9 +7,9 @@ export const useCustomStyles = () => {
     display: 'flex',
     justifyContent: 'center',
     p: '0',
-    minHeight: '100vh',
+    //minHeight: '100vh',
     '@media (min-width: 1200px)': {
-      maxWidth: 'none',
+      maxWidth: '1600px',
     },
     '@media (min-width: 600px)': {
       p: '0',
@@ -18,8 +18,8 @@ export const useCustomStyles = () => {
   const Content1 = {
     backgroundColor: Theme.customPalette.primary.main,
     display: 'flex',
-    justifyContent: 'flex-end',
-    p: '0',
+    justifyContent: 'center',
+
     '@media (min-width: 1200px)': {
       maxWidth: 'none',
     },
@@ -33,8 +33,17 @@ export const useCustomStyles = () => {
     },
   };
   const ContainerStyle = {
-    backgroundColor: Theme.customPalette.primary.background,
+    //backgroundColor: Theme.customPalette.primary.background,
     p: '3em',
+  };
+  const ListStyle = {
+    pt: '3em',
+    color: Theme.customPalette.primary.background,
+    '& .MuiListItemText-primary': {
+      fontFamily: Theme.customTypography.fontFamily,
+      typography: Theme.customTypography.button1,
+      textTransform: 'uppercase',
+    },
   };
   const Title = {
     typography: Theme.customTypography.h4,
@@ -64,6 +73,7 @@ export const useCustomStyles = () => {
     Content,
     Content1,
     Item,
+    ListStyle,
     Theme,
     Title,
     SmallFooterStyle,

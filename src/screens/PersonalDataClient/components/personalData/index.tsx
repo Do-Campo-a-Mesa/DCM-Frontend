@@ -124,20 +124,27 @@ const PersonalInfo: React.FC = () => {
           {!editMode ? (
             <Button
               variant="contained"
-              color="primary"
               onClick={handleEditClick}
+              sx={style.Button}
             >
               Editar
             </Button>
           ) : (
             <Button
               variant="contained"
-              color="primary"
               onClick={handleSaveClick}
+              sx={style.Button}
             >
               Salvar
             </Button>
           )}
+          <Button
+            variant="contained"
+            onClick={handleSaveClick}
+            sx={style.Button}
+          >
+            Senha
+          </Button>
         </Grid>
       </Grid>
     </div>

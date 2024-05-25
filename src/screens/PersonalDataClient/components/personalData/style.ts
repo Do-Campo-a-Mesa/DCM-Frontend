@@ -2,6 +2,17 @@ import { useTheme } from '@mui/material/styles';
 
 export const useCustomStyles = () => {
   const Theme = useTheme();
+  const Button = {
+    backgroundColor: Theme.customPalette.primary.main,
+    color: Theme.customPalette.primary.background,
+    typography: Theme.customTypography.h8,
+    fontFamily: Theme.customTypography.fontFamily,
+    m: '0.5em',
+    '&:hover': {
+      backgroundColor: Theme.customPalette.secondary.main,
+      color: Theme.customPalette.primary.background,
+    },
+  };
   const TextFieldStyle = {
     '& .MuiInputBase-root': {
       borderRadius: '10px',
@@ -44,6 +55,7 @@ export const useCustomStyles = () => {
     pb: '1em',
   };
   return {
+    Button,
     TextFieldStyle,
     Title,
     Theme,
