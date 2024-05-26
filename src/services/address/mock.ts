@@ -1,6 +1,6 @@
-import cardPayment from '../../tests/mock/cardPayment/index.json';
-import { CardPaymentResponse } from '../../lib/interfaces/CardPayment';
+import address from '../../tests/mock/address/index.json';
+import { AddressResponse } from '../../lib/interfaces/Address';
 
-export async function getCardPayment(): Promise<CardPaymentResponse> {
-  return { data: cardPayment };
+export async function getAddress(): Promise<AddressResponse> {
+  return { data: address };
 }
