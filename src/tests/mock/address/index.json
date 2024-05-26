@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1",
+        "userId": "1",
+        "apelido": "casa",
+        "cep": "XXXXX-XXX",
+        "rua": "teste",
+        "numero": "123",
+        "cidade": "teste",
+        "estado": "teste",
+        "bairro": "teste",
+        "complemento": "Proximo a X"
+    },
+    {
+        "id": "2",
+        "userId": "1",
+        "apelido": "trabalho",
+        "cep": "XXXXX-XXX",
+        "rua": "teste2",
+        "numero": "123",
+        "cidade": "teste2",
+        "estado": "teste2",
+        "bairro": "teste2",
+        "complemento": "Proximo a X"
+    }
+    
+]

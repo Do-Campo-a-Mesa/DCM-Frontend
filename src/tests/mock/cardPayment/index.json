@@ -10,6 +10,7 @@
         "endereco": {
             "id": "1",
             "userId": "1",
+            "apelido": "casa",
             "cep": "XXXXX-XXX",
             "rua": "teste",
             "numero": "123",
@@ -30,6 +31,7 @@
         "endereco": {
             "id": "2",
             "userId": "1",
+            "apelido": "trabalho",
             "cep": "XXXXX-XXX",
             "rua": "teste2",
             "numero": "123",
