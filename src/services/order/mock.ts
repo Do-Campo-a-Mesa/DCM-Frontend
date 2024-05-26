@@ -66,5 +66,7 @@ const orders: Order[] = [
 export async function getOrdersByUserId(): Promise<OrderResponse> {
   return { data: orders };
 }
-
+export async function getOrderById(): Promise<OrderResponse> {
+  return { data: orders };
+}
 export type { Order };
