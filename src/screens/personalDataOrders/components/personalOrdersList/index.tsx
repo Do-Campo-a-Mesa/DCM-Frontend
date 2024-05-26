@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useCustomStyles } from './style';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, Tabs, Tab } from '@mui/material';
 //import { Order } from '../../../../lib/interfaces/Order';
 import PersonalOrder from '../personalOrder';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Order, getOrdersByUserId } from '../../../../services/order/mock'; // Importe o arquivo de mock com os dados do pedido
 const PersonalOrdersList: React.FC = () => {
   const style = useCustomStyles();
   const [orders, setOrders] = useState<Order[]>([]);
+  const [tabIndex, setTabIndex] = useState(0);
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -20,6 +21,9 @@ const PersonalOrdersList: React.FC = () => {
 
     fetchOrders();
   }, []);
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabIndex(newValue);
+  };
   return (
     <div>
       <Grid
@@ -41,24 +45,46 @@ const PersonalOrdersList: React.FC = () => {
           spacing={3}
           md={12}
         >
-          <Grid item>
-            <Typography variant="h5" gutterBottom sx={style.Subtitle}>
-              TODOS
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h5" gutterBottom sx={style.Subtitle}>
-              RECORRENTES
-            </Typography>
-          </Grid>
+          <Tabs
+            value={tabIndex}
+            onChange={handleTabChange}
+            TabIndicatorProps={{
+              sx: {
+                backgroundColor: style.Theme.customPalette.primary.main,
+              },
+            }}
+            sx={{ ml: '1.5em' }}
+          >
+            <Tab sx={style.Tabs} label="TODOS" />
+            <Tab sx={style.Tabs} label="RECORRENTES" />
+          </Tabs>
         </Grid>
       </Grid>
-      <Grid container spacing={2}>
-        {orders.map((userData: Order) => (
-          <Grid item xs={12} key={userData.id}>
-            <PersonalOrder />
-          </Grid>
-        ))}
+      <Grid container spacing={2} sx={{ mt: '1em' }}>
+        {tabIndex === 0 &&
+          orders.map((order) => (
+            <Grid item xs={12} key={order.id}>
+              <Link
+                to={`/perfil/pedidos/id=${order.id}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <PersonalOrder />
+              </Link>
+            </Grid>
+          ))}
+        {tabIndex === 1 &&
+          orders
+            .filter((order) => order.isRecurring)
+            .map((order) => (
+              <Grid item xs={12} key={order.id}>
+                <Link
+                  to={`/perfil/pedidos/id=${order.id}`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <PersonalOrder />
+                </Link>
+              </Grid>
+            ))}
       </Grid>
     </div>
   );
