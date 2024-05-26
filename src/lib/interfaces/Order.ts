@@ -10,6 +10,7 @@ export interface ProductsInOrder {
 }
 
 export interface Order {
+  isRecurring: boolean;
   id: number;
   order_date: string;
   expected_delivery_date: string;

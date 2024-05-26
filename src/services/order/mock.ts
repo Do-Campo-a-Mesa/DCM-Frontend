@@ -2,6 +2,7 @@ import { Order, OrderResponse } from '../../lib/interfaces/Order';
 
 const orders: Order[] = [
   {
+    isRecurring: true,
     id: 1,
     order_date: '2024-03-15',
     expected_delivery_date: '2024-03-15',
@@ -31,6 +32,7 @@ const orders: Order[] = [
     ],
   },
   {
+    isRecurring: false,
     id: 2,
     order_date: '2024-03-15T15:27:19.453Z',
     expected_delivery_date: '2024-03-15',
