@@ -10,7 +10,7 @@ import PartnerRegister from './screens/PartnerRegister';
 import Login from './screens/Login';
 import UserRegister from './screens/UserRegister';
 import PersonalDataClient from './screens/PersonalDataClient';
-import NewAddress from './screens/PersonalDataClient/components/newAddress';
+//import NewAddress from './screens/PersonalDataClient/components/newAddress';
 
 const AppRouter = () => {
   return (
@@ -27,15 +27,6 @@ const AppRouter = () => {
         <Route path="/cadastrar_parceiro" element={<PartnerRegister />} />
         <Route path="/cadastro" element={<UserRegister />} />
         <Route path="/perfil" element={<PersonalDataClient />} />
-        <Route path="/perfil/dados_pessoais" element={<PersonalDataClient />} />
-        <Route path="/perfil/pedidos" element={<NewAddress />} />
-        <Route path="/perfil/enderecos" element={<NewAddress />} />
-        <Route path="/perfil/cartoes" element={<NewAddress />} />
-        <Route path="/perfil/lista_de_desejos" element={<NewAddress />} />
-        <Route
-          path="/perfil/enderecos/cadastrar_endereco"
-          element={<NewAddress />}
-        />
       </Routes>
     </Router>
   );
