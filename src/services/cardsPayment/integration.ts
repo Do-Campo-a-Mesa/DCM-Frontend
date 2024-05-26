@@ -1,6 +1,6 @@
 import { api } from '../api';
-import { CardPaymentResponse } from '../../lib/interfaces/CardPayment';
+import { AddressResponse } from '../../lib/interfaces/Address';
 
-export async function getCardPayment(): Promise<CardPaymentResponse> {
-  return api.get('/cardPayment');
+export async function getAddress(): Promise<AddressResponse> {
+  return api.get('/address');
 }
