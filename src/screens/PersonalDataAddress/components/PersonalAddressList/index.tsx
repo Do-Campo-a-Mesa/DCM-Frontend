@@ -2,7 +2,7 @@ import React from 'react';
 import { useCustomStyles } from './style';
 import { Button, Grid, Typography } from '@mui/material';
 import PersonalAddress from './personalAddress';
-import address from '../../../../tests/mock/Address/index.json';
+import address from '../../../../tests/mock/address/index.json';
 import { Address } from '../../../../lib/interfaces/Address';
 //import { Link } from 'react-router-dom';
 
