@@ -3,7 +3,7 @@ import { Order, OrderResponse } from '../../lib/interfaces/Order';
 const orders: Order[] = [
   {
     id: 1,
-    order_date: '2024-03-15T15:27:19.453Z',
+    order_date: '2024-03-15',
     expected_delivery_date: '2024-03-15',
     total_value_of_products: '215.00',
     shipping_price: '0.00',

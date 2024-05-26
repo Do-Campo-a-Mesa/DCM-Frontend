@@ -15,10 +15,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const PersonalCardsList: React.FC = () => {
   const style = useCustomStyles();
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState<number | null>(null);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleExpandClick = (index: number) => {
+    setExpanded(expanded === index ? null : index);
   };
   // Função para substituir os valores centrais por asteriscos
   const maskCardNumber = (cardNumber: string): string => {
@@ -64,7 +64,7 @@ const PersonalCardsList: React.FC = () => {
       <Grid container spacing={2}>
         {cardPayment.map((userData: CardPayment, index: number) => (
           <Grid item xs={12} key={index}>
-            <Accordion sx={style.Accordion}>
+            <Accordion sx={style.Accordion} expanded={expanded === index}>
               <AccordionSummary>
                 <Grid
                   container
@@ -115,12 +115,15 @@ const PersonalCardsList: React.FC = () => {
                   <Grid item>
                     <Button
                       variant="contained"
-                      onClick={handleExpandClick}
+                      onClick={() => handleExpandClick(index)}
                       sx={style.Button}
                     >
-                      {expanded ? 'Recolher' : 'Ver cartão'}
+                      {expanded === index ? 'Recolher' : 'Ver cartão'}
                       <ExpandMoreIcon
-                        sx={{ transform: expanded ? 'rotate(180deg)' : 'none' }}
+                        sx={{
+                          transform:
+                            expanded === index ? 'rotate(180deg)' : 'none',
+                        }}
                       />
                     </Button>
                   </Grid>

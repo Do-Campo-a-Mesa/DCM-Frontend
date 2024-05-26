@@ -7,6 +7,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Button,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Order, getOrdersByUserId } from '../../../../services/order/mock'; // Importe o arquivo de mock com os dados do pedido
@@ -14,6 +15,11 @@ import { useCustomStyles } from './style';
 const PersonalOrder: React.FC = () => {
   const style = useCustomStyles();
   const [orders, setOrders] = useState<Order | null>(null);
+  const [expanded, setExpanded] = useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -35,7 +41,7 @@ const PersonalOrder: React.FC = () => {
   return (
     <div>
       <Grid container xs={12} md={12} key={orders.id}>
-        <Card variant="outlined" sx={{ width: '100%' }}>
+        <Card variant="outlined" sx={style.Card}>
           <CardContent>
             <Grid container>
               <Grid container xs={4} justifyContent="flex-start">
@@ -70,26 +76,220 @@ const PersonalOrder: React.FC = () => {
                 </Grid>
               </Grid>
               <Grid container xs={8} justifyContent="flex-end">
-                <Typography variant="subtitle1" gutterBottom>
-                  Data do Pedido: {orders.order_date}
-                </Typography>
+                <Grid item>
+                  <Typography
+                    variant="h5"
+                    gutterBottom
+                    sx={{
+                      typography: style.Theme.customTypography.body3,
+                      fontFamily: style.Theme.customTypography.fontFamily,
+                      color: style.Theme.customPalette.primary.black,
+                      lineHeight: 'none',
+                    }}
+                  >
+                    Data do Pedido:
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography
+                    variant="h5"
+                    gutterBottom
+                    sx={{
+                      typography: style.Theme.customTypography.body4,
+                      fontFamily: style.Theme.customTypography.fontFamily,
+                      color: style.Theme.customPalette.primary.black,
+                      pl: '0.5em',
+                      lineHeight: 'none',
+                    }}
+                  >
+                    {orders.order_date}
+                  </Typography>
+                </Grid>
+                <Grid item sx={{ ml: '1em' }}>
+                  <Typography
+                    variant="h5"
+                    gutterBottom
+                    sx={{
+                      typography: style.Theme.customTypography.body3,
+                      fontFamily: style.Theme.customTypography.fontFamily,
+                      color: style.Theme.customPalette.primary.black,
+                      lineHeight: 'none',
+                    }}
+                  >
+                    Previsão de Entrega:
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography
+                    variant="h5"
+                    gutterBottom
+                    sx={{
+                      typography: style.Theme.customTypography.body4,
+                      fontFamily: style.Theme.customTypography.fontFamily,
+                      color: style.Theme.customPalette.primary.black,
+                      pl: '0.5em',
+                      lineHeight: 'none',
+                    }}
+                  >
+                    {orders.expected_delivery_date}
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="h6">Produtos</Typography>
+            <Accordion sx={style.Accordion}>
+              <AccordionSummary>
+                <Grid container>
+                  <Grid container xs={4} justifyContent="flex-start">
+                    <Grid item>
+                      <Typography variant="h5" gutterBottom sx={style.Label}>
+                        Nome da Loja
+                      </Typography>
+                      <Typography variant="h5" gutterBottom sx={style.Text1}>
+                        ramo
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid container xs={4} justifyContent="flex-end">
+                    <Grid item>
+                      <Typography variant="h5" gutterBottom sx={style.Label}>
+                        Pedido Nº:
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="h5"
+                        gutterBottom
+                        sx={{
+                          typography: style.Theme.customTypography.body4,
+                          fontFamily: style.Theme.customTypography.fontFamily,
+                          color: style.Theme.customPalette.primary.black,
+                          pl: '0.5em',
+                          lineHeight: 'none',
+                        }}
+                      >
+                        {orders.id}
+                      </Typography>
+                    </Grid>
+                    <Grid item sx={{ ml: '1em' }}>
+                      <Typography variant="h5" gutterBottom sx={style.Label}>
+                        Total:
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="h5"
+                        gutterBottom
+                        sx={{
+                          typography: style.Theme.customTypography.body4,
+                          fontFamily: style.Theme.customTypography.fontFamily,
+                          color: style.Theme.customPalette.primary.black,
+                          pl: '0.5em',
+                          lineHeight: 'none',
+                        }}
+                      >
+                        {orders.total_amount}
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid container xs={4} justifyContent="flex-end">
+                    <Grid item>
+                      <Button
+                        variant="contained"
+                        onClick={handleExpandClick}
+                        sx={style.Button}
+                      >
+                        {expanded ? 'Recolher' : 'Produtos'}
+                        <ExpandMoreIcon
+                          sx={{
+                            transform: expanded ? 'rotate(180deg)' : 'none',
+                          }}
+                        />
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </AccordionSummary>
               <AccordionDetails>
                 <Grid container direction="column" spacing={1}>
+                  <Typography variant="h5" gutterBottom sx={style.Title1}>
+                    Produtos
+                  </Typography>
                   {orders.products.map((product, i) => (
                     <Grid item key={i}>
-                      <Typography>
-                        Nome do Produto: {product.product.name}
-                      </Typography>
-                      <Typography>Quantidade: {product.quantity}</Typography>
-                      <Typography>
-                        Preço Unitário: R$ {product.price}
-                      </Typography>
+                      <Grid container>
+                        <Grid container xs={6} justifyContent="flex-start">
+                          <Grid item>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Label}
+                            >
+                              {product.product.name}
+                            </Typography>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Text1}
+                            >
+                              categoria
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                        <Grid container xs={2} justifyContent="center">
+                          <Grid item>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Label}
+                            >
+                              Quantidade
+                            </Typography>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Text}
+                            >
+                              {product.quantity}
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                        <Grid container xs={2} justifyContent="center">
+                          <Grid item sx={{ ml: '1em' }}>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Label}
+                            >
+                              Valor Unitário
+                            </Typography>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Text}
+                            >
+                              {product.price}
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                        <Grid container xs={2} justifyContent="center">
+                          <Grid item>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Label}
+                            >
+                              Total
+                            </Typography>
+                            <Typography
+                              variant="h5"
+                              gutterBottom
+                              sx={style.Text}
+                            >
+                              {product.total_value}
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                      </Grid>
                     </Grid>
                   ))}
                 </Grid>
