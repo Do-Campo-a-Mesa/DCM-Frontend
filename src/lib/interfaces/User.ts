@@ -1,14 +1,3 @@
-export interface Enderecos {
-  id: string;
-  userId: string;
-  cep: string;
-  rua: string;
-  numero: string;
-  cidade: string;
-  estado: string;
-  bairro: string;
-  complemento?: string;
-}
 export interface CreateUserInput {
   email: string;
   password: string;
@@ -26,6 +15,8 @@ export interface UserLoginResponse {
   first_name?: string;
   last_name?: string;
   phone?: string;
+  birth?: string;
+  gender?: string;
 }
 
 export interface LoginResponse {

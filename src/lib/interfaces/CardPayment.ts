@@ -1,4 +1,4 @@
-import { Enderecos } from './User';
+import { Address } from './Address';
 
 export interface CardPayment {
   id: string;
@@ -8,7 +8,7 @@ export interface CardPayment {
   nome: string;
   validade: string;
   codigo: string;
-  endereco: Enderecos;
+  endereco: Address;
 }
 
 export interface CardPaymentResponse {
