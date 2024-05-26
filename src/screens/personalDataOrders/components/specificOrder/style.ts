@@ -24,32 +24,42 @@ export const useCustomStyles = () => {
       borderColor: Theme.customPalette.primary.main,
     },
   };
-  const Button1 = {
-    backgroundColor: Theme.customPalette.primary.background,
-    color: Theme.customPalette.primary.main,
-    border: '1px solid',
-    borderColor: Theme.customPalette.primary.main,
-    typography: Theme.customTypography.h8,
-    fontFamily: Theme.customTypography.fontFamily,
-    lineHeight: '1.75',
-    m: '0.5em',
-    '&:hover': {
-      backgroundColor: Theme.customPalette.primary.main,
-      color: Theme.customPalette.primary.background,
-      borderColor: Theme.customPalette.primary.main,
-    },
-  };
   const Card = {
     backgroundColor: Theme.customPalette.primary.background,
     border: '1px solid',
     borderColor: Theme.customPalette.neutral.inactive,
     width: '100%',
   };
+  const ContainerStyle = {
+    p: '3em',
+  };
+  const Content = {
+    //backgroundColor: Theme.customPalette.primary.main,
+    display: 'flex',
+    justifyContent: 'center',
+    p: '0',
+    '@media (min-width: 1200px)': {
+      maxWidth: '1600px',
+    },
+    '@media (min-width: 600px)': {
+      p: '0',
+    },
+  };
   const Label = {
     typography: Theme.customTypography.body3,
     fontFamily: Theme.customTypography.fontFamily,
     color: Theme.customPalette.primary.black,
     lineHeight: 'none',
+  };
+  const SmallFooterStyle = {
+    p: 0,
+    mt: 0,
+    '@media (min-width: 600px)': {
+      p: 0,
+    },
+    '@media (min-width: 1200px)': {
+      maxWidth: 'none',
+    },
   };
   const Subtitle = {
     color: Theme.customPalette.primary.black,
@@ -85,9 +95,11 @@ export const useCustomStyles = () => {
   return {
     Accordion,
     Button,
-    Button1,
     Card,
+    ContainerStyle,
+    Content,
     Label,
+    SmallFooterStyle,
     Subtitle,
     Text,
     Text1,

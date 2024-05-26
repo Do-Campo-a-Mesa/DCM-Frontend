@@ -3,8 +3,8 @@ import { useCustomStyles } from './style';
 import { Grid, Typography, Tabs, Tab } from '@mui/material';
 //import { Order } from '../../../../lib/interfaces/Order';
 import PersonalOrder from '../personalOrder';
-import { Link } from 'react-router-dom';
-import { Order, getOrdersByUserId } from '../../../../services/order/mock'; // Importe o arquivo de mock com os dados do pedido
+import { getOrdersByUserId } from '../../../../services/order/mock'; // Importe o arquivo de mock com os dados do pedido
+import { Order } from '../../../../lib/interfaces/Order';
 const PersonalOrdersList: React.FC = () => {
   const style = useCustomStyles();
   const [orders, setOrders] = useState<Order[]>([]);
@@ -62,27 +62,17 @@ const PersonalOrdersList: React.FC = () => {
       </Grid>
       <Grid container spacing={2} sx={{ mt: '1em' }}>
         {tabIndex === 0 &&
-          orders.map((order) => (
-            <Grid item xs={12} key={order.id}>
-              <Link
-                to={`/perfil/pedidos/id=${order.id}`}
-                style={{ textDecoration: 'none' }}
-              >
-                <PersonalOrder />
-              </Link>
+          orders.map((userData: Order, index: number) => (
+            <Grid item xs={12} key={index}>
+              <PersonalOrder orders={userData} />
             </Grid>
           ))}
         {tabIndex === 1 &&
           orders
-            .filter((order) => order.isRecurring)
-            .map((order) => (
-              <Grid item xs={12} key={order.id}>
-                <Link
-                  to={`/perfil/pedidos/id=${order.id}`}
-                  style={{ textDecoration: 'none' }}
-                >
-                  <PersonalOrder />
-                </Link>
+            .filter((userData: Order) => userData.isRecurring)
+            .map((userData, index) => (
+              <Grid item xs={12} key={index}>
+                <PersonalOrder orders={userData} />
               </Grid>
             ))}
       </Grid>

@@ -1,128 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Grid,
-  Card,
-  CardContent,
   Typography,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Button,
+  Container,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Order } from '../../../../lib/interfaces/Order'; // Importe o arquivo de mock com os dados do pedido
+import { Order } from '../../../../services/order/mock'; // Importe o arquivo de mock com os dados do pedido
 import { useCustomStyles } from './style';
-import { Link } from 'react-router-dom';
-interface Props {
-  orders: Order;
-}
-const PersonalOrder: React.FC<Props> = ({ orders }) => {
+import SideMenu from '../../../../lib/components/SideMenu';
+import Navbar from '../../../../lib/components/Navbar/Navbar';
+import SmallFooter from '../../../../lib/components/Footer/smallFooter';
+import { useParams } from 'react-router-dom';
+import { getOrderById } from '../../../../services/order';
+const SpecificOrder: React.FC = () => {
   const style = useCustomStyles();
+  const [orders, setOrders] = useState<Order | null>(null);
   const [expanded, setExpanded] = useState(false);
-
+  const { id } = useParams();
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  useEffect(() => {
+    const fetchOrders = async () => {
+      if (!id) return;
+      const orderId = parseInt(id) - 1;
+      const response = await getOrderById(orderId);
+      if (response) {
+        setOrders(response.data[orderId]);
+      } else {
+        console.error('Product not found');
+      }
+    };
+    fetchOrders();
+  }, [id]);
+  if (!orders) {
+    return null; // Retorna null se não houver pedido
+  }
   return (
-    <div>
-      <Grid container key={orders.id}>
-        <Grid item xs={12}>
-          <Card variant="outlined" sx={style.Card}>
-            <CardContent>
-              <Grid container>
-                <Grid container xs={4} justifyContent="flex-start">
-                  <Grid item>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      sx={{
-                        typography: style.Theme.customTypography.body3,
-                        fontFamily: style.Theme.customTypography.fontFamily,
-                        color: style.Theme.customPalette.primary.black,
-                        lineHeight: 'none',
-                      }}
-                    >
-                      status:
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      sx={{
-                        typography: style.Theme.customTypography.body4,
-                        fontFamily: style.Theme.customTypography.fontFamily,
-                        color: style.Theme.customPalette.primary.black,
-                        pl: '0.5em',
-                        lineHeight: 'none',
-                      }}
-                    >
-                      {orders.status}
-                    </Typography>
-                  </Grid>
-                </Grid>
-                <Grid container xs={8} justifyContent="flex-end">
-                  <Grid item>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      sx={{
-                        typography: style.Theme.customTypography.body3,
-                        fontFamily: style.Theme.customTypography.fontFamily,
-                        color: style.Theme.customPalette.primary.black,
-                        lineHeight: 'none',
-                      }}
-                    >
-                      Data do Pedido:
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      sx={{
-                        typography: style.Theme.customTypography.body4,
-                        fontFamily: style.Theme.customTypography.fontFamily,
-                        color: style.Theme.customPalette.primary.black,
-                        pl: '0.5em',
-                        lineHeight: 'none',
-                      }}
-                    >
-                      {orders.order_date}
-                    </Typography>
-                  </Grid>
-                  <Grid item sx={{ ml: '1em' }}>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      sx={{
-                        typography: style.Theme.customTypography.body3,
-                        fontFamily: style.Theme.customTypography.fontFamily,
-                        color: style.Theme.customPalette.primary.black,
-                        lineHeight: 'none',
-                      }}
-                    >
-                      Previsão de Entrega:
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      sx={{
-                        typography: style.Theme.customTypography.body4,
-                        fontFamily: style.Theme.customTypography.fontFamily,
-                        color: style.Theme.customPalette.primary.black,
-                        pl: '0.5em',
-                        lineHeight: 'none',
-                      }}
-                    >
-                      {orders.expected_delivery_date}
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
+    <>
+      <Navbar isHomePage={false} />
+      <Grid container sx={style.Content}>
+        <SideMenu />
+        <Grid container item xs={12} sm={12} md={9} sx={style.ContainerStyle}>
+          <Grid container key={orders.id}>
+            <Grid item xs={12}>
               <Accordion sx={style.Accordion}>
                 <AccordionSummary>
                   <Grid container>
@@ -192,20 +117,6 @@ const PersonalOrder: React.FC<Props> = ({ orders }) => {
                             }}
                           />
                         </Button>
-                      </Grid>
-                      <Grid item>
-                        <Link
-                          to={`/perfil/pedidos/${orders.id}`}
-                          style={{ textDecoration: 'none' }}
-                        >
-                          <Button
-                            variant="contained"
-                            onClick={handleExpandClick}
-                            sx={style.Button1}
-                          >
-                            ver mais
-                          </Button>
-                        </Link>
                       </Grid>
                     </Grid>
                   </Grid>
@@ -296,12 +207,15 @@ const PersonalOrder: React.FC<Props> = ({ orders }) => {
                   </Grid>
                 </AccordionDetails>
               </Accordion>
-            </CardContent>
-          </Card>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
-    </div>
+      <Container sx={style.SmallFooterStyle}>
+        <SmallFooter />
+      </Container>
+    </>
   );
 };
 
-export default PersonalOrder;
+export default SpecificOrder;
