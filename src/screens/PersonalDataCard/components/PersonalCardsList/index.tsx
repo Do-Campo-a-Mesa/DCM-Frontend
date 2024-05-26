@@ -8,7 +8,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import PersonalCards from './personalCards';
+import PersonalCards from '../personalCards';
 import cardPayment from '../../../../tests/mock/cardPayment/index.json';
 import { CardPayment } from '../../../../lib/interfaces/CardPayment';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

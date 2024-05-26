@@ -2,9 +2,19 @@ import { useTheme } from '@mui/material/styles';
 
 export const useCustomStyles = () => {
   const Theme = useTheme();
-
   const Content = {
-    minHeight: '100vh',
+    //backgroundColor: Theme.customPalette.primary.main,
+    display: 'flex',
+    justifyContent: 'center',
+    p: '0',
+    '@media (min-width: 1200px)': {
+      maxWidth: '1600px',
+    },
+    '@media (min-width: 600px)': {
+      p: '0',
+    },
+  };
+  const Content1 = {
     backgroundColor: Theme.customPalette.primary.main,
     display: 'flex',
     justifyContent: 'center',
@@ -22,7 +32,6 @@ export const useCustomStyles = () => {
     },
   };
   const ContainerStyle = {
-    //backgroundColor: Theme.customPalette.primary.background,
     p: '3em',
   };
   const ListStyle = {
@@ -60,6 +69,7 @@ export const useCustomStyles = () => {
   return {
     ContainerStyle,
     Content,
+    Content1,
     Item,
     ListStyle,
     Theme,

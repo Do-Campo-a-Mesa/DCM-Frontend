@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 //import axios from 'axios'; // Para fazer solicitações HTTP
 //import cardPayment from '../../../../../tests/mock/cardPayment/index.json';
-import { CardPayment } from '../../../../../lib/interfaces/CardPayment';
+import { CardPayment } from '../../../../lib/interfaces/CardPayment';
 
 interface Props {
   userData: CardPayment;

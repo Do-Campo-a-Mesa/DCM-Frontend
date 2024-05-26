@@ -4,8 +4,9 @@ import { Button, Grid, Typography } from '@mui/material';
 import PersonalAddress from './personalAddress';
 import address from '../../../../tests/mock/Address/index.json';
 import { Address } from '../../../../lib/interfaces/Address';
-import { Link } from 'react-router-dom';
-const PersonalCardsList: React.FC = () => {
+//import { Link } from 'react-router-dom';
+
+const PersonalAddressList: React.FC = () => {
   const style = useCustomStyles();
 
   return (
@@ -32,11 +33,9 @@ const PersonalCardsList: React.FC = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Link to="./novo_endereco" style={{ textDecoration: 'none' }}>
-              <Button variant="outlined" sx={style.Button}>
-                Novo endereço
-              </Button>
-            </Link>
+            <Button variant="outlined" sx={style.Button}>
+              Novo endereço
+            </Button>
           </Grid>
         </Grid>
       </Grid>
@@ -51,4 +50,4 @@ const PersonalCardsList: React.FC = () => {
   );
 };
 
-export default PersonalCardsList;
+export default PersonalAddressList;

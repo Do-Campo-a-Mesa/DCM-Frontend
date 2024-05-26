@@ -16,6 +16,20 @@ export const useCustomStyles = () => {
       borderColor: Theme.customPalette.primary.main,
     },
   };
+  const ContainerStyle = {
+    p: '3em',
+  };
+  const Content = {
+    display: 'flex',
+    justifyContent: 'center',
+    p: '0',
+    '@media (min-width: 1200px)': {
+      maxWidth: '1600px',
+    },
+    '@media (min-width: 600px)': {
+      p: '0',
+    },
+  };
   const Title = {
     fontFamily: Theme.customTypography.fontFamily,
     typography: Theme.customTypography.h4,
@@ -24,6 +38,8 @@ export const useCustomStyles = () => {
   };
   return {
     Button,
+    ContainerStyle,
+    Content,
     Title,
     Theme,
   };
