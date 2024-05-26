@@ -74,6 +74,7 @@ const PersonalInfo: React.FC = () => {
             onChange={handleInputChange}
             disabled={!editMode}
             InputLabelProps={{ shrink: true }}
+            sx={style.TextFieldStyle}
           />
         </Grid>
         <Grid item xs={12}>
@@ -85,6 +86,7 @@ const PersonalInfo: React.FC = () => {
             onChange={handleInputChange}
             disabled={!editMode}
             InputLabelProps={{ shrink: true }}
+            sx={style.TextFieldStyle}
           />
         </Grid>
         <Grid item xs={12}>
@@ -96,6 +98,7 @@ const PersonalInfo: React.FC = () => {
             onChange={handleInputChange}
             disabled={!editMode}
             InputLabelProps={{ shrink: true }}
+            sx={style.TextFieldStyle}
           />
         </Grid>
         <Grid item xs={12}>
@@ -107,6 +110,7 @@ const PersonalInfo: React.FC = () => {
             onChange={handleInputChange}
             disabled={!editMode}
             InputLabelProps={{ shrink: true }}
+            sx={style.TextFieldStyle}
           />
         </Grid>
         <Grid item xs={12}>
@@ -118,6 +122,7 @@ const PersonalInfo: React.FC = () => {
             onChange={handleInputChange}
             disabled={!editMode}
             InputLabelProps={{ shrink: true }}
+            sx={style.TextFieldStyle}
           />
         </Grid>
         <Grid item xs={12}>

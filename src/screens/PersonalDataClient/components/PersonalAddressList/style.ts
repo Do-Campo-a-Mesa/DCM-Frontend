@@ -2,15 +2,9 @@ import { useTheme } from '@mui/material/styles';
 
 export const useCustomStyles = () => {
   const Theme = useTheme();
-  const Accordion = {
-    backgroundColor: Theme.customPalette.primary.background,
-    border: '1px solid',
-    borderColor: Theme.customPalette.neutral.inactive,
-  };
   const Button = {
     backgroundColor: Theme.customPalette.primary.background,
     color: Theme.customPalette.primary.main,
-    border: '1px solid',
     borderColor: Theme.customPalette.primary.main,
     typography: Theme.customTypography.h8,
     fontFamily: Theme.customTypography.fontFamily,
@@ -29,7 +23,6 @@ export const useCustomStyles = () => {
     pb: '1em',
   };
   return {
-    Accordion,
     Button,
     Title,
     Theme,

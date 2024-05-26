@@ -1,31 +1,50 @@
 import { useTheme } from '@mui/material/styles';
 
-export const useCustomStyles = (editMode?: boolean) => {
+export const useCustomStyles = () => {
   const Theme = useTheme();
-  const BodyAddress = {
-    color: Theme.customPalette.primary.black,
-    typography: Theme.customTypography.body4,
-    fontFamily: Theme.customTypography.fontFamily,
-    pb: '1em',
-  };
   const Button = {
-    backgroundColor: Theme.customPalette.primary.main,
-    color: Theme.customPalette.primary.background,
+    backgroundColor: Theme.customPalette.primary.background,
+    color: Theme.customPalette.primary.main,
+    borderColor: Theme.customPalette.primary.main,
     typography: Theme.customTypography.h8,
     fontFamily: Theme.customTypography.fontFamily,
+    lineHeight: '1.75',
     m: '0.5em',
     '&:hover': {
-      backgroundColor: Theme.customPalette.secondary.main,
+      backgroundColor: Theme.customPalette.primary.main,
       color: Theme.customPalette.primary.background,
+      borderColor: Theme.customPalette.primary.main,
     },
   };
-  const Subtitle = {
-    color: Theme.customPalette.primary.black,
-    typography: Theme.customTypography.h5,
-    fontFamily: Theme.customTypography.fontFamily,
-    mb: '0.5em',
+  const SmallFooterStyle = {
+    p: 0,
+    mt: 0,
+    '@media (min-width: 600px)': {
+      p: 0,
+    },
+    '@media (min-width: 1200px)': {
+      maxWidth: 'none',
+    },
+  };
+  const Content = {
+    //backgroundColor: Theme.customPalette.primary.main,
+    display: 'flex',
+    justifyContent: 'center',
+    p: '0',
+    //minHeight: '100vh',
+    '@media (min-width: 1200px)': {
+      maxWidth: '1600px',
+    },
+    '@media (min-width: 600px)': {
+      p: '0',
+    },
+  };
+  const ContainerStyle = {
+    //backgroundColor: Theme.customPalette.primary.background,
+    p: '3em',
   };
   const TextFieldStyle = {
+    pb: '1em',
     '& .MuiInputBase-root': {
       borderRadius: '10px',
       color: Theme.customPalette.primary.black,
@@ -40,9 +59,7 @@ export const useCustomStyles = (editMode?: boolean) => {
 
       '& fieldset': {
         border: '1px solid',
-        borderColor: editMode
-          ? Theme.customPalette.primary.main
-          : Theme.customPalette.neutral.inactive,
+        borderColor: Theme.customPalette.neutral.inactive,
       },
       '&.Mui-focused fieldset': {
         borderColor: Theme.customPalette.primary.main,
@@ -65,9 +82,10 @@ export const useCustomStyles = (editMode?: boolean) => {
     pb: '1em',
   };
   return {
-    BodyAddress,
     Button,
-    Subtitle,
+    Content,
+    ContainerStyle,
+    SmallFooterStyle,
     TextFieldStyle,
     Title,
     Theme,

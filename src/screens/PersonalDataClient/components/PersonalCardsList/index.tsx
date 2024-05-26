@@ -32,7 +32,7 @@ const PersonalCardsList: React.FC = () => {
     return visiblePart;
   };
   return (
-    <>
+    <div>
       <Grid
         container
         sx={{
@@ -41,25 +41,30 @@ const PersonalCardsList: React.FC = () => {
           justifyContent: 'flex-start',
         }}
       >
-        <Grid item md={2}>
-          <Typography variant="h5" gutterBottom sx={style.Title}>
-            CARTÕES
-          </Typography>
-        </Grid>
-        <Grid item md={3}>
-          <Button variant="outlined" sx={style.Button}>
-            Novo cartão
-          </Button>
+        <Grid
+          container
+          alignItems="top"
+          justifyContent="flex-start"
+          spacing={3}
+          item
+          md={12}
+        >
+          <Grid item>
+            <Typography variant="h5" gutterBottom sx={style.Title}>
+              CARTÕES
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" sx={style.Button}>
+              Novo cartão
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
       <Grid container spacing={2}>
         {cardPayment.map((userData: CardPayment, index: number) => (
           <Grid item xs={12} key={index}>
-            <Accordion
-              sx={{
-                backgroundColor: style.Theme.customPalette.primary.background,
-              }}
-            >
+            <Accordion sx={style.Accordion}>
               <AccordionSummary>
                 <Grid
                   container
@@ -128,7 +133,7 @@ const PersonalCardsList: React.FC = () => {
           </Grid>
         ))}
       </Grid>
-    </>
+    </div>
   );
 };
 

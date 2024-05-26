@@ -2,7 +2,7 @@ import { useCustomStyles } from './style';
 import React, { useState } from 'react';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 //import axios from 'axios'; // Para fazer solicitações HTTP
-import cardPayment from '../../../../../tests/mock/cardPayment/index.json';
+//import cardPayment from '../../../../../tests/mock/cardPayment/index.json';
 import { CardPayment } from '../../../../../lib/interfaces/CardPayment';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 
 const PersonalCards: React.FC<Props> = ({ userData }) => {
   const style = useCustomStyles();
-  const [userDatas, setUserDatas] = useState<CardPayment[]>(cardPayment);
+  const [userDatas, setUserDatas] = useState<CardPayment>(userData);
   const [editMode, setEditMode] = useState(false);
 
   /*useEffect(() => {
@@ -65,7 +65,7 @@ const PersonalCards: React.FC<Props> = ({ userData }) => {
               fullWidth
               label="APELIDO DO CARTÃO"
               name="apelido"
-              value={userData.apelido}
+              value={userDatas.apelido}
               onChange={handleInputChange}
               disabled={!editMode}
               InputLabelProps={{ shrink: true }}
@@ -77,7 +77,7 @@ const PersonalCards: React.FC<Props> = ({ userData }) => {
               fullWidth
               label="CPF DO TITULAR"
               name="CPF"
-              value={userData.cpf}
+              value={userDatas.cpf}
               onChange={handleInputChange}
               disabled={!editMode}
               InputLabelProps={{ shrink: true }}
@@ -89,7 +89,7 @@ const PersonalCards: React.FC<Props> = ({ userData }) => {
               fullWidth
               label="NÚMERO DO CARTÃO"
               name="numero"
-              value={userData.numero}
+              value={userDatas.numero}
               onChange={handleInputChange}
               disabled={!editMode}
               InputLabelProps={{ shrink: true }}
@@ -101,7 +101,7 @@ const PersonalCards: React.FC<Props> = ({ userData }) => {
               fullWidth
               label="NOME IMPRESSO NO CARTÃO"
               name="nome"
-              value={userData.nome}
+              value={userDatas.nome}
               onChange={handleInputChange}
               disabled={!editMode}
               InputLabelProps={{ shrink: true }}
@@ -113,7 +113,7 @@ const PersonalCards: React.FC<Props> = ({ userData }) => {
               fullWidth
               label="VALIDADE"
               name="validade"
-              value={userData.validade}
+              value={userDatas.validade}
               onChange={handleInputChange}
               disabled={!editMode}
               InputLabelProps={{ shrink: true }}
@@ -125,8 +125,7 @@ const PersonalCards: React.FC<Props> = ({ userData }) => {
               fullWidth
               label="CÓDIGO DE SEGURANÇA"
               name="codigo"
-              value={editMode ? userData.codigo : '***'}
-              type={editMode ? 'text' : 'password'}
+              value={editMode ? userDatas.codigo : '***'}
               onChange={handleInputChange}
               disabled={!editMode}
               InputLabelProps={{ shrink: true }}
@@ -139,13 +138,13 @@ const PersonalCards: React.FC<Props> = ({ userData }) => {
             <Typography sx={style.Subtitle}>Endereço de Fatura</Typography>
             <Typography sx={style.BodyAddress}>
               {[
-                userData.endereco.rua,
-                userData.endereco.numero,
-                userData.endereco.complemento,
-                userData.endereco.bairro,
-                userData.endereco.cidade,
-                userData.endereco.estado,
-                userData.endereco.cep,
+                userDatas.endereco.rua,
+                userDatas.endereco.numero,
+                userDatas.endereco.complemento,
+                userDatas.endereco.bairro,
+                userDatas.endereco.cidade,
+                userDatas.endereco.estado,
+                userDatas.endereco.cep,
               ]
                 .filter(Boolean)
                 .join(', ')}

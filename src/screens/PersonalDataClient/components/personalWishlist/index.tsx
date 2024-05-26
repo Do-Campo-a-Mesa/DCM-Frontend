@@ -8,12 +8,14 @@ const PersonalWishlist: React.FC = () => {
   const style = useCustomStyles();
 
   return (
-    <FavoritesProvider>
-      <Typography variant="h5" gutterBottom sx={style.Title}>
-        LISTA DE DESEJOS
-      </Typography>
-      <Wishlist />
-    </FavoritesProvider>
+    <div>
+      <FavoritesProvider>
+        <Typography variant="h5" gutterBottom sx={style.Title}>
+          LISTA DE DESEJOS
+        </Typography>
+        <Wishlist />
+      </FavoritesProvider>
+    </div>
   );
 };
 export default PersonalWishlist;
