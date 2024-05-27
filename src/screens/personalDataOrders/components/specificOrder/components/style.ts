@@ -33,6 +33,21 @@ export const useCustomStyles = () => {
       borderColor: Theme.customPalette.primary.main,
     },
   };
+  const Button1 = {
+    backgroundColor: Theme.customPalette.primary.background,
+    color: Theme.customPalette.primary.main,
+    border: '1px solid',
+    borderColor: Theme.customPalette.primary.main,
+    typography: Theme.customTypography.h8,
+    fontFamily: Theme.customTypography.fontFamily,
+    lineHeight: '1.75',
+    m: '0.5em',
+    '&:hover': {
+      backgroundColor: Theme.customPalette.primary.main,
+      color: Theme.customPalette.primary.background,
+      borderColor: Theme.customPalette.primary.main,
+    },
+  };
   const ContainerStyle = {
     p: '3em',
   };
@@ -53,6 +68,7 @@ export const useCustomStyles = () => {
     fontFamily: Theme.customTypography.fontFamily,
     color: Theme.customPalette.primary.black,
     lineHeight: 'none',
+    mr: '0.3em',
   };
   const SmallFooterStyle = {
     p: 0,
@@ -87,7 +103,7 @@ export const useCustomStyles = () => {
     fontFamily: Theme.customTypography.fontFamily,
     typography: Theme.customTypography.h4,
     color: Theme.customPalette.primary.black,
-    pb: '1em',
+    mt: '0.5em',
   };
   const Title1 = {
     fontFamily: Theme.customTypography.fontFamily,
@@ -100,6 +116,7 @@ export const useCustomStyles = () => {
     AccordionDetails,
     AccordionSummary,
     Button,
+    Button1,
     ContainerStyle,
     Content,
     Label,

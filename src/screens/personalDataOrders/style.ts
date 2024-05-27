@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material/styles';
 export const useCustomStyles = () => {
   const Theme = useTheme();
   const Content = {
+    minHeight: '100vh',
     //backgroundColor: Theme.customPalette.primary.main,
     display: 'flex',
     justifyContent: 'center',

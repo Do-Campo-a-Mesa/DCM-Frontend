@@ -8,7 +8,6 @@ export const useCustomStyles = () => {
     backgroundColor: Theme.customPalette.primary.main,
     display: 'flex',
     justifyContent: 'center',
-
     '@media (min-width: 1200px)': {
       maxWidth: 'none',
     },
