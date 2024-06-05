@@ -50,7 +50,7 @@ const SpecificOrder: React.FC = () => {
   return (
     <div>
       <Grid container key={orders.id}>
-        <Grid container alignItems="top" spacing={3} item xs={9}>
+        <Grid container spacing={3} item xs={9}>
           <Grid item>
             <Typography variant="h5" gutterBottom sx={style.Title}>
               PEDIDO Nº {orders.id}
@@ -67,7 +67,7 @@ const SpecificOrder: React.FC = () => {
             </Button>
           </Grid>
         </Grid>
-        <Grid container item xs={3} alignItems="top">
+        <Grid container item xs={3}>
           <Grid item>
             <Typography
               variant="h5"

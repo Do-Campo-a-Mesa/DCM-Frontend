@@ -4,6 +4,7 @@ import { Button, Grid, Typography } from '@mui/material';
 import PersonalAddress from './personalAddress';
 import address from '../../../../tests/mock/address/index.json';
 import { Address } from '../../../../lib/interfaces/Address';
+import { Link } from 'react-router-dom';
 //import { Link } from 'react-router-dom';
 
 const PersonalAddressList: React.FC = () => {
@@ -33,9 +34,11 @@ const PersonalAddressList: React.FC = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="outlined" sx={style.Button}>
-              Novo endereço
-            </Button>
+            <Link to={`/perfil/enderecos/novo_endereco`}>
+              <Button variant="outlined" sx={style.Button}>
+                Novo endereço
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </Grid>

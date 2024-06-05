@@ -12,6 +12,7 @@ import PersonalCards from '../personalCards';
 import cardPayment from '../../../../tests/mock/cardPayment/index.json';
 import { CardPayment } from '../../../../lib/interfaces/CardPayment';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Link } from 'react-router-dom';
 
 const PersonalCardsList: React.FC = () => {
   const style = useCustomStyles();
@@ -55,9 +56,11 @@ const PersonalCardsList: React.FC = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="outlined" sx={style.Button}>
-              Novo cartão
-            </Button>
+            <Link to={`/perfil/cartoes/novo_cartao`}>
+              <Button variant="outlined" sx={style.Button}>
+                Novo cartão
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </Grid>

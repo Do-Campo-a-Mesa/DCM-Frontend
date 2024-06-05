@@ -13,6 +13,7 @@ export const useCustomStyles = () => {
       p: '0',
     },
   };
+
   const ContainerStyle = {
     p: '3em',
   };
@@ -29,9 +30,9 @@ export const useCustomStyles = () => {
   };
 
   return {
-    Theme,
     ContainerStyle,
     Content,
+    Theme,
     SmallFooterStyle,
   };
 };

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useCustomStyles } from './style';
 import { Button, Card, Grid, TextField, Typography } from '@mui/material';
-//import address from '../../../../tests/mock/Address/index.json';
 import { Address } from '../../../../../lib/interfaces/Address';
-//import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 const FormNewAddress: React.FC = () => {
   const style = useCustomStyles();
+  const navigate = useNavigate();
   const [userDatas, setUserDatas] = useState<Address>({
     id: uuidv4(),
     userId: '',
@@ -31,9 +31,10 @@ const FormNewAddress: React.FC = () => {
     // Aqui você pode adicionar a lógica para salvar o endereço
     // Depois de salvar, você pode redirecionar o usuário para outra página
     console.log('Formulário enviado:', userDatas);
+    navigate('/perfil/enderecos/');
   };
   return (
-    <>
+    <div>
       <Grid
         container
         sx={{
@@ -138,7 +139,7 @@ const FormNewAddress: React.FC = () => {
           </Card>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 

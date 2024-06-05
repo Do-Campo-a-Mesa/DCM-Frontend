@@ -15,6 +15,7 @@ import PersonalDataCard from './screens/PersonalDataCard';
 import PersonalDataWishlist from './screens/PersonalDataWishlist';
 import PersonalDataOrders from './screens/personalDataOrders';
 import SpecificOrder from './screens/personalDataOrders/components/specificOrder';
+import NewAddress from './screens/PersonalDataAddress/components/newAddress';
 
 const AppRouter = () => {
   return (
@@ -39,6 +40,10 @@ const AppRouter = () => {
         <Route
           path="/perfil/lista_de_desejos"
           element={<PersonalDataWishlist />}
+        />
+        <Route
+          path="/perfil/enderecos/novo_endereco"
+          element={<NewAddress />}
         />
       </Routes>
     </Router>
