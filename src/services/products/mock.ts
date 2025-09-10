@@ -21,7 +21,7 @@ export async function getProducts(
 
   if (filterInput.partners) {
     filteredProducts = filteredProducts.filter(
-      (product) => filterInput.partners?.includes(product.partner.id)
+      (product) => filterInput.partners?.includes(product.store.id)
     );
   }
 

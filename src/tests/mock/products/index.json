@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -10,8 +10,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Castanha de caju selecionada, crocante e saborosa.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
@@ -24,7 +23,7 @@
   {
     "id": 2,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -32,8 +31,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Produto fresco, ideal para lanches e receitas.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
@@ -46,7 +44,7 @@
   {
     "id": 3,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -54,8 +52,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Castanha de caju torrada, perfeita para petiscos.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
@@ -68,7 +65,7 @@
   {
     "id": 4,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -76,8 +73,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Castanha de caju natural, sem conservantes.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
@@ -90,7 +86,7 @@
   {
     "id": 5,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -98,8 +94,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Castanha de caju premium, sabor marcante.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
@@ -112,7 +107,7 @@
   {
     "id": 6,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -120,8 +115,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Castanha de caju crocante, fonte de energia.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
@@ -134,7 +128,7 @@
   {
     "id": 7,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -142,8 +136,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Castanha de caju para receitas doces e salgadas.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
@@ -156,7 +149,7 @@
   {
     "id": 8,
     "name": "Castanha de Caju",
-    "unit_of_measurement": "Kg",
+    "unit_of_measurement": "kg",
     "photos": ["/logo.png", "/logo.png"],
     "price": 9.99,
     "review": 3.5,
@@ -164,8 +157,7 @@
       { "id": 1, "name": "Doces" },
       { "id": 6, "name": "Grãos" }
     ],
-    "partner": { "id": "1", "name": "Youtube" },
-    "description": "teste",
+    "description": "Castanha de caju selecionada, ideal para consumo diário.",
     "quantity": 10,
     "validity": 30,
     "status": "active",
