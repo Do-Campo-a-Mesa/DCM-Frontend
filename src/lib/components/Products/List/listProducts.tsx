@@ -13,8 +13,9 @@ import { Product } from '../../../interfaces/Product';
 import CardProductsHome from '../Card/card';
 import { useCustomStyles } from './style';
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ResultsInfo from '../../../../screens/UserSearchProducts/Components/searchInfo/resultsInfo';
+import { useFavorites } from '../../Wishlist/favoritesContext';
 
 interface Props {
   products: Product[];
@@ -23,7 +24,7 @@ interface Props {
 const ProductsList: React.FC<Props> = ({ products }) => {
   const style = useCustomStyles();
   const location = useLocation();
-
+  const { favorites } = useFavorites();
   const isHomePage = location.pathname === '/';
   const isMediumScreen = useMediaQuery(
     style.theme.breakpoints.between('sm', 'md')
@@ -33,6 +34,10 @@ const ProductsList: React.FC<Props> = ({ products }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<string>('');
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const handleChange = (event: SelectChangeEvent) => {
     setSortBy(event.target.value);

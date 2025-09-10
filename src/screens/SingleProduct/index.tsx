@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ProductByID } from '../../lib/interfaces/Product';
+import { Product } from '../../lib/interfaces/Product';
 import { getProductById } from '../../services/products';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -24,17 +24,16 @@ import React from 'react';
 const SingleProduct: React.FC = () => {
   const style = useCustomStyles();
   const { id } = useParams();
-  const [fetchedProduct, setFetchedProduct] = useState<ProductByID | null>(
-    null
-  );
+  const [fetchedProduct, setFetchedProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
       if (!id) return;
-      const productId = parseInt(id, 10);
+      const productId = parseInt(id) - 1;
       const product = await getProductById(productId);
       if (product) {
-        setFetchedProduct(product.data);
+        console.log(productId);
+        setFetchedProduct(product.data[productId]);
       } else {
         console.error('Product not found');
       }

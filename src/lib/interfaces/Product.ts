@@ -1,5 +1,5 @@
 import { ProductCardCategory } from './Categories';
-import { Partner, ProductCardPartner } from './Partner';
+import { Partner } from './Partner';
 export interface FilterProductInput {
   partners?: string[];
   search_string?: string;
@@ -17,6 +17,7 @@ export interface ProductOrder {
 }
 
 export interface Product {
+  quantity: number;
   id: number;
   name: string;
   unit_of_measurement: string;
@@ -31,7 +32,7 @@ export interface Product {
   take_y?: number;
   new_price_with_promotion?: number;
   categories: ProductCardCategory[];
-  store: ProductCardPartner;
+  store: Partner;
   description?: string;
 }
 
@@ -56,10 +57,23 @@ export interface ProductByID {
   date_start_promotion?: Date;
   date_ends_promotion?: Date;
   price_spot_market?: number;
-  quantity_spot_market: number;
-  status_spot_market: string;
+  quantity_spot_market?: number;
+  status_spot_market?: string;
   store: Partner;
   categories: ProductCardCategory[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RegisterProductInput {
+  name: string;
+  description?: string;
+  unit_of_measurement: 'unit' | 'kg' | 'liter' | 'meters' | 'square meters';
+  validity: number;
+  photos?: string[];
+  price: number;
+  quantity: number;
+  store_id: string;
 }
 
 export interface RegisterProductInput {
@@ -74,7 +88,7 @@ export interface RegisterProductInput {
 }
 
 export interface ProductResponse {
-  data: ProductByID;
+  data: ProductByID[];
 }
 
 export interface ProductsResponse {

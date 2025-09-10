@@ -9,6 +9,14 @@ import FAQPage from './screens/FAQ';
 import PartnerRegister from './screens/PartnerRegister';
 import Login from './screens/Login';
 import UserRegister from './screens/UserRegister';
+import PersonalDataClient from './screens/PersonalDataClient';
+import PersonalDataAddress from './screens/PersonalDataAddress';
+import PersonalDataCard from './screens/PersonalDataCard';
+import PersonalDataWishlist from './screens/PersonalDataWishlist';
+import PersonalDataOrders from './screens/personalDataOrders';
+import SpecificOrder from './screens/personalDataOrders/components/specificOrder';
+import NewAddress from './screens/PersonalDataAddress/components/newAddress';
+import NewCards from './screens/PersonalDataCard/components/newCards';
 import ConnectedProtectedRoute from './lib/components/ProtectedRoute';
 
 const AppRouter = () => {
@@ -33,6 +41,20 @@ const AppRouter = () => {
         />
 
         <Route path="/cadastro" element={<UserRegister />} />
+        <Route path="/perfil/dados_pessoais" element={<PersonalDataClient />} />
+        <Route path="/perfil/pedidos" element={<PersonalDataOrders />} />
+        <Route path="/perfil/pedidos/:id" element={<SpecificOrder />} />
+        <Route path="/perfil/enderecos" element={<PersonalDataAddress />} />
+        <Route path="/perfil/cartoes" element={<PersonalDataCard />} />
+        <Route path="/perfil/cartoes/novo_cartao" element={<NewCards />} />
+        <Route
+          path="/perfil/lista_de_desejos"
+          element={<PersonalDataWishlist />}
+        />
+        <Route
+          path="/perfil/enderecos/novo_endereco"
+          element={<NewAddress />}
+        />
       </Routes>
     </Router>
   );

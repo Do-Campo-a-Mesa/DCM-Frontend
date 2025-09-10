@@ -4,10 +4,10 @@ export const useCustomStyles = () => {
   const theme = useTheme();
 
   const copyright = {
-    backgroundColor: theme.customPalette.primary.main,
+    backgroundColor: theme.customPalette.neutral.boards,
     typography: theme.customTypography.subtitle2,
     fontFamily: theme.customTypography.fontFamily,
-    color: theme.customPalette.primary.background,
+    color: theme.customPalette.primary.black,
     p: 2,
     textAlign: 'center',
   };

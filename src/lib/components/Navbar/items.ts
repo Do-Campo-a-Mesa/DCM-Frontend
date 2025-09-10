@@ -13,8 +13,8 @@ export const user_no_login_options = [
 ];
 
 export const user_logged_options = [
-  { label: 'Minha Conta', path: '/user/minha_conta' },
+  { label: 'Minha Conta', path: '/perfil/dados_pessoais' },
   { label: 'Meu Carrinho', path: '/user/carrinho' },
-  { label: 'Minhas Compras', path: '/user/compras' },
+  { label: 'Minhas Compras', path: '/perfil/pedidos' },
   { label: 'Configurações', path: '/user/configs' },
 ];

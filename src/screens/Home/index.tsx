@@ -22,6 +22,7 @@ import ProductList from '../../lib/components/Products/List/listProducts.tsx';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../lib/store/index.tsx';
 import Notification from '../../lib/components/Notification/index.tsx';
+import { FavoritesProvider } from '../../lib/components/Wishlist/favoritesContext.tsx';
 
 export default function Home() {
   const theme = useTheme();
@@ -269,7 +270,9 @@ export default function Home() {
           categoryId={selectedCategoryId}
           setCategory={setSelectedCategoryId}
         />
-        <ProductList products={products} />
+        <FavoritesProvider>
+          <ProductList products={products}></ProductList>
+        </FavoritesProvider>
       </Container>
       <Container>
         <Typography sx={SectionTitleStyle}>Parceiros</Typography>

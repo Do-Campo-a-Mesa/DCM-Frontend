@@ -25,6 +25,8 @@ export interface UserLoginResponse {
   first_name?: string;
   last_name?: string;
   phone?: string;
+  birth?: string;
+  gender?: string;
   store?: PartnerOnLogin;
 }
 
