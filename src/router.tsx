@@ -41,7 +41,6 @@ const AppRouter = () => {
         />
 
         <Route path="/cadastro" element={<UserRegister />} />
-        <Route path="/perfil/" element={<PersonalDataClient />} />
         <Route path="/perfil/dados_pessoais" element={<PersonalDataClient />} />
         <Route path="/perfil/pedidos" element={<PersonalDataOrders />} />
         <Route path="/perfil/pedidos/:id" element={<SpecificOrder />} />
