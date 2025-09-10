@@ -4,7 +4,9 @@ import {
   FilterProductInput,
   ProductsResponse,
   ProductResponse,
+  RegisterProductInput,
 } from '../../lib/interfaces/Product';
+import { GeneralResponse } from '../../lib/interfaces/User';
 
 const useMock = process.env.NODE_ENV === 'mock';
 
@@ -20,3 +22,9 @@ export const getProductById: (id: number) => Promise<ProductResponse> = useMock
 
 export const getProductsByStoreId: (id: number) => Promise<ProductsResponse> =
   useMock ? mock.getProductsByStoreId : integration.getProductsByStoreId;
+
+export const registerProduct: (
+  data: RegisterProductInput
+) => Promise<GeneralResponse> = useMock
+  ? mock.registerProduct
+  : integration.registerProduct;

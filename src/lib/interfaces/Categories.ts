@@ -10,6 +10,11 @@ export interface ProductCardCategory {
   name: string;
 }
 
+export interface InsertCategoriesIntoProduct {
+  product_id: number;
+  list_categories_id: number[];
+}
+
 export interface ProductCategoryResponse {
   data: ProductCategory[];
 }

@@ -4,13 +4,28 @@ import { useCustomStyles } from './style';
 import FormOne from './formOne';
 import FormTwo from './formTwo';
 import FormThree from './formThree';
-import { PartnerForm } from '../../../../lib/interfaces/PartnerRegister';
+import {
+  PartnerForm,
+  StoreModel,
+} from '../../../../lib/interfaces/PartnerRegister';
 import { useForm } from 'react-hook-form';
 import FormFinal from './formFinal';
+import { registerPartner } from '../../../../services/partners';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { notificationState } from '../../../../lib/store/reducers/notification';
+import { RootState } from '../../../../lib/store';
 
 const PartnerRegisterForm: React.FC = () => {
   const style = useCustomStyles();
   const [activeStep, setActiveStep] = useState(0);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  // Acessa o estado do usuário
+  const user = useSelector((state: RootState) => state.user);
 
   const [formData, setFormData] = useState<PartnerForm>({
     nomeEmpresa: '',
@@ -78,8 +93,57 @@ const PartnerRegisterForm: React.FC = () => {
     handleNextStep();
   };
 
-  const handleSubmitFinalForm = () => {
+  const handleSubmitFinalForm = async () => {
     console.log('Formulário enviado:', formData);
+    const storeModel: StoreModel = {
+      owner_user_id: user.id,
+      cnpj: formData.cnpj,
+      email: formData.email,
+      name: formData.nomeEmpresa,
+      uf: formData.estado,
+      city: formData.cidade,
+      bairro: formData.bairro,
+      cep: formData.cep,
+      address: formData.rua + formData.numero,
+      business_address: formData.rua + formData.numero,
+      phone: formData.telefone,
+      instagram: formData.instagram,
+      minimum_order_value: 70,
+      delivery_logistics: formData.entrega
+        ? 'is able to deliver in the area where it operates'
+        : 'there is no delivery logistics',
+      order_processing_time: formData.tempoProcessamento,
+    };
+
+    await registerPartner(storeModel)
+      .then((response) => {
+        if (response.status == 201) {
+          // Redireciona para a rota de login
+          dispatch(
+            notificationState({
+              variant: 'standard',
+              severity: 'success',
+              message:
+                'Solicitação de Produtor enviada com Sucesso, aguarde nosso retorno para efetivar ',
+              visibility: true,
+            })
+          );
+          navigate('/');
+        }
+      })
+      .catch(() => {
+        dispatch(
+          notificationState({
+            variant: 'standard',
+            severity: 'error',
+            message:
+              'Houver um erro ao solicitar a inscrição, por favor verificar os dados inseridos',
+            visibility: true,
+          })
+        );
+        reset(); // Limpa os campos do formulário
+      });
+
     resetFormData();
     reset();
     setActiveStep(0);

@@ -19,6 +19,9 @@ import CategoriesList from './components/CategoriesList/index.tsx';
 import { Product } from '../../lib/interfaces/Product.ts';
 import { getProducts } from '../../services/products/index.ts';
 import ProductList from '../../lib/components/Products/List/listProducts.tsx';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../lib/store/index.tsx';
+import Notification from '../../lib/components/Notification/index.tsx';
 import { FavoritesProvider } from '../../lib/components/Wishlist/favoritesContext.tsx';
 
 export default function Home() {
@@ -27,6 +30,7 @@ export default function Home() {
   //Products
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number>(0);
+
   useEffect(() => {
     (async () => {
       const productsResponse = await getProducts({
@@ -39,13 +43,28 @@ export default function Home() {
       setProducts(productsResponse.data);
     })();
   }, [selectedCategoryId]);
+
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   useEffect(() => {
     (async () => {
-      const productCategoriesResponse = await getAllProductsCategories();
-      setCategories(productCategoriesResponse.data);
+      try {
+        const productCategoriesResponse = await getAllProductsCategories();
+        // Certifique-se de que a resposta está no formato esperado
+        const categoriesData = productCategoriesResponse.data;
+        if (Array.isArray(categoriesData)) {
+          setCategories(categoriesData);
+        } else {
+          console.error(
+            'Unexpected response format:',
+            productCategoriesResponse
+          );
+        }
+      } catch (error) {
+        console.error('Error fetching product categories:', error);
+      }
     })();
   }, []);
+
   //Partners
   const [partners, setPartners] = useState<Partner[]>([]);
 
@@ -70,6 +89,9 @@ export default function Home() {
   const handleSearch = (term: string) => {
     setSearchTerm(term);
   };
+
+  // Acessa o estado do usuário
+  const notification = useSelector((state: RootState) => state.notification);
 
   const BannerTitleStyle = {
     typography: theme.customTypography.h1,
@@ -213,7 +235,6 @@ export default function Home() {
   return (
     <>
       <Navbar isHomePage={true} />
-
       <MyCarousel />
       <Typography
         variant="h1"
@@ -239,7 +260,6 @@ export default function Home() {
           isHomePage
         />
       </Container>
-
       <Container>
         <Typography sx={SectionTitleStyle}>Produtos</Typography>
         <Typography sx={SectionSubtitleStyle}>
@@ -271,6 +291,12 @@ export default function Home() {
       <Container sx={SmallFooterStyles} maxWidth={false}>
         <SmallFooter></SmallFooter>
       </Container>
+      <Notification
+        variant={notification.variant}
+        severity={notification.severity}
+        message={notification.message}
+        visibility={notification.visibility}
+      />
     </>
   );
 }

@@ -1,3 +1,13 @@
+import { PartnerOnLogin } from './Partner';
+
+export interface UserObj {
+  id: string;
+  first_name?: string;
+  last_name?: string;
+  email: string;
+  store?: PartnerOnLogin;
+  token: string;
+}
 export interface CreateUserInput {
   email: string;
   password: string;
@@ -17,6 +27,7 @@ export interface UserLoginResponse {
   phone?: string;
   birth?: string;
   gender?: string;
+  store?: PartnerOnLogin;
 }
 
 export interface LoginResponse {

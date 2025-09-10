@@ -5,7 +5,7 @@ import { userLogIn } from '../../services/user';
 import { useDispatch } from 'react-redux';
 import { userState } from '../../lib/store/reducers/user';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { notificationState } from '../../lib/store/reducers/notification';
 
 const LoginForm: React.FC = () => {
   const {
@@ -18,8 +18,6 @@ const LoginForm: React.FC = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-
-  const [errorMessage, setErrorMessage] = useState<string>(''); // Use o useState para armazenar a mensagem de erro
 
   const onSubmit = async (formData: LoginUserInput) => {
     await userLogIn(formData)
@@ -34,13 +32,29 @@ const LoginForm: React.FC = () => {
               token: response.data.token,
             })
           );
-          // Redireciona para a rota '/'
-          navigate('/');
+          dispatch(
+            notificationState({
+              variant: 'standard',
+              severity: 'success',
+              message: 'Usuário Logado com Sucesso',
+              visibility: true,
+            })
+          );
+          // Adiciona um pequeno atraso antes de redirecionar
+          setTimeout(() => {
+            navigate('/');
+          }, 1000); // 1000 milissegundos = 1 segundo
         }
       })
-      .catch((error) => {
-        console.error('Erro na requisição de login:', error);
-        setErrorMessage('Credenciais inválidas. Por favor, tente novamente.'); // Define a mensagem de erro
+      .catch(() => {
+        dispatch(
+          notificationState({
+            variant: 'standard',
+            severity: 'error',
+            message: 'Credenciais inválidas. Por favor, tente novamente.',
+            visibility: true,
+          })
+        );
         reset(); // Limpa os campos do formulário
       });
   };
@@ -66,7 +80,6 @@ const LoginForm: React.FC = () => {
         type="password"
       />
       {errors.password && <span>Este campo é obrigatório</span>}
-      {errorMessage && <span>{errorMessage}</span>}{' '}
       {/* Exibe a mensagem de erro, se houver */}
       <Button variant="contained" type="submit">
         ENVIAR MENSAGEM

@@ -17,6 +17,7 @@ import PersonalDataOrders from './screens/personalDataOrders';
 import SpecificOrder from './screens/personalDataOrders/components/specificOrder';
 import NewAddress from './screens/PersonalDataAddress/components/newAddress';
 import NewCards from './screens/PersonalDataCard/components/newCards';
+import ConnectedProtectedRoute from './lib/components/ProtectedRoute';
 
 const AppRouter = () => {
   return (
@@ -30,7 +31,15 @@ const AppRouter = () => {
         <Route path="/formulario_de_contato" element={<ContactUs />} />
         <Route path="/sobre" element={<AboutUs />} />
         <Route path="/faq" element={<FAQPage />} />
-        <Route path="/cadastrar_parceiro" element={<PartnerRegister />} />
+        <Route
+          path="/cadastrar_parceiro"
+          element={
+            <ConnectedProtectedRoute>
+              <PartnerRegister />
+            </ConnectedProtectedRoute>
+          }
+        />
+
         <Route path="/cadastro" element={<UserRegister />} />
         <Route path="/perfil/" element={<PersonalDataClient />} />
         <Route path="/perfil/dados_pessoais" element={<PersonalDataClient />} />

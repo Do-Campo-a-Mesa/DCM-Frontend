@@ -1,12 +1,5 @@
 import { createAction, createReducer, PayloadAction } from '@reduxjs/toolkit';
-
-interface UserObj {
-  id: string;
-  first_name?: string;
-  last_name?: string;
-  email: string;
-  token: string;
-}
+import { UserObj } from '../../interfaces/User';
 
 const USER_OBJ: UserObj = {
   id: '',

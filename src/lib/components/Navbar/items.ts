@@ -12,4 +12,9 @@ export const user_no_login_options = [
   { label: 'Cadastro', path: '/cadastro' },
 ];
 
-export const user_logged_options = [];
+export const user_logged_options = [
+  { label: 'Minha Conta', path: '/user/minha_conta' },
+  { label: 'Meu Carrinho', path: '/user/carrinho' },
+  { label: 'Minhas Compras', path: '/user/compras' },
+  { label: 'Configurações', path: '/user/configs' },
+];

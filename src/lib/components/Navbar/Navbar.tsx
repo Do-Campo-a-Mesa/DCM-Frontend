@@ -16,9 +16,10 @@ import Logo from '../../../assets/logo.png';
 import './styles.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { sections, user_no_login_options } from './items';
+import { sections, user_logged_options, user_no_login_options } from './items';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/searchbar';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 interface Props {
   isHomePage: boolean;
@@ -35,6 +36,7 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
@@ -60,6 +62,14 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
 
   const handleSearch = (term: string) => {
     setSearchProduct(term);
+  };
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -187,7 +197,60 @@ const Navbar: React.FC<Props> = ({ isHomePage }) => {
               </Box>
             </>
           ) : (
-            <></>
+            <>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                sx={style.menuItemStyle}
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                {!user.store ? (
+                  <Link to={'/cadastrar_parceiro'}>
+                    {' '}
+                    <MenuItem onClick={handleClose} sx={style.menuItemStyle}>
+                      Seja um Parceiro
+                    </MenuItem>
+                  </Link>
+                ) : (
+                  <Link to={'/minha_loja'}>
+                    {' '}
+                    <MenuItem onClick={handleClose} sx={style.menuItemStyle}>
+                      Minha Loja
+                    </MenuItem>
+                  </Link>
+                )}
+                {user_logged_options.map((user_option) => (
+                  <Link to={user_option.path} key={user_option.path}>
+                    <MenuItem
+                      key={user_option.path}
+                      onClick={handleClose}
+                      sx={style.menuItemStyle}
+                    >
+                      {user_option.label}
+                    </MenuItem>
+                  </Link>
+                ))}
+              </Menu>
+            </>
           )}
         </Toolbar>
       </Container>
